@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MV Competitive Intelligence Dashboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">MV</div>
+        <div>
+          <h1>Competitive Intel</h1>
+          <p>G&amp;W MV Equipment Watch</p>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-link active" data-view="overview">Overview</button>
+        <button class="nav-link" data-view="products">Product Lines</button>
+        <button class="nav-link" data-view="comparison">Comparison Matrix</button>
+        <button class="nav-link" data-view="news">News & Updates</button>
+        <button class="nav-link" data-view="sources">Sources / Watchlist</button>
+      </nav>
+      <div class="sidebar-card">
+        <span class="eyebrow">Primary baseline</span>
+        <strong>G&amp;W Electric</strong>
+        <p>Viper reclosers, Trident switchgear, AccuSense sensors, CLiP limiter, cable accessories.</p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Local Chrome Web App</p>
+          <h2 id="pageTitle">Overview</h2>
+        </div>
+        <div class="toolbar">
+          <input id="globalSearch" type="search" placeholder="Search company, product, feature..." />
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+            <option value="Reclosers">Reclosers</option>
+            <option value="SF6-free Switchgear">SF6-free Switchgear</option>
+            <option value="Sensors">Sensors</option>
+            <option value="Fault Current Limiters">Fault Current Limiters</option>
+            <option value="Cable Accessories">Cable Accessories</option>
+          </select>
+        </div>
+      </header>
+
+      <section id="overview" class="view active">
+        <div class="hero-card">
+          <div>
+            <p class="eyebrow">Purpose</p>
+            <h3>See the MV market at a glance.</h3>
+            <p>This dashboard organizes competitors, product categories, differentiators, datasheet links, and news-watch items around G&amp;W’s core MV portfolio.</p>
+          </div>
+          <div class="hero-stats">
+            <div><span id="statCompanies">0</span><small>Companies</small></div>
+            <div><span id="statProducts">0</span><small>Products</small></div>
+            <div><span id="statSources">0</span><small>Tracked sources</small></div>
+          </div>
+        </div>
+        <div class="grid two">
+          <section class="panel">
+            <div class="panel-head"><h3>Category coverage</h3></div>
+            <div id="categoryCards" class="category-grid"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Strategic signal</h3></div>
+            <div class="signal-list">
+              <div><strong>SF6-free is the main market pressure.</strong><p>Track regulations, alternative insulation, solid dielectric, vacuum switching, and clean-air/gas alternatives.</p></div>
+              <div><strong>Sensors turn hardware into grid intelligence.</strong><p>Compare integrated sensing, voltage accuracy, current sensing, data quality, relay compatibility, and automation use cases.</p></div>
+              <div><strong>Reclosers are becoming platform products.</strong><p>Watch pulse closing, embedded sensors, controller ecosystem, FLISR integration, and wildfire mitigation messaging.</p></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="products" class="view">
+        <section class="panel">
+          <div class="panel-head"><h3>Product cards</h3><span id="productCount"></span></div>
+          <div id="productCards" class="product-grid"></div>
+        </section>
+      </section>
+
+      <section id="comparison" class="view">
+        <section class="panel">
+          <div class="panel-head"><h3>Comparison matrix</h3><button id="exportCsv">Export CSV</button></div>
+          <div class="table-wrap">
+            <table id="comparisonTable">
+              <thead><tr><th>Company</th><th>Product</th><th>Category</th><th>Compared to G&amp;W</th><th>Core differentiator</th><th>Watch items</th><th>Links</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="news" class="view">
+        <section class="panel">
+          <div class="panel-head"><h3>News & update tracker</h3><span>Seeded examples — replace with scraper output</span></div>
+          <div id="newsList" class="news-list"></div>
+        </section>
+      </section>
+
+      <section id="sources" class="view">
+        <section class="panel">
+          <div class="panel-head"><h3>Watchlist sources</h3><span>Use these for official monitoring</span></div>
+          <div id="sourceList" class="source-list"></div>
+        </section>
+        <section class="panel mt">
+          <h3>How to update data</h3>
+          <ol class="steps">
+            <li>Edit <code>data/seed_data.json</code> to add competitors, products, sources, and notes.</li>
+            <li>Use <code>scripts/scraper_template.py</code> as the starting point for collecting official pages and datasheet links.</li>
+            <li>Open <code>index.html</code> in Chrome or run a local server with <code>python -m http.server</code>.</li>
+          </ol>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
