@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T20:29:58Z",
+  "generated_at": "2026-06-18T20:41:54Z",
   "window_days": 60,
   "items": [
     {
@@ -62,8 +62,8 @@
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQY0d2SFZJdmFQd3FqdUtQbTEtUzFQc21Ia1NFMjZqR0IweVVKN2ozM2ZpSTRfUURFaHFsaU9pRUI3YTVBVEFha2NIU2lxVHNNNFFtVmJhR3M0WElzQVZ1aTFlOTR2ZHlTU0VmNFdwY3lIbTRLeEQtaTB3Sm9YVWNZZGxOd3NiWXp1blBGNEVBb0hkajBCLTBzbVY5WFhxVjZCXzFzeVMzQTVYNzhJektnNkJ0cENtY3A1aGo0V3psU29KZXYyTTE0SDBQY2liNTJJdDItRmlrN0tkWU1EQzVsa0FVTQ?oc=5",
       "published": "2026-04-30T07:00:00Z",
       "category": "Sensors",
-      "bucket": "Threat",
-      "threat_score": 8.5,
+      "bucket": "Market Insight",
+      "threat_score": null,
       "tags": [
         "AccuSense impact"
       ]
@@ -127,10 +127,23 @@
       "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNSllGdWh5VHpZMV82MjRsSmpwa2ZnVVdQbUw2Qm80RVpUbWNYYmw2LVNEZVBCY1hMNGdSUnVrSUZHeEtlZ2lxUUNzYmUzT2JMMDVuSFluNGNLRzJQLVdCNEJ2bHFsb2lLQmlHQ1JTVmVXUlZkYVd4d3VGZGh3amQtWndOZWtzMUp0c1l4b0NBdWg2NndxeDA3WUdHbFozaDU1c3JzdkVTSk5XdzZYNGk0d21kamtBa3VoX1R0WnhJcmRUclFOelQ2cGwyTTB5YWxlMHZxakRxUzVncmlZamRWZGxsMFI3X2w1d2tPMXM1c1ZnZjNxWUZsX1FCbUs?oc=5",
       "published": "2024-09-24T07:00:00Z",
       "category": "Sensors",
-      "bucket": "Threat",
-      "threat_score": 1.0,
+      "bucket": "Market Insight",
+      "threat_score": null,
       "tags": [
         "AccuSense impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Trident Solid Dielectric Switchgear from G&W Electric - TD World",
+      "summary": "Trident Solid Dielectric Switchgear from G&W Electric TD World",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPWTgwTUhRcGRlSUhXLU92VjUyVUFjeEhfd3BBa25TV19XVmhlZjB4RDVXMzRLVDY5ZjlGUHl2ZEE3UWNLclJXb21IdGVGTm1zeGFyOTl1WVBad3RjWmN1ODN5SHpnM2E0c2V1eTJwbnFNN2lDRUxycUc5YV9mZGxJd3dRal85QkZSTTFNT2JUcDJPMTBRQU5TQzNkLUdMeUVsUHQ1dFN2U25ISVFQek9DYjBaRmpKNjE1Q3k2RnF6VDdOcHZFaU50V0c5NjNsYkk?oc=5",
+      "published": "2025-10-07T10:02:12Z",
+      "category": "Switchgear",
+      "bucket": "Alert",
+      "threat_score": null,
+      "tags": [
+        "Trident impact"
       ]
     },
     {
@@ -140,7 +153,7 @@
       "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPUWcySEhoVFdWZVUyOFVQSG9kTlNoN0JVblNJTGJlVUtyYWRIci1weDBkZ2JvUWZnTzNFelBySm13V01OVWtfaGdzMUlfcDhvTm5LV25icFVfaElLMzJiOUdzcnNCc2lyRTB0UVlnYXBrZ05ZQTRKRmp5S1pZWFVfR2lQMUNXVTF2Sy1Qd3hOM1BST205dDVTZy1MV2xscUZjdXh0RzRldWhpa0tqejQ0cllwNzAyVUl5aGZOblJIb0xLSXZnTlltal9STnNiQ0hDZWVhQm4wVEc3Ym1uQ2NHcmZuWnY3S1JEaVJB?oc=5",
       "published": "2026-02-02T08:00:00Z",
       "category": "Reclosers",
-      "bucket": "Alert",
+      "bucket": "Market Insight",
       "threat_score": null,
       "tags": [
         "Viper impact"
@@ -166,7 +179,7 @@
       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOZ1pJcFB5d1dKLWIzOVZIR3AwUVdpbEhOQ1R1NnVZckxkczVhWTRMQzJYZnU0WTRMZE5EZHhIY0NONS1kTXBMa3o2VHF5VV94d29RZzdRMGJtNHFjM0VtaFFfR3BnZlBaQUEzZzdjeXlRNWRibzBKQXFJcjAyT3A0NWJn?oc=5",
       "published": "2009-07-21T07:00:00Z",
       "category": "Reclosers",
-      "bucket": "Alert",
+      "bucket": "Market Insight",
       "threat_score": null,
       "tags": [
         "Viper impact"
@@ -193,7 +206,7 @@
       "published": "2009-09-24T07:00:00Z",
       "category": "Reclosers",
       "bucket": "Threat",
-      "threat_score": 2.0,
+      "threat_score": 1.0,
       "tags": [
         "Viper impact"
       ]
@@ -413,8 +426,8 @@
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaTZLaG1CLVFkMTM1Ty1HTXBFUmlmNVpPaFNhM1ctSWpYXzhOM0pMRnVmZTRlZ0F0VS1zcHFMNldRUm9LVUptSnZNbUxSWU8yTmZEaWNCVWZBajN2Um1UcVV3SXo2QjFNMEJMclZzM09UdUdXY1dJakNKcnc3ZC11OTNqSXl5cjAyc1RxN3NwZmtLOGYwb01QZlU0dWZWSXJkQXhjd1BzeFFRSXdoVy1XeTZEZw?oc=5",
       "published": "2020-09-25T07:00:00Z",
       "category": "Switchgear",
-      "bucket": "Alert",
-      "threat_score": null,
+      "bucket": "Threat",
+      "threat_score": 1.0,
       "tags": [
         "Trident impact"
       ]
@@ -478,7 +491,7 @@
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOMXZ2ZjE3OHFTb0R5MzNrMFY3V05xcHlvVEJucm96eXVjeFhnRVM3ZW5OUDVVb2lXQ3E0YnVTM3dCaGtnZXpGSlpEdXRFeU8wakY4S1IxUTdHODFveXZJX2V1YmVqN3dHcjlRYU54V0hMZE9BM1Nnc0FoenZFTHhzXy1yNEFCT05pV1FmdWRZTEdycm1uUGpQSlJGTFk?oc=5",
       "published": "2023-10-05T15:05:33Z",
       "category": "Switchgear",
-      "bucket": "Alert",
+      "bucket": "Market Insight",
       "threat_score": null,
       "tags": [
         "Trident impact"
@@ -622,21 +635,8 @@
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUnZxaTJjY2JoSU9FRkgxZFJBbFZfY2J4OWZfQ2ZVNGFSQUJrVUVsNnJ0WnhwZkZjRjIyY0lxZzBxdVRXSXBYcVk0alJjMWk5STRxbFNZeEg4MFlVMFFxR2tEblp5NkdRSXBhWXE4OEozTFR4bVRMTzROWGhNZXZac3VBWjNYRmJHZTlSekJEZ0pmX2RzOUNvUlhobVg3QQ?oc=5",
       "published": "2026-05-27T07:00:00Z",
       "category": "Switchgear",
-      "bucket": "Market Insight",
-      "threat_score": null,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
-      "company": "Schneider Electric",
-      "title": "Schneider Electric launches SF6-free switchgear for green grids - IT Brief New Zealand",
-      "summary": "Schneider Electric launches SF6-free switchgear for green grids IT Brief New Zealand",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQy1yNkdHQ3U0OUJMYzlPRXE3QVdMTmFadml5RkFmTVhXYjh1bDRKZ3E2X1BpblVnQm5IdzFiQVZPU19Cd19BSHY1UWZ1LUN4SHExY0ZKQ0ljY2dWY1NVNUI4WTI4UGY2bE1GbmgtcjZNZVZqdEdDN0RBWUl6cUtRc3FxZ1hFQjZpZHFFbXlXQWM2bjB5Vmc?oc=5",
-      "published": "2025-11-20T08:00:00Z",
-      "category": "Switchgear",
       "bucket": "Threat",
-      "threat_score": 5.5,
+      "threat_score": 8.0,
       "tags": [
         "Trident impact"
       ]
@@ -648,8 +648,8 @@
       "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOOXJCekpNOGVXeC1LY1JFUmlFZDQtRXRoTFgwSmhVVG13VXNGQ1pSZG13a1BoNS1va3M5T0xhT0pZUEFWZ1IwLVI3anFXdDVWVXdCcEwzYmpUSUF1NDNzSzBUNkhtM203MkhydkZDREJ2NzFEcjVURmtNTFpFX2U4aHRScGo3d2hYdTJJQXdvbnBWMFAtRVpLaF9WMzFDc2xzQlltdVY3NFlzSjFwaUtaek1USjVQdGJiZTl4SWRlaUlBMDhKLWtheUdOTjB6UnJ6Z3p3R20yYktpN1UzWE1GOWJpRjI2ZldNQUZiUm41dm1KZWpsbms4XzlMb0pXd01zRzVuOFdOWFpmek9EanZ5dTc5NjI0cXhOVkE?oc=5",
       "published": "2026-05-19T07:00:00Z",
       "category": "Switchgear",
-      "bucket": "Alert",
-      "threat_score": null,
+      "bucket": "Threat",
+      "threat_score": 7.5,
       "tags": [
         "Trident impact"
       ]
@@ -708,6 +708,19 @@
     },
     {
       "company": "Schneider Electric",
+      "title": "Schneider Electric Unveils Comprehensive Decarbonisation Solutions at IEEE PES GTD Asia 2025 - Nation Thailand",
+      "summary": "Schneider Electric Unveils Comprehensive Decarbonisation Solutions at IEEE PES GTD Asia 2025 Nation Thailand",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE85NDdjaWpiVldqVkVUd254dXZTLUlmMlNOS0lCNHhKcnhtX3ljTEJlNHVLUjM2MThFa2t5M2tDVEhNemRiWVRuVzlTNFJsOGZaNDB5T2FDdHBEMU9lbTZwakpUSQ?oc=5",
+      "published": "2025-11-27T08:00:00Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 6.0,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Schneider Electric",
       "title": "Partial Discharge Detection Sensors Market Forecast to 2035: Growth Amid Grid Modernization and Renewable Integration - News and Statistics - IndexBox",
       "summary": "Partial Discharge Detection Sensors Market Forecast to 2035: Growth Amid Grid Modernization and Renewable Integration - News and Statistics IndexBox",
       "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOTnQxS2lLRkhmT0VMM090TW04dDBuelBZZTJSU2FZMjQxcVBzRTlIU3QwQUdpT0I1TG1qT3V4dlFKLXNTdXRDeHE3MHBzR1BKdm5kS0w4TE5tMC1zMHRRX0NLai11Wm04S0lIUEp5NUxYcThPOEhNSThTMmVnRERwRlAwZ1RvSnJfelVUMUpWOTJueG9NcEM1RzdkN3g3RUJxaGRQd0k2M2FnUS1YWTAxbjNibU1fTGJPRFhsYnhGRl93RDd2Wm1GUDZ1S2pJN0VRdTczU21PckNDSkZmbFl3cERn?oc=5",
@@ -731,6 +744,19 @@
       "tags": [
         "AccuSense impact",
         "Trident impact"
+      ]
+    },
+    {
+      "company": "Schneider Electric",
+      "title": "Solid State Transformer Market Size, Share, Trends 2035 | MRFR - Market Research Future",
+      "summary": "Solid State Transformer Market Size, Share, Trends 2035 | MRFR Market Research Future",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNbVNWNXBLcVIwX0ZFWEoxbTJCSzFFVTl1OVdjVG5oZ2ZnQ1Qtc0lwTEVHT0NfTTdrYVp5ZG5uZ2VIUDA3ZTdZcFY3M2twSm8wS0w3aXN1S2xVaFl2b29WVFE2aW5QQWZ6amloc2NtdGdUWXI4T0lXZlJVeGprbWtyeGhNWVV0YUE?oc=5",
+      "published": "2026-06-04T07:00:00Z",
+      "category": "Sensors",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "AccuSense impact"
       ]
     },
     {
@@ -768,19 +794,6 @@
       "category": "Sensors",
       "bucket": "Market Insight",
       "threat_score": null,
-      "tags": [
-        "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Schneider Electric",
-      "title": "Schneider Electric Unveils Comprehensive Decarbonisation Solutions at IEEE PES GTD Asia 2025 - Nation Thailand",
-      "summary": "Schneider Electric Unveils Comprehensive Decarbonisation Solutions at IEEE PES GTD Asia 2025 Nation Thailand",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE85NDdjaWpiVldqVkVUd254dXZTLUlmMlNOS0lCNHhKcnhtX3ljTEJlNHVLUjM2MThFa2t5M2tDVEhNemRiWVRuVzlTNFJsOGZaNDB5T2FDdHBEMU9lbTZwakpUSQ?oc=5",
-      "published": "2025-11-27T08:00:00Z",
-      "category": "Sensors",
-      "bucket": "Threat",
-      "threat_score": 6.0,
       "tags": [
         "AccuSense impact"
       ]
