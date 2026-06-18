@@ -30,4 +30,3 @@ jobs:
           git add data/tracker_data.json
           git commit -m "Update competitive tracker data" || echo "No changes to commit"
           git push
-
