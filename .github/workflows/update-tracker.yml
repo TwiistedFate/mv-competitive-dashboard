@@ -1,0 +1,32 @@
+name: Update MV Competitive Tracker
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily at 12:00 UTC so engineers get a fresh crawl every morning.
+    - cron: "0 12 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Run tracker
+        run: python scripts/update_tracker.py
+      - name: Commit tracker data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/tracker_data.json
+          git commit -m "Update competitive tracker data" || echo "No changes to commit"
+          git push
