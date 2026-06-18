@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GridIntel — MV Competitive Intelligence</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">GI</div>
+        <div>
+          <h1>GridIntel</h1>
+          <p>MV competitive intelligence</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Dashboard sections">
+        <span class="nav-label">Overview</span>
+        <button class="nav-btn active" data-view="executive"><span class="nav-tick"></span>Executive</button>
+        <button class="nav-btn" data-view="threats"><span class="nav-tick"></span>High Priority</button>
+        <span class="nav-label">Product lines</span>
+        <button class="nav-btn" data-view="reclosers"><span class="nav-tick"></span>Reclosers</button>
+        <button class="nav-btn" data-view="sensors"><span class="nav-tick"></span>Sensors</button>
+        <button class="nav-btn" data-view="switchgear"><span class="nav-tick"></span>Switchgear</button>
+        <button class="nav-btn" data-view="cables"><span class="nav-tick"></span>Cables &amp; Accessories</button>
+        <button class="nav-btn" data-view="datasheets"><span class="nav-tick"></span>Datasheets</button>
+        <span class="nav-label">Context</span>
+        <button class="nav-btn" data-view="deepdive"><span class="nav-tick"></span>Competitor Deep-Dive</button>
+        <button class="nav-btn" data-view="market"><span class="nav-tick"></span>Market Insight</button>
+        <button class="nav-btn" data-view="all"><span class="nav-tick"></span>All Intelligence</button>
+        <button class="nav-btn" data-view="specs"><span class="nav-tick"></span>Specs</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="note-head"><span class="pulse-dot"></span> Last crawl</div>
+        <span class="note-val" id="lastUpdated">Loading…</span>
+        <span class="note-sub" id="crawlCadence">Auto-refresh daily</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">G&amp;W competitive analysis workspace</p>
+          <h2 id="pageTitle">Executive Dashboard</h2>
+          <p class="page-sub" id="pageSub">What competitors shipped, said, and filed — at a glance.</p>
+        </div>
+        <div class="actions">
+          <input id="searchInput" type="search" placeholder="Search company, product, keyword…" aria-label="Search" />
+          <select id="companyFilter" aria-label="Filter by company">
+            <option value="">All companies</option>
+          </select>
+          <select id="scoreFilter" aria-label="Filter by priority">
+            <option value="0">All priority</option>
+            <option value="8">Priority 8+</option>
+            <option value="6">Priority 6+</option>
+            <option value="4">Priority 4+</option>
+          </select>
+        </div>
+      </header>
+
+      <!-- EXECUTIVE -->
+      <section id="executive" class="view active-view">
+        <div class="kpi-grid">
+          <article class="kpi-card"><span class="kpi-label">Current items</span><strong id="kpiTotal">0</strong><span class="kpi-foot" id="kpiWindow">last 60 days</span></article>
+          <article class="kpi-card"><span class="kpi-label">High threats</span><strong id="kpiHigh">0</strong><span class="kpi-foot">scored 7+</span></article>
+          <article class="kpi-card teal"><span class="kpi-label">Market insight</span><strong id="kpiPdf">0</strong><span class="kpi-foot">market items</span></article>
+          <article class="kpi-card teal"><span class="kpi-label">Companies</span><strong id="kpiCompanies">0</strong><span class="kpi-foot">tracked</span></article>
+        </div>
+
+        <div class="panel-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>Highest priority updates</h3>
+              <button class="mini-link" data-jump="threats">View all</button>
+            </div>
+            <div id="executiveThreats" class="compact-list"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h3>Product line activity</h3></div>
+            <div class="impact-bars" id="impactBars"></div>
+          </section>
+        </div>
+      </section>
+
+      <!-- HIGH PRIORITY -->
+      <section id="threats" class="view">
+        <div class="section-intro">
+          <h3>High Priority Updates</h3>
+          <p>Items most likely to matter to G&amp;W strategy, sales messaging, or product positioning.</p>
+        </div>
+        <div id="threatList" class="card-list"></div>
+      </section>
+
+      <!-- RECLOSERS -->
+      <section id="reclosers" class="view">
+        <div class="section-intro"><h3>Reclosers</h3><p>Reclosers, pulse-closing devices, automation, and protection products competing with the Viper line.</p></div>
+        <div id="reclosersList" class="card-list"></div>
+      </section>
+
+      <!-- SENSORS -->
+      <section id="sensors" class="view">
+        <div class="section-intro"><h3>Sensors</h3><p>Voltage and current sensors, grid-edge intelligence, and power-quality monitoring competing with AccuSense.</p></div>
+        <div id="sensorsList" class="card-list"></div>
+      </section>
+
+      <!-- SWITCHGEAR -->
+      <section id="switchgear" class="view">
+        <div class="section-intro"><h3>Switchgear</h3><p>SF6-free switchgear, solid dielectric, RMUs, and regulatory movement competing with the Trident line.</p></div>
+        <div id="switchgearList" class="card-list"></div>
+      </section>
+
+      <!-- CABLES & ACCESSORIES -->
+      <section id="cables" class="view">
+        <div class="section-intro"><h3>Cables &amp; Accessories</h3><p>Terminations, splices, joints, separable connectors, elbows, and link boxes.</p></div>
+        <div id="cablesList" class="card-list"></div>
+      </section>
+
+      <!-- DATASHEETS -->
+      <section id="datasheets" class="view">
+        <div class="section-intro"><h3>Datasheets &amp; Product Changes</h3><p>Detected PDFs, datasheets, catalogs, specification sheets, manuals, and product-page changes.</p></div>
+        <div id="datasheetList" class="card-list"></div>
+      </section>
+
+      <!-- COMPETITOR DEEP-DIVE -->
+      <section id="deepdive" class="view">
+        <div class="section-intro">
+          <h3>Competitor Deep-Dive</h3>
+          <p>Pick a competitor to see up to 2 years of their news and announcements, ranked by relevance (newest breaks ties).</p>
+        </div>
+        <div class="deepdive-bar">
+          <select id="deepDiveCompany" aria-label="Select competitor">
+            <option value="">Choose a competitor…</option>
+          </select>
+          <span id="deepDiveMeta" class="deepdive-meta"></span>
+        </div>
+        <div id="deepDiveList" class="card-list"></div>
+      </section>
+
+      <!-- MARKET INSIGHT -->
+      <section id="market" class="view">
+        <div class="section-intro"><h3>Market Insight</h3><p>Market growth, size, share, and forecast data. Context for strategy — not scored as competitive threats.</p></div>
+        <div id="marketList" class="card-list"></div>
+      </section>
+
+      <!-- ALL -->
+      <section id="all" class="view">
+        <div class="section-intro"><h3>All Intelligence</h3><p>Complete current tracker output with search, company, and priority filters applied.</p></div>
+        <div id="allList" class="card-list"></div>
+      </section>
+
+      <!-- SPECS (placeholder, wired but empty until data is supplied) -->
+      <section id="specs" class="view">
+        <div class="section-intro"><h3>Spec Comparison</h3><p>Side-by-side electrical ratings, benchmarked against the G&amp;W reference line.</p></div>
+        <div class="specs-placeholder">
+          <div class="sp-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17V7l5 5 5-5v10"/><path d="M3 12h3"/></svg>
+          </div>
+          <h3>Specs go here</h3>
+          <p>This section is wired and ready. Once you supply the rating fields and the spec values to track, the side-by-side comparison table renders here.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="itemTemplate">
+    <article class="intel-card">
+      <div class="threat-bus"><div class="bus-fill"></div></div>
+      <div class="card-main">
+        <div class="meta-line">
+          <span class="company"></span>
+          <span class="dot"></span>
+          <span class="category"></span>
+          <span class="dot"></span>
+          <span class="date"></span>
+        </div>
+        <h4 class="title"></h4>
+        <p class="summary"></p>
+        <div class="tags"></div>
+      </div>
+      <div class="card-side">
+        <div class="score-gauge"><div class="gauge-num"></div><span class="gauge-label">Priority</span></div>
+        <a class="source" target="_blank" rel="noopener">Open
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </article>
+  </template>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-06-18T21:04:00Z",
+  "window_days": 60,
+  "deep_window_days": 730,
+  "items": [
+    {
+      "company": "Schneider Electric",
+      "title": "Schneider Electric launches new SM AirSeT SF6-free switchgear",
+      "summary": "Schneider Electric launches new SM AirSeT SF6-free switchgear",
+      "url": "https://example.com/schneider-electric-launches-new-sm-airse",
+      "published": "2026-06-12T21:04:00Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 9.0,
+      "relevance": 14.97,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Siemens develops next-generation SF6-free switchgear",
+      "summary": "Siemens develops next-generation SF6-free switchgear",
+      "url": "https://example.com/siemens-develops-next-generation-sf6-fre",
+      "published": "2026-06-03T21:04:00Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "relevance": 14.92,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C unveils new IntelliRupter PulseCloser recloser",
+      "summary": "S&C unveils new IntelliRupter PulseCloser recloser",
+      "url": "https://example.com/s&c-unveils-new-intellirupter-pulseclose",
+      "published": "2026-06-14T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Threat",
+      "threat_score": 9.0,
+      "relevance": 14.98,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C launches new TripSaver recloser line at DISTRIBUTECH",
+      "summary": "S&C launches new TripSaver recloser line at DISTRIBUTECH",
+      "url": "https://example.com/s&c-launches-new-tripsaver-recloser-line",
+      "published": "2026-02-18T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Threat",
+      "threat_score": 7.0,
+      "relevance": 14.33,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C develops new SF6-free switchgear platform",
+      "summary": "S&C develops new SF6-free switchgear platform",
+      "url": "https://example.com/s&c-develops-new-sf6-free-switchgear-pla",
+      "published": "2025-08-22T21:04:00Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 3.0,
+      "relevance": 13.33,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C study on recloser coordination published",
+      "summary": "S&C study on recloser coordination published",
+      "url": "https://example.com/s&c-study-on-recloser-coordination-publi",
+      "published": "2025-02-03T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Threat",
+      "threat_score": 1.0,
+      "relevance": 12.22,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Recloser Market Size to reach $2.5B by 2035",
+      "summary": "Recloser Market Size to reach $2.5B by 2035",
+      "url": "https://example.com/recloser-market-size-to-reach-$2.5b-by-2",
+      "published": "2025-11-30T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 11.39,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C wins 2024 industry award for grid innovation",
+      "summary": "S&C wins 2024 industry award for grid innovation",
+      "url": "https://example.com/s&c-wins-2024-industry-award-for-grid-in",
+      "published": "2025-05-14T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 4.28,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Reclosers - Outdoor Distribution",
+      "summary": "Reclosers - Outdoor Distribution",
+      "url": "https://example.com/reclosers---outdoor-distribution",
+      "published": "2026-06-10T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 11.46,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "Pfisterer",
+      "title": "New separable connector cable accessory introduced",
+      "summary": "New separable connector cable accessory introduced",
+      "url": "https://example.com/new-separable-connector-cable-accessory-",
+      "published": "2026-05-29T21:04:00Z",
+      "category": "Cables & accessories",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "relevance": 14.89,
+      "tags": [
+        "Cable impact"
+      ]
+    },
+    {
+      "company": "ABB",
+      "title": "Study: novel KEVA voltage sensor improves accuracy",
+      "summary": "Study: novel KEVA voltage sensor improves accuracy",
+      "url": "https://example.com/study:-novel-keva-voltage-sensor-improve",
+      "published": "2026-06-16T21:04:00Z",
+      "category": "Sensors",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "relevance": 14.99,
+      "tags": [
+        "AccuSense impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "G&W Electric Launches PowerVoice Research Community",
+      "summary": "G&W Electric Launches PowerVoice Research Community",
+      "url": "https://example.com/g&w-electric-launches-powervoice-researc",
+      "published": "2026-05-19T21:04:00Z",
+      "category": "Sensors",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 6.33,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Fortune Business Insights",
+      "title": "Medium Voltage Recloser Market Size, Forecast to 2034",
+      "summary": "Medium Voltage Recloser Market Size, Forecast to 2034",
+      "url": "https://example.com/medium-voltage-recloser-market-size,-for",
+      "published": "2026-06-08T21:04:00Z",
+      "category": "Reclosers",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 12.44,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "ABB",
+      "title": "KEVA voltage sensor datasheet revision",
+      "summary": "KEVA voltage sensor datasheet revision",
+      "url": "https://example.com/keva-voltage-sensor-datasheet-revision",
+      "published": "2026-06-13T21:04:00Z",
+      "category": "Sensors",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 11.47,
+      "tags": [
+        "AccuSense impact",
+        "PDF/datasheet"
+      ]
+    }
+  ]
+}

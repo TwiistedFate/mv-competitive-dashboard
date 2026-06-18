@@ -1,0 +1,65 @@
+vendors:
+  - name: G&W Electric
+    queries:
+      - G&W Electric Viper recloser
+      - G&W Electric AccuSense sensor
+      - G&W Electric Trident switchgear
+    pages:
+      - https://www.gwelectric.com/
+      - https://www.gwelectric.com/news/
+  - name: S&C Electric
+    queries:
+      - S&C IntelliRupter recloser
+      - S&C switchgear SF6 free
+    pages:
+      - https://www.sandc.com/
+      - https://www.sandc.com/en/company/newsroom/
+  - name: ABB
+    queries:
+      - ABB medium voltage sensor KEVA VLS
+      - ABB SF6-free switchgear medium voltage
+    pages:
+      - https://global.abb/
+      - https://new.abb.com/news
+  - name: Eaton
+    queries:
+      - Eaton Cooper recloser medium voltage
+      - Eaton Xiria SF6 free switchgear
+    pages:
+      - https://www.eaton.com/
+      - https://www.eaton.com/us/en-us/company/news-insights/news-releases.html
+  - name: Siemens
+    queries:
+      - Siemens medium voltage switchgear SF6 free
+      - Siemens 8DJH switchgear
+    pages:
+      - https://press.siemens.com/global/en/pressreleases
+  - name: Schneider Electric
+    queries:
+      - Schneider Electric AirSeT SF6-free switchgear
+      - Schneider medium voltage sensors
+    pages:
+      - https://www.se.com/
+      - https://www.se.com/ww/en/about-us/newsroom/news/
+  - name: NOJA Power
+    queries:
+      - NOJA Power OSM recloser
+    pages:
+      - https://www.nojapower.com/
+      - https://www.nojapower.com/news
+  - name: Tavrida Electric
+    queries:
+      - Tavrida Electric recloser
+    pages:
+      - https://www.tavrida.com/tena/media/news/
+  - name: Hubbell
+    queries:
+      - Hubbell medium voltage sensor
+    pages:
+      - https://www.hubbellpowersystems.com/
+  - name: Lindsey Systems
+    queries:
+      - Lindsey GEN2 voltage sensor
+      - Lindsey ElbowSense sensor
+    pages:
+      - https://www.lindsey-usa.com/
