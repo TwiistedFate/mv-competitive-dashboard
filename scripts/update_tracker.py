@@ -11,8 +11,38 @@ KEYWORDS = {
     "Viper impact": ["recloser", "intellirupter", "pulseclos", "fault isolation", "protection"],
     "AccuSense impact": ["sensor", "voltage sensor", "current sensor", "grid edge", "power quality", "flisr", "keva", "vls", "elbowsense"],
     "Trident impact": ["sf6", "sf6-free", "switchgear", "rmu", "solid dielectric", "airset", "xiria"],
+    "Cable impact": ["cable", "accessory", "accessories", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box"],
     "PDF/datasheet": ["pdf", "datasheet", "data sheet", "catalog", "manual", "specification"],
 }
+
+# The four product domains that qualify an item for the Threat track.
+PRODUCT_DOMAINS = {
+    "Reclosers": ["recloser", "intellirupter", "pulseclos", "pulse-closing", "osm", "fault isolation", "viper", "rer", "cooper recloser"],
+    "Switchgear": ["sf6", "sf6-free", "switchgear", "rmu", "ring main", "solid dielectric", "airset", "xiria", "trident", "safering", "8djh"],
+    "Voltage sensors": ["voltage sensor", "current sensor", "sensor", "power quality", "grid edge", "grid-edge", "flisr", "elbowsense", "keva", "vls", "accusense", "gen2"],
+    "Cables & accessories": ["cable", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box", "accessor"],
+}
+
+# Signals that an item is a NEW innovation / invention / study (qualifies for Threat track).
+INNOVATION_SIGNALS = [
+    "launch", "launches", "launched", "new product", "unveil", "unveils", "unveiled",
+    "introduce", "introduces", "introduced", "patent", "patented", "invention", "invents",
+    "invented", "breakthrough", "first", "next-generation", "next generation",
+    "study", "studies", "research", "white paper", "whitepaper", "paper", "trial", "pilot",
+    "prototype", "develops", "developed", "developing", "innovation", "innovative",
+    "debut", "debuts", "release", "releases", "released", "announces", "announced", "new ",
+]
+
+# Stronger signals that earn the +1 bump on top of the recency base.
+STRONG_SIGNALS = ["launch", "patent", "new product", "invention", "breakthrough", "unveil", "debut"]
+
+# Signals that an item is PURE market information (Market Insight track, no threat score).
+MARKET_SIGNALS = [
+    "market size", "market growth", "market share", "cagr", "forecast", "market report",
+    "market research", "market value", "revenue", "valuation", "billion", "million by",
+    "compound annual", "market outlook", "industry report", "market analysis", "market trends",
+    "projected to reach", "expected to grow", "market overview",
+]
 
 
 def clean(s):
@@ -54,17 +84,70 @@ def category_for(tags):
     if "AccuSense impact" in tags: return "Sensors"
     if "Viper impact" in tags: return "Reclosers"
     if "Trident impact" in tags: return "Switchgear"
+    if "Cable impact" in tags: return "Cables & accessories"
     return "Market Update"
 
 
-def score_for(text, tags):
+def product_domain(text):
+    """Return the matching product domain name, or None if the item isn't product-related."""
     t = text.lower()
-    s = 3 + len(tags)
-    for word in ["launch", "new product", "contract", "pilot", "utility",
-                 "partnership", "patent", "sf6-free", "sensor", "recloser"]:
-        if word in t:
-            s += 1
-    return min(10, s)
+    for domain, words in PRODUCT_DOMAINS.items():
+        if any(w in t for w in words):
+            return domain
+    return None
+
+
+def has_any(text, words):
+    t = text.lower()
+    return any(w in t for w in words)
+
+
+def months_between(published_iso, captured_iso):
+    """Whole-month gap (integer, >=0) between publish and capture date. Falls back to 0 if unknown."""
+    try:
+        p = datetime.datetime.fromisoformat(published_iso.replace("Z", "+00:00"))
+        c = datetime.datetime.fromisoformat(captured_iso.replace("Z", "+00:00"))
+        days = (c - p).days
+        # Month buckets: 0-30d = month 1, 31-60d = month 2, etc.
+        return max(0, (days // 30))
+    except Exception:
+        return 0
+
+
+def classify(text, published_iso, captured_iso):
+    """
+    Three-bucket classifier.
+
+    Returns a dict: {bucket, threat_score, domain}
+      - bucket "Threat":        product-domain item that is a new innovation/invention/study.
+                                score = 8 - 0.5*(months-1), floored at 1, +1 for strong signals, cap 10.
+      - bucket "Market Insight": pure market info (growth, CAGR, size, forecast). No score.
+      - bucket "Alert":         product-relevant but routine (e.g. datasheet revision, certification). No score.
+    """
+    domain = product_domain(text)
+    is_innovation = has_any(text, INNOVATION_SIGNALS)
+    is_market = has_any(text, MARKET_SIGNALS)
+
+    # Market info that isn't a product innovation -> Market Insight, no score.
+    if is_market and not (domain and is_innovation):
+        return {"bucket": "Market Insight", "threat_score": None, "domain": domain}
+
+    # Product innovation/invention/study -> Threat, recency-scored.
+    if domain and is_innovation:
+        months = months_between(published_iso, captured_iso) if published_iso else 0
+        # months is a 0-based bucket: 0 = within 1 month (=8), each later month -0.5.
+        score = 8.0 - 0.5 * months
+        score = max(1.0, score)
+        if has_any(text, STRONG_SIGNALS):
+            score = min(10.0, score + 1.0)
+        return {"bucket": "Threat", "threat_score": round(score, 1), "domain": domain}
+
+    # Product-relevant but routine (revision, certification, generic mention) -> Alert, no score.
+    if domain:
+        return {"bucket": "Alert", "threat_score": None, "domain": domain}
+
+    # Anything else with no product domain and no market signal -> treat as Alert (low-relevance watch item).
+    return {"bucket": "Alert", "threat_score": None, "domain": None}
 
 
 def to_iso(struct_time):
@@ -78,7 +161,7 @@ def to_iso(struct_time):
         return None
 
 
-def google_news(vendor, query):
+def google_news(vendor, query, captured_iso):
     """RSS items carry their REAL publish date — we keep it as ISO, never the crawl date."""
     q = urllib.parse.quote_plus(query)
     url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
@@ -91,6 +174,7 @@ def google_news(vendor, query):
         published_iso = to_iso(e.get("published_parsed")) or to_iso(e.get("updated_parsed"))
         text = f"{title} {summary} {query}"
         tags = tags_for(text)
+        cls = classify(text, published_iso, captured_iso)
         items.append({
             "company": vendor,
             "title": title,
@@ -98,7 +182,8 @@ def google_news(vendor, query):
             "url": link,
             "published": published_iso,           # real publish date (ISO) or None
             "category": category_for(tags),
-            "threat_score": score_for(text, tags),
+            "bucket": cls["bucket"],              # Threat | Alert | Market Insight
+            "threat_score": cls["threat_score"],  # number or None
             "tags": tags,
         })
     return items
@@ -184,6 +269,11 @@ def page_scan(vendor, url):
             tags = tags_for(text + " " + href)
 
             if is_pdf:
+                # A datasheet/catalog/manual is product-relevant but routine -> Alert by default,
+                # unless its text signals a genuine innovation/study (then classify promotes it).
+                cls = classify(text + " " + href, None, today_iso)
+                if cls["bucket"] == "Market Insight":
+                    cls = {"bucket": "Alert", "threat_score": None}  # a PDF is not market data
                 items.append({
                     "company": vendor,
                     "title": text,
@@ -192,19 +282,23 @@ def page_scan(vendor, url):
                     "published": None,
                     "discovered_at": today_iso,
                     "category": "Datasheet",
-                    "threat_score": score_for(text, tags),
+                    "bucket": cls["bucket"],
+                    "threat_score": cls["threat_score"],
                     "tags": list(set(tags + ["PDF/datasheet"])),
                 })
             else:
+                page_date = fetch_page_date(href)      # real date from the article itself
+                cls = classify(text + " " + href, page_date, today_iso)
                 items.append({
                     "company": vendor,
                     "title": text,
                     "summary": f"{vendor} update: {text}",
                     "url": href,                       # the exact article/product URL
-                    "published": fetch_page_date(href),  # real date from the article itself
+                    "published": page_date,
                     "discovered_at": today_iso,
                     "category": category_for(tags),
-                    "threat_score": score_for(text + " " + href, tags),
+                    "bucket": cls["bucket"],
+                    "threat_score": cls["threat_score"],
                     "tags": tags,
                 })
 
@@ -227,17 +321,18 @@ def dedupe(items):
 
 def main():
     cfg = yaml.safe_load(CONFIG.read_text())
+    captured_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
     all_items = []
     for v in cfg.get("vendors", []):
         name = v["name"]
         print("Collecting", name)
         for q in v.get("queries", []):
-            all_items.extend(google_news(name, q))
+            all_items.extend(google_news(name, q, captured_iso))
         for p in v.get("pages", []):
             all_items.extend(page_scan(name, p))
 
     data = {
-        "generated_at": datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "generated_at": captured_iso,
         "window_days": 60,
         "items": dedupe(all_items),
     }
