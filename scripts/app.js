@@ -15,16 +15,19 @@ const productKeywords = {
   reclosers: ["recloser", "intellirupter", "pulseclosing", "pulse-closing", "osm", "fault isolation", "viper", "rer", "cooper recloser", "protection relay"],
   sensors: ["sensor", "voltage sensor", "current sensor", "power quality", "grid edge", "grid-edge", "flisr", "elbowsense", "keva", "vls", "accusense", "gen2"],
   switchgear: ["sf6", "sf6-free", "switchgear", "rmu", "ring main", "solid dielectric", "airset", "xiria", "trident", "safering", "8djh"],
+  cables: ["cable", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box", "accessor"],
   datasheets: ["pdf", "datasheet", "data sheet", "catalog", "manual", "specification", "spec sheet"]
 };
 
 const titleMap = {
   executive: ["Executive Dashboard", "What competitors shipped, said, and filed — at a glance."],
-  threats: ["High Priority Updates", "Items most likely to matter to G&W strategy or positioning."],
+  threats: ["High Priority Threats", "Scored threats (7+) — new innovations, inventions, and studies in your product domains."],
   reclosers: ["Reclosers", "Recloser, automation, and protection developments vs. Viper."],
   sensors: ["Sensors", "Voltage/current sensing and grid-edge developments vs. AccuSense."],
   switchgear: ["Switchgear", "SF6-free and solid-dielectric developments vs. Trident."],
+  cables: ["Cables & Accessories", "Terminations, splices, joints, separable connectors, and link boxes."],
   datasheets: ["Datasheets & PDFs", "Detected datasheets, catalogs, manuals, and product-page changes."],
+  market: ["Market Insight", "Market growth, size, share, and forecast data — context, not threats."],
   all: ["All Intelligence", "Complete current tracker output with filters applied."],
   specs: ["Spec Comparison", "Side-by-side electrical ratings vs. the G&W reference line."]
 };
@@ -63,6 +66,14 @@ function normalizeItems() {
   tracker.items = (tracker.items || []).map(item => {
     const rawDate = item.published || item.date || item.pubDate || null;
     const dateObj = parseDate(rawDate);
+    // bucket may be absent in old data; infer a sensible default.
+    let bucket = item.bucket || null;
+    let score = (item.threat_score === null || item.threat_score === undefined)
+      ? null : Number(item.threat_score);
+    if (!bucket) {
+      // legacy fallback for items crawled before the bucket system
+      bucket = (score && score > 0) ? "Threat" : "Alert";
+    }
     return {
       company: item.company || item.vendor || "Unknown",
       title: item.title || "Untitled update",
@@ -72,7 +83,8 @@ function normalizeItems() {
       dateLabel: formatDate(dateObj),            // what we show
       ageDays: daysAgo(dateObj),
       category: item.category || inferCategory(item),
-      threat_score: Number(item.threat_score || item.score || scoreItem(item)),
+      bucket,                                    // Threat | Alert | Market Insight
+      threat_score: bucket === "Threat" ? (score ?? 0) : null,
       tags: item.tags || inferTags(item)
     };
   })
@@ -141,7 +153,8 @@ function filteredItems() {
   return currentItems().filter(item =>
     (!q || textOf(item).includes(q)) &&
     (!company || item.company === company) &&
-    item.threat_score >= minScore
+    // priority filter only constrains Threats; Alerts & Market Insight pass through at minScore 0
+    (minScore === 0 || (item.bucket === "Threat" && item.threat_score >= minScore))
   );
 }
 
@@ -149,11 +162,13 @@ function renderAll() {
   const items = filteredItems();
   renderKpis(items);
   renderExecutive(items);
-  renderList("threatList", items.filter(i => i.threat_score >= 7));
+  // High Priority = Threats scored 7+
+  renderList("threatList", items.filter(i => i.bucket === "Threat" && i.threat_score >= 7));
   renderList("reclosersList", items.filter(i => matchesProduct(i, "reclosers")));
   renderList("sensorsList", items.filter(i => matchesProduct(i, "sensors")));
   renderList("switchgearList", items.filter(i => matchesProduct(i, "switchgear")));
   renderList("datasheetList", items.filter(i => matchesProduct(i, "datasheets")));
+  renderList("marketList", items.filter(i => i.bucket === "Market Insight"));
   renderList("allList", items);
 }
 
@@ -161,14 +176,18 @@ function tier(score) { return score >= 7 ? "t-hi" : score >= 5 ? "t-mid" : "t-lo
 
 function renderKpis(items) {
   document.getElementById("kpiTotal").textContent = items.length;
-  document.getElementById("kpiHigh").textContent = items.filter(i => i.threat_score >= 7).length;
-  document.getElementById("kpiPdf").textContent = items.filter(i => matchesProduct(i, "datasheets")).length;
+  document.getElementById("kpiHigh").textContent = items.filter(i => i.bucket === "Threat" && i.threat_score >= 7).length;
+  document.getElementById("kpiPdf").textContent = items.filter(i => i.bucket === "Market Insight").length;
   document.getElementById("kpiCompanies").textContent = new Set(items.map(i => i.company)).size;
 }
 
 function renderExecutive(items) {
   const box = document.getElementById("executiveThreats");
-  const top = items.filter(i => i.threat_score >= 6).slice(0, 6);
+  // executive highlights = highest-scored Threats only
+  const top = items
+    .filter(i => i.bucket === "Threat" && i.threat_score >= 6)
+    .sort((a, b) => b.threat_score - a.threat_score)
+    .slice(0, 6);
   box.innerHTML = top.length
     ? top.map(i => `
         <div class="compact-item">
@@ -178,13 +197,14 @@ function renderExecutive(items) {
           </div>
           <div class="ci-score ${tier(i.threat_score)}">${i.threat_score}</div>
         </div>`).join("")
-    : emptyHtml("No high-priority updates in the current window.");
+    : emptyHtml("No high-priority threats in the current window.");
 
+  const isThreat = i => i.bucket === "Threat";
   const impacts = {
-    Reclosers: items.filter(i => matchesProduct(i, "reclosers")).length,
-    Sensors: items.filter(i => matchesProduct(i, "sensors")).length,
-    Switchgear: items.filter(i => matchesProduct(i, "switchgear")).length,
-    Datasheets: items.filter(i => matchesProduct(i, "datasheets")).length
+    Reclosers: items.filter(i => isThreat(i) && matchesProduct(i, "reclosers")).length,
+    Sensors: items.filter(i => isThreat(i) && matchesProduct(i, "sensors")).length,
+    Switchgear: items.filter(i => isThreat(i) && matchesProduct(i, "switchgear")).length,
+    Cables: items.filter(i => isThreat(i) && matchesProduct(i, "cables")).length
   };
   const max = Math.max(1, ...Object.values(impacts));
   document.getElementById("impactBars").innerHTML = Object.entries(impacts).map(([k, v]) => `
@@ -212,12 +232,25 @@ function renderList(id, items) {
     node.querySelector(".title").textContent = item.title;
     node.querySelector(".summary").textContent = item.summary;
 
+    const gaugeWrap = node.querySelector(".score-gauge");
     const gauge = node.querySelector(".gauge-num");
-    gauge.textContent = item.threat_score;
-    gauge.classList.add(tier(item.threat_score));
+    const gaugeLabel = node.querySelector(".gauge-label");
+    const busFill = node.querySelector(".bus-fill");
 
-    // threat bus bar fills by score
-    node.querySelector(".bus-fill").style.height = `${item.threat_score * 10}%`;
+    if (item.bucket === "Threat") {
+      gauge.textContent = item.threat_score;
+      gauge.classList.add(tier(item.threat_score));
+      gaugeLabel.textContent = "Threat";
+      busFill.style.height = `${item.threat_score * 10}%`;
+    } else {
+      // Alert / Market Insight: no numeric score — show a labeled badge, neutral bus bar.
+      const isMarket = item.bucket === "Market Insight";
+      gaugeWrap.classList.add("badge-mode", isMarket ? "badge-market" : "badge-alert");
+      gauge.textContent = isMarket ? "◷" : "!";
+      gaugeLabel.textContent = isMarket ? "Market" : "Alert";
+      busFill.style.height = "0%";
+      node.querySelector(".threat-bus").classList.add(isMarket ? "bus-market" : "bus-alert");
+    }
 
     const src = node.querySelector(".source");
     src.href = item.url;
