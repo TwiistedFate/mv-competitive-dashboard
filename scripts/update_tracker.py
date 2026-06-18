@@ -19,6 +19,30 @@ def clean(s):
     return re.sub(r"\s+", " ", (s or "")).strip()
 
 
+def resolve_article_url(google_url):
+    """
+    Google News RSS links are redirect wrappers on news.google.com. Resolve them to
+    the real publisher article URL so 'Open source' lands on the actual article.
+    Falls back to the original link if resolution fails.
+    """
+    if not google_url or "news.google.com" not in google_url:
+        return google_url
+    try:
+        # Some wrappers carry the destination in a ?url= param.
+        parsed = urllib.parse.urlparse(google_url)
+        qs = urllib.parse.parse_qs(parsed.query)
+        if "url" in qs and qs["url"]:
+            return qs["url"][0]
+        # Otherwise follow the redirect chain to the publisher.
+        r = requests.get(google_url, timeout=12, allow_redirects=True,
+                         headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
+        if r.url and "news.google.com" not in r.url:
+            return r.url
+    except Exception as e:
+        print(f"Could not resolve article URL ({e}); keeping original.")
+    return google_url
+
+
 def tags_for(text):
     t = text.lower()
     tags = [tag for tag, words in KEYWORDS.items() if any(w in t for w in words)]
@@ -62,7 +86,7 @@ def google_news(vendor, query):
     items = []
     for e in feed.entries[:8]:
         title = clean(e.get("title"))
-        link = e.get("link", "")
+        link = resolve_article_url(e.get("link", ""))
         summary = clean(BeautifulSoup(e.get("summary", ""), "html.parser").get_text(" "))[:260]
         published_iso = to_iso(e.get("published_parsed")) or to_iso(e.get("updated_parsed"))
         text = f"{title} {summary} {query}"
@@ -80,77 +104,115 @@ def google_news(vendor, query):
     return items
 
 
+def extract_date(soup):
+    """Pull a genuine publish/modified date from common meta tags, or None."""
+    for sel, attr in [
+        ({"property": "article:published_time"}, "content"),
+        ({"property": "article:modified_time"}, "content"),
+        ({"name": "date"}, "content"),
+        ({"name": "publish-date"}, "content"),
+        ({"itemprop": "datePublished"}, "content"),
+    ]:
+        tag = soup.find("meta", attrs=sel)
+        if tag and tag.get(attr):
+            return clean(tag.get(attr))
+    t = soup.find("time")
+    if t and (t.get("datetime") or t.get_text(strip=True)):
+        return clean(t.get("datetime") or t.get_text())
+    return None
+
+
+# Link text/href hints that a link is a real article/product/news page worth its own item.
+LINK_HINTS = ["news", "press", "release", "product", "recloser", "sensor", "switchgear",
+              "article", "story", "announce", "launch", "datasheet", "catalog", "/20"]
+
+
+def fetch_page_date(href):
+    """Best-effort: fetch a linked page just to read its real publish date. Returns ISO-ish string or None."""
+    try:
+        r = requests.get(href, timeout=10,
+                         headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
+        return extract_date(BeautifulSoup(r.text, "html.parser"))
+    except Exception:
+        return None
+
+
 def page_scan(vendor, url):
     """
-    Page/datasheet discovery. A live page has no reliable publish date, so we DO NOT
-    stamp today's date as if it were a publish date. We try to read a real date from
-    the page metadata; if none exists, 'published' stays null and 'discovered_at'
-    records when the crawler saw it (kept separate, not shown as the article date).
+    Follow the LINKS on a vendor page and emit one item per real article/product/PDF,
+    each with its OWN specific URL — so 'Open source' lands on the exact page the
+    information came from, not the vendor homepage. The landing/index page itself is
+    NOT emitted as an item.
     """
     items = []
     today_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    base_host = urllib.parse.urlparse(url).netloc
     try:
         r = requests.get(url, timeout=15,
                          headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
         soup = BeautifulSoup(r.text, "html.parser")
-        title = clean((soup.title.string if soup.title else url))
-        text = clean(soup.get_text(" "))[:350]
 
-        # Try to extract a genuine publish/modified date from common meta tags.
-        page_date = None
-        for sel, attr in [
-            ({"property": "article:published_time"}, "content"),
-            ({"property": "article:modified_time"}, "content"),
-            ({"name": "date"}, "content"),
-            ({"name": "publish-date"}, "content"),
-            ({"itemprop": "datePublished"}, "content"),
-        ]:
-            tag = soup.find("meta", attrs=sel)
-            if tag and tag.get(attr):
-                page_date = clean(tag.get(attr))
-                break
-        if not page_date:
-            t = soup.find("time")
-            if t and (t.get("datetime") or t.get_text(strip=True)):
-                page_date = clean(t.get("datetime") or t.get_text())
-
-        tags = tags_for(title + " " + text + " " + url)
-        items.append({
-            "company": vendor,
-            "title": title,
-            "summary": text,
-            "url": url,
-            "published": page_date,               # real date if the page exposed one, else None
-            "discovered_at": today_iso,           # when WE saw it (kept separate)
-            "category": category_for(tags),
-            "threat_score": score_for(title + text, tags),
-            "tags": tags,
-        })
-
-        # Datasheet/PDF links found on the page.
+        seen_links = set()
         for a in soup.find_all("a", href=True):
             href = urllib.parse.urljoin(url, a["href"])
             label = clean(a.get_text(" "))
-            if href.lower().endswith(".pdf") or any(
-                w in (href + label).lower()
-                for w in ["datasheet", "data-sheet", "catalog", "manual", "specification"]
-            ):
-                dtxt = label or href.split("/")[-1]
-                dtags = tags_for(dtxt + " " + href)
+            lower = (href + " " + label).lower()
+
+            # Skip the homepage itself, anchors, mailto, and off-site noise.
+            if not href.startswith("http"):
+                continue
+            if href.rstrip("/") == url.rstrip("/"):
+                continue
+            if urllib.parse.urlparse(href).netloc and base_host not in urllib.parse.urlparse(href).netloc:
+                # allow same-domain only, to stay on the vendor's own content
+                continue
+            if href in seen_links:
+                continue
+
+            is_pdf = href.lower().endswith(".pdf") or any(
+                w in lower for w in ["datasheet", "data-sheet", "catalog", "manual", "specification"]
+            )
+            is_article = any(h in lower for h in LINK_HINTS)
+
+            if not (is_pdf or is_article):
+                continue
+            if len(label) < 6 and not is_pdf:   # skip bare "Menu"/"More" style links
+                continue
+
+            seen_links.add(href)
+            text = label or href.split("/")[-1]
+            tags = tags_for(text + " " + href)
+
+            if is_pdf:
                 items.append({
                     "company": vendor,
-                    "title": dtxt,
-                    "summary": "Detected possible datasheet, catalog, manual, or specification document.",
-                    "url": href,
-                    "published": None,            # PDFs rarely expose a date here
+                    "title": text,
+                    "summary": "Detected datasheet, catalog, manual, or specification document.",
+                    "url": href,                       # the exact PDF/document URL
+                    "published": None,
                     "discovered_at": today_iso,
                     "category": "Datasheet",
-                    "threat_score": score_for(dtxt, dtags),
-                    "tags": list(set(dtags + ["PDF/datasheet"])),
+                    "threat_score": score_for(text, tags),
+                    "tags": list(set(tags + ["PDF/datasheet"])),
                 })
+            else:
+                items.append({
+                    "company": vendor,
+                    "title": text,
+                    "summary": f"{vendor} update: {text}",
+                    "url": href,                       # the exact article/product URL
+                    "published": fetch_page_date(href),  # real date from the article itself
+                    "discovered_at": today_iso,
+                    "category": category_for(tags),
+                    "threat_score": score_for(text + " " + href, tags),
+                    "tags": tags,
+                })
+
+            if len(items) >= 15:                       # cap per vendor page
+                break
     except Exception as e:
         print(f"Page scan failed for {vendor} {url}: {e}")
-    return items[:20]
+    return items
 
 
 def dedupe(items):
