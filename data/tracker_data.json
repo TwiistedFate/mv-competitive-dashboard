@@ -1,0 +1,7 @@
+{
+  "generated_at": "2026-06-18T12:00:00Z",
+  "items": [
+    {"company":"S&C Electric","title":"Example: IntelliRupter product update detected","summary":"Sample placeholder showing how recloser competitor updates will appear after the crawler runs.","url":"https://www.sandc.com/","date":"2026-06-18","category":"Reclosers","threat_score":8,"tags":["Viper impact","Automation"]},
+    {"company":"ABB","title":"Example: MV sensor or SF6-free switchgear update detected","summary":"Sample placeholder showing how ABB switchgear, sensors, or datasheet updates will be classified.","url":"https://global.abb/","date":"2026-06-18","category":"Switchgear","threat_score":7,"tags":["Trident impact","AccuSense impact"]}
+  ]
+}
