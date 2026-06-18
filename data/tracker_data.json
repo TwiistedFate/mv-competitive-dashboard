@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T19:30:52Z",
+  "generated_at": "2026-06-18T19:39:28Z",
   "window_days": 60,
   "items": [
     {
@@ -125,38 +125,115 @@
     },
     {
       "company": "G&W Electric",
-      "title": "G&W Electric | Innovative Power Grid Solutions & Electrical Systems",
-      "summary": "G&W Electric | Innovative Power Grid Solutions & Electrical Systems English Español Português 简体中文 Insights Customer Support Find a Representative Contact Us Menu Change Language: English English 简体中文 Español Português Products Switchgear Reclosers and Overhead Switches Current Limiting System Protection Power Grid Automation Distribution and Trans",
-      "url": "https://www.gwelectric.com/",
-      "published": "2026-06-03T19:51:28+00:00",
-      "discovered_at": "2026-06-18T19:30:21Z",
-      "category": "Reclosers",
-      "threat_score": 6,
+      "title": "Products",
+      "summary": "G&W Electric update: Products",
+      "url": "https://www.gwelectric.com/products/",
+      "published": "2025-10-14T18:15:07+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Market Update",
+      "threat_score": 4,
       "tags": [
-        "Viper impact",
+        "Watch item"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Switchgear",
+      "summary": "G&W Electric update: Switchgear",
+      "url": "https://www.gwelectric.com/switchgear/",
+      "published": "2025-08-14T15:00:47+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
         "Trident impact"
       ]
     },
     {
       "company": "G&W Electric",
+      "title": "Reclosers and Overhead Switches",
+      "summary": "G&W Electric update: Reclosers and Overhead Switches",
+      "url": "https://www.gwelectric.com/reclosers-and-overhead-switches/",
+      "published": "2026-04-02T15:38:23+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "High Accuracy Sensors",
+      "summary": "G&W Electric update: High Accuracy Sensors",
+      "url": "https://www.gwelectric.com/high-accuracy-sensors/",
+      "published": "2025-10-14T14:20:13+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Sensors",
+      "threat_score": 5,
+      "tags": [
+        "AccuSense impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "History",
+      "summary": "G&W Electric update: History",
+      "url": "https://www.gwelectric.com/about-us/history/",
+      "published": "2025-11-18T14:57:04+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Articles",
+      "summary": "G&W Electric update: Articles",
+      "url": "https://www.gwelectric.com/resources/?resource_type=articles",
+      "published": "2025-06-12T18:51:58+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "G&W Electric",
       "title": "Datasheets",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
+      "summary": "Detected datasheet, catalog, manual, or specification document.",
       "url": "https://www.gwelectric.com/resources/?resource_type=datasheet",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:21Z",
+      "discovered_at": "2026-06-18T19:37:49Z",
       "category": "Datasheet",
       "threat_score": 4,
       "tags": [
         "PDF/datasheet"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Product Literature",
+      "summary": "G&W Electric update: Product Literature",
+      "url": "https://www.gwelectric.com/resources/?resource_type=product-literature",
+      "published": "2025-06-12T18:51:58+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
       ]
     },
     {
       "company": "G&W Electric",
       "title": "Specifications",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
+      "summary": "Detected datasheet, catalog, manual, or specification document.",
       "url": "https://www.gwelectric.com/resources/?resource_type=specification",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:21Z",
+      "discovered_at": "2026-06-18T19:37:49Z",
       "category": "Datasheet",
       "threat_score": 4,
       "tags": [
@@ -165,11 +242,76 @@
     },
     {
       "company": "G&W Electric",
+      "title": "LEARN MORE",
+      "summary": "G&W Electric update: LEARN MORE",
+      "url": "https://www.gwelectric.com/high-accuracy-sensors/all-products/",
+      "published": "2026-06-11T16:46:14+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Sensors",
+      "threat_score": 5,
+      "tags": [
+        "AccuSense impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Learn More",
+      "summary": "G&W Electric update: Learn More",
+      "url": "https://www.gwelectric.com/product/viper-st-recloser/",
+      "published": "2026-03-31T13:38:55+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Learn More",
+      "summary": "G&W Electric update: Learn More",
+      "url": "https://www.gwelectric.com/switchgear/trident-solid-dielectric-switchgear/",
+      "published": "2026-04-15T19:28:15+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "read more",
+      "summary": "G&W Electric update: read more",
+      "url": "https://www.gwelectric.com/news/gw-electric-acquires-smart-grid-solution-provider-safegrid/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "Discover Viper®-HV",
+      "summary": "G&W Electric update: Discover Viper®-HV",
+      "url": "https://www.gwelectric.com/product/viper-hv-recloser/",
+      "published": "2026-03-27T18:24:43+00:00",
+      "discovered_at": "2026-06-18T19:37:49Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
       "title": "Inbound Transportation Routing",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
+      "summary": "Detected datasheet, catalog, manual, or specification document.",
       "url": "https://www.gwelectric.com/wp-content/uploads/2026/04/GW-Inbound-Transportation-Routing-Instructions-2026.pdf",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:21Z",
+      "discovered_at": "2026-06-18T19:37:49Z",
       "category": "Datasheet",
       "threat_score": 4,
       "tags": [
@@ -274,11 +416,193 @@
     },
     {
       "company": "S&C Electric",
-      "title": "S&C Electric Company",
-      "summary": "S&C Electric Company Company Careers Sustainability Support Customer Portal Language English Español Português 中文 Industries & Solutions Back Industries Hide Solutions Back Airports Data Centers Engineers Government & Military Healthcare Mining Universities Wastewater Treatment View All Solutions Back Back Advancing Resilience Commercial & Industri",
-      "url": "https://www.sandc.com/",
+      "title": "Engineers",
+      "summary": "S&C Electric update: Engineers",
+      "url": "https://www.sandc.com/en/products--services/products/vista-vistagreen-underground-distribution-switchgear-ci/crash-course/",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:22Z",
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Automation Products - Communication, Control & Software",
+      "summary": "S&C Electric update: Automation Products - Communication, Control & Software",
+      "url": "https://www.sandc.com/en/products--services/products/?c=194",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Automation Products - Switching Equipment",
+      "summary": "S&C Electric update: Automation Products - Switching Equipment",
+      "url": "https://www.sandc.com/en/products--services/products/?c=195",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Cypoxy",
+      "summary": "S&C Electric update: Cypoxy",
+      "url": "https://www.sandc.com/en/products--services/products/?c=196",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Fusing Equipment - Outdoor Distribution",
+      "summary": "S&C Electric update: Fusing Equipment - Outdoor Distribution",
+      "url": "https://www.sandc.com/en/products--services/?c=199",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Fusing Equipment - Outdoor Transmission",
+      "summary": "S&C Electric update: Fusing Equipment - Outdoor Transmission",
+      "url": "https://www.sandc.com/en/products--services/?c=198",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Fusing Equipment - Indoor Distribution",
+      "summary": "S&C Electric update: Fusing Equipment - Indoor Distribution",
+      "url": "https://www.sandc.com/en/products--services/?c=285",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Handling Tools",
+      "summary": "S&C Electric update: Handling Tools",
+      "url": "https://www.sandc.com/en/products--services/?c=201",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Metal-Enclosed Switchgear - Outdoor & Indoor Distribution",
+      "summary": "S&C Electric update: Metal-Enclosed Switchgear - Outdoor & Indoor Distribution",
+      "url": "https://www.sandc.com/en/products--services/?c=202",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Reclosers - Outdoor Distribution",
+      "summary": "S&C Electric update: Reclosers - Outdoor Distribution",
+      "url": "https://www.sandc.com/en/products--services/?c=204",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "PulseClosing® Technology",
+      "summary": "S&C Electric update: PulseClosing® Technology",
+      "url": "https://www.sandc.com/en/products--services/products/?c=326",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Reclosers",
+      "threat_score": 4,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Software",
+      "summary": "S&C Electric update: Software",
+      "url": "https://www.sandc.com/en/products--services/products/?c=210",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Switching Equipment - Outdoor Transmission & Substation",
+      "summary": "S&C Electric update: Switching Equipment - Outdoor Transmission & Substation",
+      "url": "https://www.sandc.com/en/products--services/?c=205",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Switching Equipment - Overhead Distribution",
+      "summary": "S&C Electric update: Switching Equipment - Overhead Distribution",
+      "url": "https://www.sandc.com/en/products--services/?c=206",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Switching Equipment - Indoor Distribution",
+      "summary": "S&C Electric update: Switching Equipment - Indoor Distribution",
+      "url": "https://www.sandc.com/en/products--services/products/?c=207",
+      "published": null,
+      "discovered_at": "2026-06-18T19:37:56Z",
       "category": "Market Update",
       "threat_score": 4,
       "tags": [
@@ -379,19 +703,6 @@
       "threat_score": 5,
       "tags": [
         "Trident impact"
-      ]
-    },
-    {
-      "company": "ABB",
-      "title": "ABB Group | Helping industries outrun – leaner and cleaner | ABB",
-      "summary": "ABB Group | Helping industries outrun – leaner and cleaner | ABB Skip to main content Enabling Industries to be more sustainable and resource-efficient We help industries become more productive, efficient and sustainable so they can outperform, or as we say – ‘outrun’. industries Building for tomorrow The $13 trillion global buildings and construct",
-      "url": "https://global.abb/",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:24Z",
-      "category": "Market Update",
-      "threat_score": 4,
-      "tags": [
-        "Watch item"
       ]
     },
     {
@@ -636,13 +947,169 @@
     },
     {
       "company": "Siemens",
-      "title": "Siemens home | Siemens",
-      "summary": "Siemens home | Siemens Skip to main content Home What if AI could do an engineer’s most tedious work? We’ve launched the Eigen Engineering Agent, purpose-built AI for industrial automation engineering. It moves AI beyond generating suggestions to executing engineering tasks end-to-end. Now available for more than 600,000 TIA Portal users. Start fre",
-      "url": "https://www.siemens.com/",
+      "title": "Start free trial",
+      "summary": "Siemens update: Start free trial",
+      "url": "https://www.siemens.com/en-us/products/tia-portal/eigen-engineering-agent/",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:41Z",
+      "discovered_at": "2026-06-18T19:38:34Z",
       "category": "Market Update",
-      "threat_score": 5,
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Explore Building X",
+      "summary": "Siemens update: Explore Building X",
+      "url": "https://www.siemens.com/en-us/products/building-x/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Read the story",
+      "summary": "Siemens update: Read the story",
+      "url": "https://www.siemens.com/en-us/company/insights/success-stories/natura-digital-twin-amazon-agroindustry/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Customer story all AI on the family farm helps a robot pick strawberries Meet Fravebot. It monitors plant health, spots pests early and predicts harvests two weeks out. It learned how in a digital twin first. Read customer story",
+      "summary": "Siemens update: Customer story all AI on the family farm helps a robot pick strawberries Meet Fravebot. It monitors plant health, spots pests early and predicts harvests two weeks out. It learned how in a digital twin first. Read customer story",
+      "url": "https://www.siemens.com/en-us/company/insights/rajecek-fravebot-agriculture-monitoring-harvesting/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Go to marketplace",
+      "summary": "Siemens update: Go to marketplace",
+      "url": "https://www.siemens.com/en-us/products/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/electrification-x/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/simcenter/mechanical-simulation/femap/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/gridscale-x/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/cad-cam-software/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/designcenter/solid-edge/solid-edge-x/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Learn more",
+      "summary": "Siemens update: Learn more",
+      "url": "https://www.siemens.com/en-us/products/avasis-teamcenter-medical-device-solution-tc-mds/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Productive Machines Unlocking manufacturing productivity directly in NX CAM Learn more",
+      "summary": "Siemens update: Productive Machines Unlocking manufacturing productivity directly in NX CAM Learn more",
+      "url": "https://www.siemens.com/en-us/ecosystem/productive-machines/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "History Transforming the everyday since 1847. Read more",
+      "summary": "Siemens update: History Transforming the everyday since 1847. Read more",
+      "url": "https://www.siemens.com/en-us/company/history-heritage/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:34Z",
+      "category": "Market Update",
+      "threat_score": 4,
       "tags": [
         "Watch item"
       ]
@@ -829,19 +1296,6 @@
       ]
     },
     {
-      "company": "Schneider Electric",
-      "title": "Access Denied",
-      "summary": "Access Denied Access Denied You don't have permission to access \"http://www.se.com/\" on this server. Reference #18.836d3e17.1781811044.45306ae6 https://errors.edgesuite.net/18.836d3e17.1781811044.45306ae6",
-      "url": "https://www.se.com/",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:44Z",
-      "category": "Market Update",
-      "threat_score": 4,
-      "tags": [
-        "Watch item"
-      ]
-    },
-    {
       "company": "NOJA Power",
       "title": "NOJA Power supplies electrical equipment aid to Ukraine - Energy Source & Distribution",
       "summary": "NOJA Power supplies electrical equipment aid to Ukraine Energy Source & Distribution",
@@ -926,19 +1380,6 @@
       ]
     },
     {
-      "company": "NOJA Power",
-      "title": "Vercel Security Checkpoint",
-      "summary": "Vercel Security Checkpoint We're verifying your browser Website owner? Click here to fix Vercel Security Checkpoint | sfo1::1781811045-yGTUbn0jjwoVJBGu9t5MF0n6Luh1oImf Enable JavaScript to continue Vercel Security Checkpoint | sfo1::1781811045-yGTUbn0jjwoVJBGu9t5MF0n6Luh1oImf",
-      "url": "https://www.nojapower.com/",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:45Z",
-      "category": "Market Update",
-      "threat_score": 4,
-      "tags": [
-        "Watch item"
-      ]
-    },
-    {
       "company": "Tavrida Electric",
       "title": "Recloser Market Size to Hit Around USD 2.54 Billion By 2035 - Precedence Research",
       "summary": "Recloser Market Size to Hit Around USD 2.54 Billion By 2035 Precedence Research",
@@ -976,11 +1417,11 @@
     },
     {
       "company": "Tavrida Electric",
-      "title": "Tavrida Electric",
-      "summary": "Tavrida Electric Solutions Vacuum Circuit Breakers 12 - 24 kV Automatic Circuit Reclosers 15 - 27 kV Industries Support Сontact form Documents TRAININGS AND WEBINARS EN Germany Select other country Today nearly 3000 people around the world are employed by Tavrida Electric. More than 70 divisions are operating in 22 countries worldwide. Tavrida Elec",
-      "url": "https://www.tavrida.com/",
-      "published": "19.06.2020",
-      "discovered_at": "2026-06-18T19:30:45Z",
+      "title": "Automatic Circuit Reclosers",
+      "summary": "Tavrida Electric update: Automatic Circuit Reclosers",
+      "url": "https://www.tavrida.com/tena/solutions/automatic-circuit-reclosers/",
+      "published": null,
+      "discovered_at": "2026-06-18T19:38:45Z",
       "category": "Reclosers",
       "threat_score": 5,
       "tags": [
@@ -988,12 +1429,181 @@
       ]
     },
     {
-      "company": "Hubbell",
-      "title": "Hubbell Incorporated | Electrify & Energize | Hubbell",
-      "summary": "Hubbell Incorporated | Electrify & Energize | Hubbell Welcome to Hubbell Our Brands Careers Sustainability LOGIN MY LISTS Products Data & Communications Electrical & Electronic Lighting & Controls Power & Utilities ADSS Hardware Deadends Suspensions Vibration Control Anchoring Anchor Installation Tools Cross Plate Disk Anchor & Rod Expanding Expand",
-      "url": "https://www.hubbell.com/",
+      "company": "Tavrida Electric",
+      "title": "More than 50 000 reclosers",
+      "summary": "Tavrida Electric update: More than 50 000 reclosers",
+      "url": "https://www.tavrida.com/tena/solutions/automatic-circuit-reclosers/tavrida-reclosers/",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:47Z",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "TEL's Reclosers for Solar United Neighbors US Community",
+      "summary": "Tavrida Electric update: TEL's Reclosers for Solar United Neighbors US Community",
+      "url": "https://www.tavrida.com/tena/media/news/tavrida-reclosers-for-solar-united-neighbors-us/",
+      "published": "19.10.2021",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Reclosers",
+      "threat_score": 5,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Installed the First Batch of a New Product 10kV Three-Phase Draw-out Unit Basing Single-Phase Circuit Breaker VCB15_MD3",
+      "summary": "Tavrida Electric update: Installed the First Batch of a New Product 10kV Three-Phase Draw-out Unit Basing Single-Phase Circuit Breaker VCB15_MD3",
+      "url": "https://www.tavrida.com/tena/media/news/installed-the-first-batch-of-a-new-product-10kv-three-phase-draw-out-unit-basing-single-phase-circui/",
+      "published": "30.04.2021",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 5,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Installation of Dual-Rated 25/15kV Switchgear at a Large Commercial Tower Downtown Vancouver",
+      "summary": "Tavrida Electric update: Installation of Dual-Rated 25/15kV Switchgear at a Large Commercial Tower Downtown Vancouver",
+      "url": "https://www.tavrida.com/tena/media/news/installation-of-dual-rated-25-15kv-switchgear-at-vancouver/",
+      "published": "17.02.2021",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "No need to choose between a medium voltage contactor and a circuit breaker",
+      "summary": "Tavrida Electric update: No need to choose between a medium voltage contactor and a circuit breaker",
+      "url": "https://www.tavrida.com/tena/media/news/no-need-to-choose-between-medium-voltage-contactor-and-a-circuit-breaker/",
+      "published": "19.06.2020",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "New Tavrida Electric Switchgear - SmartRMU Passes Type Tests",
+      "summary": "Tavrida Electric update: New Tavrida Electric Switchgear - SmartRMU Passes Type Tests",
+      "url": "https://www.tavrida.com/tena/media/news/new-tavrida-electric-switchgear-smartrmu-passes-type-tests/",
+      "published": "30.07.2019",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Switchgear",
+      "threat_score": 4,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "The MD Portable Demo Unit",
+      "summary": "Tavrida Electric update: The MD Portable Demo Unit",
+      "url": "https://www.tavrida.com/tena/media/news/the-md-portable-demo-unit/",
+      "published": "01.07.2019",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Tavrida Raises The Bar",
+      "summary": "Tavrida Electric update: Tavrida Raises The Bar",
+      "url": "https://www.tavrida.com/tena/media/news/tavrida-raises-the-bar/",
+      "published": "26.03.2019",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Hannover Messe 2019, April 1-5",
+      "summary": "Tavrida Electric update: Hannover Messe 2019, April 1-5",
+      "url": "https://www.tavrida.com/tena/media/news/hannover-messe-2019-april-1-5-/",
+      "published": "21.02.2019",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Tavrida thanks everyone at DistribuTECH 2019",
+      "summary": "Tavrida Electric update: Tavrida thanks everyone at DistribuTECH 2019",
+      "url": "https://www.tavrida.com/tena/media/news/tavrida-thanks-everyone-at-distributech-2019/",
+      "published": "18.02.2019",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Celebrating 10 Years @ DistribuTECH",
+      "summary": "Tavrida Electric update: Celebrating 10 Years @ DistribuTECH",
+      "url": "https://www.tavrida.com/tena/media/news/celebrating-10-years-distributech/",
+      "published": "19.12.2018",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "The New Generation of Tavrida Electric Circuit Breakers",
+      "summary": "Tavrida Electric update: The New Generation of Tavrida Electric Circuit Breakers",
+      "url": "https://www.tavrida.com/tena/media/news/the-new-generation-of-tavrida-electric-circuit-breakers/",
+      "published": "29.06.2018",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Tavrida Electric on AUW 2018",
+      "summary": "Tavrida Electric update: Tavrida Electric on AUW 2018",
+      "url": "https://www.tavrida.com/tena/media/news/tavrida-electric-on-auw-2018/",
+      "published": "19.06.2018",
+      "discovered_at": "2026-06-18T19:38:45Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Tavrida Electric",
+      "title": "Tavrida Electric at Hannover Messe 2018",
+      "summary": "Tavrida Electric update: Tavrida Electric at Hannover Messe 2018",
+      "url": "https://www.tavrida.com/tena/media/news/tavrida-electric-at-hannover-messe-2018/",
+      "published": "07.05.2018",
+      "discovered_at": "2026-06-18T19:38:45Z",
       "category": "Market Update",
       "threat_score": 4,
       "tags": [
@@ -1002,15 +1612,197 @@
     },
     {
       "company": "Hubbell",
-      "title": "Read More",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
-      "url": "https://hubbellcdn.com/ohwassets/Hubbell/ESG/Documents/Hubbell-2026-Sustainability-Report.pdf",
+      "title": "Data & Communications",
+      "summary": "Hubbell update: Data & Communications",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/cl/535410",
       "published": null,
-      "discovered_at": "2026-06-18T19:30:47Z",
-      "category": "Datasheet",
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
       "threat_score": 4,
       "tags": [
-        "PDF/datasheet"
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Electrical & Electronic",
+      "summary": "Hubbell update: Electrical & Electronic",
+      "url": "https://www.hubbell.com/hubbell/en/products/electrical-electronic/cl/535411",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Lighting & Controls",
+      "summary": "Hubbell update: Lighting & Controls",
+      "url": "https://www.hubbell.com/hubbell/en/products/lighting-controls/cl/535409",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Power & Utilities",
+      "summary": "Hubbell update: Power & Utilities",
+      "url": "https://www.hubbell.com/hubbell/en/products/power-utilities/cl/535412",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "ADSS Hardware",
+      "summary": "Hubbell update: ADSS Hardware",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/adss-hardware/cl/2862172",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Deadends",
+      "summary": "Hubbell update: Deadends",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/adss-hardware/deadends/cl/2862173",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Suspensions",
+      "summary": "Hubbell update: Suspensions",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/adss-hardware/suspensions/c/2862177",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Vibration Control",
+      "summary": "Hubbell update: Vibration Control",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/adss-hardware/vibration-control/c/2862178",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Anchoring",
+      "summary": "Hubbell update: Anchoring",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/cl/2862187",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Anchor Installation Tools",
+      "summary": "Hubbell update: Anchor Installation Tools",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/anchor-installation-tools/cl/2862190",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Cross Plate",
+      "summary": "Hubbell update: Cross Plate",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/cross-plate/c/2862211",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Disk Anchor & Rod",
+      "summary": "Hubbell update: Disk Anchor & Rod",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/disk-anchor-rod/c/2862212",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Expanding",
+      "summary": "Hubbell update: Expanding",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/expanding/c/2862225",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Expanding/Plate Anchor Rod & Extension",
+      "summary": "Hubbell update: Expanding/Plate Anchor Rod & Extension",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/anchoring/expandingplate-anchor-rod-extension/c/2862226",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "Hubbell",
+      "title": "Antenna/AP/Enclosure Mounts",
+      "summary": "Hubbell update: Antenna/AP/Enclosure Mounts",
+      "url": "https://www.hubbell.com/hubbell/en/products/data-communications/antennaapenclosure-mounts/cl/15647854",
+      "published": null,
+      "discovered_at": "2026-06-18T19:39:04Z",
+      "category": "Market Update",
+      "threat_score": 4,
+      "tags": [
+        "Watch item"
       ]
     },
     {
@@ -1022,62 +1814,6 @@
       "category": "Sensors",
       "threat_score": 5,
       "tags": [
-        "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Lindsey Systems",
-      "title": "Lindsey Electric Transmission & Distribution Equipment and ComponentsLindsey Systems",
-      "summary": "Lindsey Electric Transmission & Distribution Equipment and ComponentsLindsey Systems ERS Lindsey ERS Construction Methods ERS Comparison Table Training and Software Sensors Sensors by Lindsey Transmission Line Conductor Monitor Overhead Sensors Switchgear Sensors Tower Security DLR AAR Wildfire Hardware Hardware by Lindsey T&D Assemblies T&D Fittin",
-      "url": "https://www.lindsey-usa.com/",
-      "published": "2025-09-22T17:35:43+00:00",
-      "discovered_at": "2026-06-18T19:30:51Z",
-      "category": "Sensors",
-      "threat_score": 6,
-      "tags": [
-        "AccuSense impact",
-        "Trident impact"
-      ]
-    },
-    {
-      "company": "Lindsey Systems",
-      "title": "Ring-Style current sensors",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
-      "url": "https://lindsey-usa.com/wp-content/uploads/2025/03/09F-020-METERING-RINGS-3-2025.pdf",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:51Z",
-      "category": "Datasheet",
-      "threat_score": 6,
-      "tags": [
-        "PDF/datasheet",
-        "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Lindsey Systems",
-      "title": "LEA-input versions of SEL-700 Series Relays",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
-      "url": "https://lindsey-usa.com/wp-content/uploads/2025/04/09F-019-LEA-SENSORS-4-2025.pdf",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:51Z",
-      "category": "Datasheet",
-      "threat_score": 5,
-      "tags": [
-        "PDF/datasheet",
-        "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Lindsey Systems",
-      "title": "LPIT versions of Siemens SIPROTEC 5 Relays",
-      "summary": "Detected possible datasheet, catalog, manual, or specification document.",
-      "url": "https://lindsey-usa.com/wp-content/uploads/2025/05/09F-021-LIPT-SENSORS-SIEMENS-5-2025.pdf",
-      "published": null,
-      "discovered_at": "2026-06-18T19:30:51Z",
-      "category": "Datasheet",
-      "threat_score": 5,
-      "tags": [
-        "PDF/datasheet",
         "AccuSense impact"
       ]
     }
