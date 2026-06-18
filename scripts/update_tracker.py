@@ -23,18 +23,41 @@ PRODUCT_DOMAINS = {
     "Cables & accessories": ["cable", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box", "accessor"],
 }
 
-# Signals that an item is a NEW innovation / invention / study (qualifies for Threat track).
-INNOVATION_SIGNALS = [
-    "launch", "launches", "launched", "new product", "unveil", "unveils", "unveiled",
-    "introduce", "introduces", "introduced", "patent", "patented", "invention", "invents",
-    "invented", "breakthrough", "first", "next-generation", "next generation",
-    "study", "studies", "research", "white paper", "whitepaper", "paper", "trial", "pilot",
-    "prototype", "develops", "developed", "developing", "innovation", "innovative",
-    "debut", "debuts", "release", "releases", "released", "announces", "announced", "new ",
+# Innovation VERBS — these signal a new development, but only count when paired with a product noun.
+INNOVATION_VERBS = [
+    "launch", "launches", "launched", "unveil", "unveils", "unveiled",
+    "introduce", "introduces", "introduced", "patent", "patented", "invents",
+    "invented", "develops", "developed", "developing", "debut", "debuts",
+    "release", "releases", "released", "new", "next-generation", "next generation",
+    "breakthrough", "prototype", "innovation", "innovative", "first",
 ]
 
-# Stronger signals that earn the +1 bump on top of the recency base.
-STRONG_SIGNALS = ["launch", "patent", "new product", "invention", "breakthrough", "unveil", "debut"]
+# Concrete PRODUCT NOUNS — a real piece of MV equipment. Innovation only counts with one of these.
+PRODUCT_NOUNS = [
+    "recloser", "reclosers", "intellirupter", "switchgear", "rmu", "ring main unit",
+    "sensor", "sensors", "voltage sensor", "current sensor", "cable", "termination",
+    "splice", "joint", "elbow", "separable connector", "circuit breaker", "breaker",
+    "fault current limiter", "limiter", "panel", "viper", "trident", "accusense",
+    "airset", "xiria", "safering", "pulsecloser", "8djh", "vls", "keva",
+]
+
+# Words that signal a STUDY/RESEARCH PAPER (counts as innovation only if a product noun is also present).
+STUDY_SIGNALS = ["study", "studies", "research paper", "white paper", "whitepaper",
+                 "journal", "peer-reviewed", "findings", "test results", "trial", "pilot"]
+
+# DISQUALIFYING NOUNS — if any appears, the item is NOT a product innovation (blocks the Threat track),
+# even if an innovation verb and a product noun are present. These are corporate/marketing artifacts.
+DISQUALIFYING_NOUNS = [
+    "community", "research community", "award", "awards", "anniversary", "campaign",
+    "portal", "website", "web site", "survey", "blog", "podcast", "webinar", "newsletter",
+    "initiative", "program", "programme", "partnership", "collaboration", "framework",
+    "agreement", "conference", "tradeshow", "trade show", "booth", "exhibition",
+    "celebrates", "celebrating", "years of", "milestone", "appoints", "appointment",
+    "hires", "names", "scholarship", "grant program", "foundation", "sponsorship",
+]
+
+# Stronger verbs that earn the +1 bump (only applied once an item already qualifies as a Threat).
+STRONG_SIGNALS = ["launch", "patent", "unveil", "invents", "invented", "breakthrough", "debut"]
 
 # HARD market signals — explicit market reports/forecasts AND unambiguous corporate news.
 # These ALWAYS mean Market Insight, even if innovation-ish words also appear.
@@ -52,7 +75,8 @@ HARD_MARKET_SIGNALS = [
 # SOFT signals — business news. Market Insight ONLY if the item isn't a product innovation.
 SOFT_MARKET_SIGNALS = [
     "invests", "investment", "expands manufacturing", "expand manufacturing",
-    "manufacturing operations", "partnership", "partner ", "community",
+    "manufacturing operations", "partnership", "partner ", "community", "initiative",
+    "collaboration", "award", "appoints", "hires",
 ]
 
 
@@ -125,25 +149,49 @@ def months_between(published_iso, captured_iso):
         return 0
 
 
+def is_product_innovation(text):
+    """
+    A REAL product innovation requires an innovation verb (or study signal) paired with a
+    concrete product noun — and NO disqualifying noun present. This is the combination rule:
+    a single word like 'launches' is not enough; it must be 'launches [a recloser]', not
+    'launches [a community]'.
+    """
+    t = text.lower()
+
+    # Disqualifier wins: community / award / partnership / anniversary etc. -> never a product innovation.
+    if any(n in t for n in DISQUALIFYING_NOUNS):
+        return False
+
+    has_product_noun = any(n in t for n in PRODUCT_NOUNS)
+    if not has_product_noun:
+        return False  # no real equipment mentioned -> not a product innovation
+
+    has_verb = any(v in t for v in INNOVATION_VERBS)
+    has_study = any(s in t for s in STUDY_SIGNALS)
+
+    # Innovation verb + product noun, OR study signal + product noun.
+    return has_verb or has_study
+
+
 def classify(text, published_iso, captured_iso):
     """
     Three-bucket classifier.
 
     Returns a dict: {bucket, threat_score, domain}
-      - "Threat":         product-domain item that is a new innovation/invention/study (recency-scored).
-      - "Market Insight": market reports/forecasts, or corporate/business news that isn't a product innovation.
+      - "Threat":         innovation VERB + real PRODUCT NOUN, with no disqualifying noun (recency-scored).
+      - "Market Insight": market reports/forecasts, or corporate/business news (community, award, M&A, etc.).
       - "Alert":          product-relevant but routine (datasheet, certification, generic page), or low-relevance.
     """
     domain = product_domain(text)
-    is_innovation = has_any(text, INNOVATION_SIGNALS)
+    is_innovation = is_product_innovation(text)           # NEW: requires the verb+noun combination
     is_hard_market = has_any(text, HARD_MARKET_SIGNALS)   # "market size", "CAGR", "forecast" -> always market
-    is_soft_market = has_any(text, SOFT_MARKET_SIGNALS)   # "invests", "partnership" -> market only if not an innovation
+    is_soft_market = has_any(text, SOFT_MARKET_SIGNALS)   # "invests", "partnership", "community" -> market if not innovation
 
-    # 1. Hard market language ALWAYS wins — these are market reports, period.
+    # 1. Hard market language ALWAYS wins — these are market reports/corporate events, period.
     if is_hard_market:
         return {"bucket": "Market Insight", "threat_score": None, "domain": domain}
 
-    # 2. Genuine product innovation/invention/study -> Threat (even if soft business words appear).
+    # 2. Genuine product innovation (verb + product noun, no disqualifier) -> Threat, recency-scored.
     if domain and is_innovation:
         months = months_between(published_iso, captured_iso) if published_iso else 0
         score = 8.0 - 0.5 * months           # month bucket 0 = within 1 month = 8
@@ -152,7 +200,7 @@ def classify(text, published_iso, captured_iso):
             score = min(10.0, score + 1.0)
         return {"bucket": "Threat", "threat_score": round(score, 1), "domain": domain}
 
-    # 3. Soft business/corporate news that's NOT an innovation -> Market Insight.
+    # 3. Soft business/corporate news that's NOT a product innovation -> Market Insight.
     if is_soft_market:
         return {"bucket": "Market Insight", "threat_score": None, "domain": domain}
 
