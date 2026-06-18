@@ -1,0 +1,176 @@
+{
+  "generated_at": "2026-06-18T20:17:03Z",
+  "window_days": 60,
+  "items": [
+    {
+      "company": "Schneider Electric",
+      "title": "Schneider Electric launches new SM AirSeT SF6-free switchgear range",
+      "summary": "Schneider Electric launches new SM AirSeT SF6-free switchgear range",
+      "url": "https://example.com/schneider-electric-launches-new-sm-airse",
+      "published": "2026-06-12T20:17:03Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 9.0,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "Siemens develops next-generation SF6-free medium-voltage switchgear",
+      "summary": "Siemens develops next-generation SF6-free medium-voltage switchgear",
+      "url": "https://example.com/siemens-develops-next-generation-sf6-fre",
+      "published": "2026-06-03T20:17:03Z",
+      "category": "Switchgear",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "ABB",
+      "title": "How SF6-free switchgear support the transition to EU compliant 24 kV networks",
+      "summary": "How SF6-free switchgear support the transition to EU compliant 24 kV networks",
+      "url": "https://example.com/how-sf6-free-switchgear-support-the-tran",
+      "published": "2026-06-02T20:17:03Z",
+      "category": "Switchgear",
+      "bucket": "Alert",
+      "threat_score": null,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "S&C unveils new IntelliRupter PulseCloser recloser automation",
+      "summary": "S&C unveils new IntelliRupter PulseCloser recloser automation",
+      "url": "https://example.com/s&c-unveils-new-intellirupter-pulseclose",
+      "published": "2026-06-14T20:17:03Z",
+      "category": "Reclosers",
+      "bucket": "Threat",
+      "threat_score": 9.0,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "Schneider Electric",
+      "title": "Partial Discharge Detection Sensors study published in Nature",
+      "summary": "Partial Discharge Detection Sensors study published in Nature",
+      "url": "https://example.com/partial-discharge-detection-sensors-stud",
+      "published": "2026-06-16T20:17:03Z",
+      "category": "Sensors",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "tags": [
+        "AccuSense impact"
+      ]
+    },
+    {
+      "company": "Pfisterer",
+      "title": "New separable connector cable accessory introduced for 36kV",
+      "summary": "New separable connector cable accessory introduced for 36kV",
+      "url": "https://example.com/new-separable-connector-cable-accessory-",
+      "published": "2026-05-29T20:17:03Z",
+      "category": "Cables & accessories",
+      "bucket": "Threat",
+      "threat_score": 8.0,
+      "tags": [
+        "Cable impact"
+      ]
+    },
+    {
+      "company": "Fortune Business Insights",
+      "title": "Medium Voltage Recloser Market Size, Industry Share, Forecast to 2034",
+      "summary": "Medium Voltage Recloser Market Size, Industry Share, Forecast to 2034",
+      "url": "https://example.com/medium-voltage-recloser-market-size,-ind",
+      "published": "2026-06-08T20:17:03Z",
+      "category": "Reclosers",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "MarketsandMarkets",
+      "title": "Pad-Mounted Switchgear Market Report 2025-2030",
+      "summary": "Pad-Mounted Switchgear Market Report 2025-2030",
+      "url": "https://example.com/pad-mounted-switchgear-market-report-202",
+      "published": "2026-05-24T20:17:03Z",
+      "category": "Switchgear",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Precedence Research",
+      "title": "Recloser Market Size to Hit Around USD 2.54 Billion By 2035",
+      "summary": "Recloser Market Size to Hit Around USD 2.54 Billion By 2035",
+      "url": "https://example.com/recloser-market-size-to-hit-around-usd-2",
+      "published": "2026-05-16T20:17:03Z",
+      "category": "Reclosers",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "Viper impact"
+      ]
+    },
+    {
+      "company": "G&W Electric",
+      "title": "G&W Electric Acquires Smart Grid Solution Provider Safegrid",
+      "summary": "G&W Electric Acquires Smart Grid Solution Provider Safegrid",
+      "url": "https://example.com/g&w-electric-acquires-smart-grid-solutio",
+      "published": "2026-05-09T20:17:03Z",
+      "category": "Sensors",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "ABB",
+      "title": "ABB invests $200m to expand medium-voltage manufacturing across Europe",
+      "summary": "ABB invests $200m to expand medium-voltage manufacturing across Europe",
+      "url": "https://example.com/abb-invests-$200m-to-expand-medium-volta",
+      "published": "2026-05-14T20:17:03Z",
+      "category": "Switchgear",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "tags": [
+        "Watch item"
+      ]
+    },
+    {
+      "company": "ABB",
+      "title": "KEVA voltage sensor datasheet revision",
+      "summary": "KEVA voltage sensor datasheet revision",
+      "url": "https://example.com/keva-voltage-sensor-datasheet-revision",
+      "published": "2026-06-13T20:17:03Z",
+      "category": "Sensors",
+      "bucket": "Alert",
+      "threat_score": null,
+      "tags": [
+        "AccuSense impact",
+        "PDF/datasheet"
+      ]
+    },
+    {
+      "company": "S&C Electric",
+      "title": "Reclosers - Outdoor Distribution product page",
+      "summary": "Reclosers - Outdoor Distribution product page",
+      "url": "https://example.com/reclosers---outdoor-distribution-product",
+      "published": "2026-06-10T20:17:03Z",
+      "category": "Reclosers",
+      "bucket": "Alert",
+      "threat_score": null,
+      "tags": [
+        "Viper impact"
+      ]
+    }
+  ]
+}
