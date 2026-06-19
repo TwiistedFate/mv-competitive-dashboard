@@ -384,7 +384,7 @@ window.DB.competitors = [
     threatLevel: "Medium",
     website: "https://nuventura.com",
     overview:
-      "Nuventura is a venture-backed challenger building SF6-free (dry-air) GIS switchgear, licensing its technology to manufacturers — a disruptive, focused entrant in the eco-efficient switchgear race.",
+      "Nuventura is a Berlin-based pure-play building SF6-free (dry-air) GIS switchgear up to 36 kV. In April 2026 it was acquired by the Lucy Group, gaining the scale, capital, and global channel to move from niche technology licensor to volume competitor.",
     productsOffered: [
       "nu1 SF6-free (dry-air) GIS switchgear",
       "Licensable SF6-free switchgear technology"
@@ -398,14 +398,15 @@ window.DB.competitors = [
       "Young company, limited installed base/track record",
       "Narrow portfolio; depends on partners for scale"
     ],
-    partnerships: ["Manufacturing & licensing partners for SF6-free GIS"],
+    partnerships: ["Lucy Group (acquirer, 2026)", "CO7 Technologies (Canada/US market entry)", "Aktif Elektroteknik (manufacturing, Turkey)"],
     newProducts: [
-      { name: "nu1 deployments & partnerships", date: "2026-03-18", note: "New licensing/manufacturing agreements." }
+      { name: "Acquired by Lucy Group", date: "2026-04-06", note: "Lucy Group acquires 100% of Nuventura to scale SF6-free GIS globally." }
     ],
     strategicDirection:
-      "Win the SF6-free transition as a technology licensor and pure-play disruptor rather than a full-line OEM.",
+      "With Lucy Group's backing, scale dry-air SF6-free GIS from a niche licensor into a global volume competitor — including entry into North American distribution.",
     links: [
-      { label: "Site", url: "https://nuventura.com" }
+      { label: "Site", url: "https://www.nuventura.com" },
+      { label: "Lucy Group acquisition", url: "https://www.einpresswire.com/article/903344129/lucy-group-acquires-nuventura-gmbh-in-germany-to-expand-into-primary-sf6-free-switchgear" }
     ]
   }
 ];

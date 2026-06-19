@@ -23,74 +23,82 @@ window.DB = window.DB || {};
 window.DB.aiSummaries = [
   {
     id: "ai-abb-airplus",
-    whatHappened: "ABB expanded its AirPlus SF6-free switchgear range with additional voltage and current ratings, broadening eco-efficient coverage across primary and secondary distribution.",
-    whyItMatters: "It strengthens ABB's first-mover position in the SF6 phase-out and pressures every MV vendor to show a credible SF6-free roadmap to utilities writing it into specs.",
-    productImpact: "Directly competes with Trident SF6-free positioning; narrows G&W's 'no-SF6' messaging advantage in head-to-head bids.",
+    whatHappened: "ABB won a contract to supply its next-generation SF6-free SafeRing/SafePlus Air 24 kV secondary switchgear to E.ON, Germany's largest distribution system operator.",
+    whyItMatters: "A framework win with Europe's largest DSO validates ABB's eco-efficient portfolio at scale right as the EU F-gas ban on SF6 (≤24 kV) takes effect in 2026.",
+    productImpact: "Directly competes with Trident SF6-free positioning in Europe and sets a reference other DSOs will benchmark against.",
     threatLevel: "High",
-    recommendedAction: "Refresh Trident SF6-free comparison collateral vs. AirPlus; emphasize solid-dielectric and submersible advantages where AirPlus is weaker."
+    recommendedAction: "Refresh Trident vs. AirPlus comparison collateral; emphasize solid-dielectric and submersible advantages, and target North American utilities before EU momentum spills over."
   },
   {
     id: "ai-schneider-airset",
-    whatHappened: "Schneider extended the AirSeT range (pure-air + vacuum) with wider MV ratings and built-in digital sensors, marketed as 'digital by design'.",
-    whyItMatters: "Bundling SF6-free hardware with integrated sensing + EcoStruxure software is the combined hardware/software play that's hardest to counter on price alone.",
-    productImpact: "Pressures both Trident (switchgear) and AccuSense (sensors) by collapsing them into one integrated, digital offer.",
+    whatHappened: "Schneider Electric and E.ON signed a long-term agreement to accelerate deployment of SF6-free (AirSeT) medium-voltage switchgear across E.ON's networks.",
+    whyItMatters: "Two majors (ABB and Schneider) now hold large SF6-free framework agreements with E.ON — a strong signal that SF6-free is becoming the default procurement standard in Europe.",
+    productImpact: "Bundling AirSeT hardware with EcoStruxure digital pressures both Trident (switchgear) and AccuSense (sensors) as an integrated offer.",
     threatLevel: "High",
-    recommendedAction: "Position AccuSense + Trident as an equally integrated, open alternative without software lock-in; highlight interoperability."
+    recommendedAction: "Position AccuSense + Trident as an equally integrated, open alternative without software lock-in; build a head-to-head spec sheet vs. AirSeT."
   },
   {
     id: "ai-siemens-bluegis",
-    whatHappened: "Siemens grew its blue GIS clean-air (vacuum + dry air) switchgear portfolio with new ratings and form factors.",
-    whyItMatters: "Clean-air avoids any fluorinated gas entirely — a strong regulatory and sustainability story for European DSOs and increasingly North American utilities.",
-    productImpact: "Reinforces the SF6-free standard utilities expect; raises the bar for any vendor still relying on SF6 or alternative gases.",
+    whatHappened: "Siemens expanded its blue GIS clean-air switchgear (vacuum + natural-origin gases, GWP < 1) up to 24 kV, including NXPLUS C 24 and 8DJH variants free of fluorinated and PFAS gases.",
+    whyItMatters: "Clean-air avoids any fluorinated gas and the emerging PFAS scrutiny entirely — a powerful regulatory and sustainability story for utilities.",
+    productImpact: "Raises the bar for the whole market; reinforces that any SF6 or alternative-gas solution now looks dated.",
     threatLevel: "Medium",
-    recommendedAction: "Ensure Trident messaging clearly states zero fluorinated gas; prepare technical FAQ comparing solid-dielectric vs. clean-air."
+    recommendedAction: "Ensure Trident messaging clearly states zero fluorinated gas and zero PFAS exposure; prepare a solid-dielectric vs. clean-air technical FAQ."
   },
   {
     id: "ai-sandc-intellirupter",
-    whatHappened: "S&C released controller and communications enhancements for the IntelliRupter PulseCloser platform.",
-    whyItMatters: "Pulse-closing plus IntelliTeam self-healing remains the strongest combined recloser + automation story in North America.",
-    productImpact: "Directly pressures the Viper recloser line on advanced automation and FLISR integration.",
+    whatHappened: "At DTECH 2026, S&C announced a collaboration making SEL's upcoming SEL-651RD Advanced Digital Control an interoperable option for the IntelliRupter PulseCloser over a standard fiber interface.",
+    whyItMatters: "Opening IntelliRupter to a best-in-class third-party relay/control lets S&C address utilities that standardize on SEL — widening its addressable base while keeping PulseClosing's ~95% fault-energy reduction.",
+    productImpact: "Strengthens the IntelliRupter value proposition against the Viper line on both technology and ecosystem flexibility.",
     threatLevel: "High",
-    recommendedAction: "Quantify Viper total-cost and reliability advantages; partner or integrate Viper with leading FLISR/ADMS platforms to neutralize the software gap."
+    recommendedAction: "Evaluate Viper interoperability with SEL and other leading controls/ADMS; quantify Viper reliability and total-cost advantages to offset S&C's automation ecosystem."
   },
   {
     id: "ai-noja-osm",
-    whatHappened: "NOJA Power shipped controller and cyber-security/connectivity updates for the OSM recloser.",
-    whyItMatters: "NOJA competes hard on documentation, support, and value globally — strong in price-sensitive and international tenders.",
-    productImpact: "Pressures Viper primarily on price and global availability rather than core technology.",
+    whatHappened: "NOJA Power's RC-20 recloser control (from the ARENA Intelligent Switchgear project) was deployed across 100 units in Australia — described as the world's first large-scale synchrophasor measurement in an MV distribution network.",
+    whyItMatters: "Synchrophasor-grade measurement in a distribution recloser is a genuine grid-intelligence step that supports high-renewables networks, an area utilities are prioritizing.",
+    productImpact: "Pressures Viper on advanced measurement/analytics, especially in renewables-heavy and international markets where NOJA is strong.",
     threatLevel: "Medium",
-    recommendedAction: "Defend on integrated sensing and solid-dielectric reliability; review pricing in international bids where NOJA competes."
+    recommendedAction: "Assess AccuSense + Viper measurement capabilities vs. RC-20 synchrophasor claims; highlight integrated sensing and DER-hosting use cases."
   },
   {
-    id: "ai-nuventura-license",
-    whatHappened: "Nuventura announced new licensing/manufacturing partnerships for its nu1 dry-air SF6-free GIS switchgear.",
-    whyItMatters: "A licensing model lets a small disruptor scale SF6-free switchgear quickly through partners — potentially seeding many new competitors.",
-    productImpact: "Adds low-cost SF6-free GIS competition that could appear under multiple partner brands.",
+    id: "ai-schneider-grid",
+    whatHappened: "Schneider launched One Digital Grid Platform, unifying EcoStruxure ADMS, DERMS and ArcFM with AI-powered restoration-time estimates and an embedded Grid AI Assistant.",
+    whyItMatters: "Schneider is pushing from devices into recurring grid-software/AI revenue — the highest-margin, stickiest layer and the one hardest for hardware-led competitors to match.",
+    productImpact: "Indirect but strategic: deepens Schneider's account control at utilities, making it harder to displace its hardware downstream.",
     threatLevel: "Medium",
-    recommendedAction: "Monitor which manufacturers adopt the license; watch for nu1-based products entering North American distribution."
+    recommendedAction: "Pursue software partnerships (ADMS/DERMS) or the Safegrid investment so G&W hardware remains first-class inside multi-vendor software, not locked out."
+  },
+  {
+    id: "ai-nuventura-lucy",
+    whatHappened: "Lucy Group acquired 100% of Berlin-based Nuventura, a leader in primary SF6-free (dry-air) GIS up to 36 kV.",
+    whyItMatters: "A pure-play dry-air disruptor just gained the manufacturing scale, capital, and global channel of an established switchgear group — turning a niche technology licensor into a credible volume competitor.",
+    productImpact: "Adds a better-resourced SF6-free GIS competitor that could now reach North American distribution (Nuventura already signed a Canadian/US partner).",
+    threatLevel: "Medium",
+    recommendedAction: "Track Lucy/Nuventura's North American go-to-market and pricing; watch for dry-air GIS entering segments adjacent to Trident."
   },
   {
     id: "ai-eaton-xiria",
-    whatHappened: "Eaton expanded its Xiria SF6-free secondary switchgear offering.",
-    whyItMatters: "Leverages Eaton's large North American distribution and Cooper heritage to push SF6-free into the secondary market.",
-    productImpact: "Competes with Trident in secondary distribution, especially through Eaton's existing channel.",
+    whatHappened: "Eaton positioned its long-running SF6-free Xiria line (1M+ panels shipped, vacuum + solid insulation) as utilities navigate the EU SF6 phase-out.",
+    whyItMatters: "Eaton's decades of SF6-free shipments and broad North American channel make it a credible, low-risk choice for utilities wary of newer SF6-free designs.",
+    productImpact: "Competes with Trident in secondary distribution, leaning on installed-base trust and channel reach rather than novel technology.",
     threatLevel: "Medium",
-    recommendedAction: "Target accounts where channel access is the main differentiator; emphasize submersible and solid-dielectric strengths."
+    recommendedAction: "Target accounts where channel access is the main differentiator; emphasize submersible and solid-dielectric strengths and application engineering."
   },
   {
     id: "ai-lindsey-dlr",
-    whatHappened: "Lindsey highlighted growth in dynamic line rating and grid-edge sensing deployments.",
-    whyItMatters: "Utilities increasingly want more capacity from existing assets — driving demand for retrofittable sensing, an adjacent space to AccuSense.",
+    whatHappened: "Lindsey updated SMARTLINE, its dynamic line rating / capacity-forecasting solution, paired with high-accuracy (0.2% class) GEN2 line sensors.",
+    whyItMatters: "Utilities increasingly want more capacity from existing assets — driving demand for retrofittable sensing and DLR, an adjacent space to AccuSense.",
     productImpact: "Adjacent opportunity and mild competition for sensor mindshare; not a direct switchgear/recloser threat.",
     threatLevel: "Low",
-    recommendedAction: "Explore whether AccuSense can address line-monitoring/DLR use cases or partner where it cannot."
+    recommendedAction: "Explore whether AccuSense (plus the Safegrid investment) can address line-monitoring/DLR use cases, or partner where it cannot."
   },
   {
     id: "ai-market-sf6ban",
-    whatHappened: "Regulatory momentum (EU F-Gas revisions, US EPA actions, state-level rules) continues to tighten timelines for phasing out SF6 in new MV switchgear.",
-    whyItMatters: "Regulation, not just preference, is now forcing SF6-free procurement — accelerating replacement cycles across the industry.",
-    productImpact: "Tailwind for G&W's inherently SF6-free solid-dielectric portfolio if positioned aggressively.",
+    whatHappened: "ABB published guidance on preparing for the January 2026 EU F-gas ban on SF6 in new MV switchgear up to 24 kV (extending to 52 kV in 2030).",
+    whyItMatters: "Regulation — not just preference — is now forcing SF6-free procurement, compressing replacement cycles across the industry on a fixed timeline.",
+    productImpact: "Tailwind for G&W's inherently SF6-free solid-dielectric portfolio if positioned aggressively against the deadline.",
     threatLevel: "Low",
-    recommendedAction: "Lead sales conversations with the regulatory timeline; build a compliance-deadline calculator for utility customers."
+    recommendedAction: "Lead sales conversations with the regulatory timeline; build a compliance-deadline calculator and migration guide for utility customers."
   }
 ];

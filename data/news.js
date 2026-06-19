@@ -9,180 +9,230 @@
  *    2. `companyId`  must match an id in competitors.js.
  *    3. `category`   must match an id in categories.js.
  *    4. `date` is ISO format "YYYY-MM-DD".
- *    5. `aiSummaryId` (optional) links to a structured summary in
+ *    5. `source` is the DIRECT URL to the article/press release (this is what
+ *       the "Source" button opens — make it the exact article, not a homepage).
+ *    6. `aiSummaryId` (optional) links to a structured summary in
  *       ai-summaries.js. Leave it out if there's no AI summary yet.
- *    6. `threatLevel`, `region`, and `tags` feed the filters.
+ *    7. `threatLevel`, `region`, and `tags` feed the filters.
  *
- *  TIP: the existing Python crawler (scripts/update_tracker.py) can be adapted
- *  to append objects in this shape so news updates itself daily.
+ *  The items below are REAL, published articles with direct source links
+ *  (gathered June 2026). A few publication dates are approximate (month-level)
+ *  where the source didn't state an exact day — adjust if you have the precise
+ *  date. Keep this list current as new announcements appear.
  * ========================================================================== */
 
 window.DB = window.DB || {};
 
 window.DB.news = [
+  /* ------------------------------- G&W (you) ----------------------------- */
   {
-    id: "n-2026-0405-schneider-airset",
-    title: "Schneider extends AirSeT SF6-free range with wider MV ratings and built-in sensors",
-    companyId: "schneider",
-    category: "switchgear",
-    date: "2026-04-05",
-    region: "Europe",
-    threatLevel: "High",
+    id: "n-gw-viper-st-2025",
+    title: "G&W Electric unveils next-generation Viper-ST recloser at DISTRIBUTECH 2025",
+    companyId: "gw",
+    category: "reclosers",
+    date: "2025-03-24",
+    region: "North America",
+    threatLevel: "Low",
     type: "Product launch",
-    source: "https://www.se.com/ww/en/about-us/newsroom/news/",
-    summary: "Schneider broadened its AirSeT pure-air switchgear line and emphasized integrated digital sensing with EcoStruxure connectivity.",
-    aiSummaryId: "ai-schneider-airset",
-    tags: ["SF6-free", "Digital", "Sensors", "Launch"]
+    source: "https://www.gwelectric.com/news/gw-electric-unveils-next-generation-viper-st-recloser-at-distributech-2025/",
+    summary: "G&W launched the latest Viper-ST recloser with expanded ratings (up to 170 kV BIL, 1000 A continuous), supporting up to six external AccuSense voltage sensors and three external CTs for grid diagnostics.",
+    tags: ["Recloser", "Launch", "AccuSense", "DISTRIBUTECH"]
   },
   {
-    id: "n-2026-0305-abb-airplus",
-    title: "ABB expands AirPlus eco-efficient switchgear portfolio",
+    id: "n-gw-voltage-sensing-2025",
+    title: "G&W Electric unveils fully integrated voltage-sensing solution for switchgear",
+    companyId: "gw",
+    category: "sensors",
+    date: "2025-08-19",
+    region: "North America",
+    threatLevel: "Low",
+    type: "Product launch",
+    source: "https://www.businesswire.com/news/home/20250819441664/en/CORRECTING-and-REPLACING-GW-Electric-Unveils-Fully-Integrated-Voltage-Sensing-Solution-for-Smarter-Switchgear-Operations",
+    summary: "G&W introduced the AccuSense VS-27-UG voltage sensor — a fully integrated, factory-tested solution that improves grid visibility, supports predictive maintenance, and enables smarter switchgear operations.",
+    tags: ["Sensors", "AccuSense", "Switchgear", "Launch"]
+  },
+  {
+    id: "n-gw-safegrid-2025",
+    title: "G&W Electric invests in Safegrid to advance smart grid monitoring",
+    companyId: "gw",
+    category: "software",
+    date: "2025-04-23",
+    region: "North America",
+    threatLevel: "Low",
+    type: "Investment / partnership",
+    source: "https://www.businesswire.com/news/home/20250423923969/en/GW-Electric-Invests-in-Safegrid-to-Advance-Smart-Grid-Monitoring-and-Predictive-Technologies",
+    summary: "G&W made a strategic investment in Safegrid to expand its grid-monitoring and predictive-analytics capabilities — a move into the software/analytics layer adjacent to its hardware.",
+    tags: ["Software", "Monitoring", "Investment"]
+  },
+
+  /* --------------------------------- S&C -------------------------------- */
+  {
+    id: "n-sandc-sel-2026",
+    title: "S&C and SEL collaborate on interoperable control for IntelliRupter PulseCloser",
+    companyId: "sandc",
+    category: "reclosers",
+    date: "2026-02-02",
+    region: "North America",
+    threatLevel: "High",
+    type: "Partnership",
+    source: "https://www.sandc.com/en/news/sc-news/collaboration-delivers-an-interoperable-control-solution-that-expands-grid-modernization-options/",
+    summary: "At DTECH 2026, S&C announced a collaboration pairing the IntelliRupter PulseCloser with SEL's upcoming SEL-651RD Advanced Digital Control over a standard fiber interface — opening IntelliRupter to a third-party control option. PulseClosing reduces fault-testing energy by ~95% vs. conventional reclosers.",
+    aiSummaryId: "ai-sandc-intellirupter",
+    tags: ["Recloser", "Automation", "Interoperability", "DTECH"]
+  },
+
+  /* --------------------------------- ABB -------------------------------- */
+  {
+    id: "n-abb-eon-2025",
+    title: "ABB to supply next-generation SF6-free switchgear to E.ON in Germany",
     companyId: "abb",
     category: "switchgear",
-    date: "2026-03-05",
-    region: "Global",
-    threatLevel: "High",
-    type: "Product launch",
-    source: "https://new.abb.com/news",
-    summary: "ABB added ratings to its SF6-free AirPlus range, deepening eco-efficient coverage across distribution applications.",
-    aiSummaryId: "ai-abb-airplus",
-    tags: ["SF6-free", "Switchgear", "Launch"]
-  },
-  {
-    id: "n-2026-0318-nuventura-license",
-    title: "Nuventura signs new licensing partner for nu1 SF6-free GIS",
-    companyId: "nuventura",
-    category: "switchgear",
-    date: "2026-03-18",
+    date: "2025-07-15",
     region: "Europe",
-    threatLevel: "Medium",
-    type: "Partnership",
-    source: "https://nuventura.com",
-    summary: "Berlin-based Nuventura expanded its licensing model for dry-air SF6-free GIS switchgear with a new manufacturing partner.",
-    aiSummaryId: "ai-nuventura-license",
-    tags: ["SF6-free", "Partnership", "Disruptor"]
+    threatLevel: "High",
+    type: "Contract / deployment",
+    source: "https://new.abb.com/news/detail/127727/abb-will-supply-its-next-generation-sf6-free-switchgear-to-eon-in-germany",
+    summary: "ABB will supply SafeRing/SafePlus Air 24 kV secondary GIS to E.ON, Germany's largest DSO, as utilities move to meet the EU F-gas rules banning SF6 in new MV equipment up to 24 kV from 2026.",
+    aiSummaryId: "ai-abb-airplus",
+    tags: ["SF6-free", "Switchgear", "Utility win"]
   },
   {
-    id: "n-2026-0120-siemens-bluegis",
-    title: "Siemens grows blue GIS clean-air switchgear lineup",
+    id: "n-abb-sf6-transition-2025",
+    title: "ABB: Preparing for the 2026 SF6 transition — building resilient grids",
+    companyId: "abb",
+    category: "switchgear",
+    date: "2025-10-01",
+    region: "Global",
+    threatLevel: "Medium",
+    type: "Market / regulatory",
+    source: "https://new.abb.com/news/detail/131007/preparing-for-the-2026-sf6-transition-building-resilient-grids",
+    summary: "ABB outlines how utilities should prepare for the January 2026 EU ban on SF6 in new MV switchgear up to 24 kV, positioning its eco-efficient portfolio for the transition.",
+    aiSummaryId: "ai-market-sf6ban",
+    tags: ["SF6-free", "Regulatory", "Market"]
+  },
+
+  /* ------------------------------- Siemens ------------------------------ */
+  {
+    id: "n-siemens-bluegis-24kv",
+    title: "Siemens expands sustainable, digital blue GIS switchgear to 24 kV",
     companyId: "siemens",
     category: "switchgear",
-    date: "2026-01-20",
+    date: "2024-11-05",
     region: "Europe",
     threatLevel: "Medium",
     type: "Product update",
-    source: "https://press.siemens.com/global/en/pressreleases",
-    summary: "Siemens added ratings and form factors to its clean-air (vacuum + dry air) blue GIS switchgear family.",
+    source: "https://press.siemens.com/global/en/pressrelease/siemens-expands-sustainable-and-digital-switchgear-range-primary-distribution-24kv",
+    summary: "Siemens extended its blue GIS clean-air (vacuum + natural-origin gases, GWP < 1) primary switchgear up to 24 kV, including NXPLUS C 24 and 8DJH variants, free of fluorinated and PFAS gases.",
     aiSummaryId: "ai-siemens-bluegis",
     tags: ["SF6-free", "Clean air", "Switchgear"]
   },
+
+  /* ----------------------------- Schneider ----------------------------- */
   {
-    id: "n-2026-0210-sandc-intellirupter",
-    title: "S&C enhances IntelliRupter PulseCloser controller and communications",
-    companyId: "sandc",
-    category: "reclosers",
-    date: "2026-02-10",
-    region: "North America",
+    id: "n-schneider-eon-2025",
+    title: "Schneider Electric and E.ON sign long-term SF6-free MV switchgear agreement",
+    companyId: "schneider",
+    category: "switchgear",
+    date: "2025-08-04",
+    region: "Europe",
     threatLevel: "High",
-    type: "Product update",
-    source: "https://www.sandc.com/en/company/newsroom/",
-    summary: "S&C released controller and communications updates strengthening IntelliRupter integration with IntelliTeam self-healing.",
-    aiSummaryId: "ai-sandc-intellirupter",
-    tags: ["Recloser", "Automation", "FLISR"]
+    type: "Partnership / contract",
+    source: "https://www.se.com/ww/en/about-us/newsroom/news/press-releases/schneider-electric-and-e-on-sign-long-term-agreement-to-accelerate-the-energy-transition-with-sf%E2%82%86-free-medium-voltage-switchgear-689049af9a959c665e0dd803/",
+    summary: "Schneider and E.ON signed a long-term agreement to accelerate deployment of SF6-free (AirSeT) medium-voltage switchgear across E.ON's networks — a major framework win in the SF6 phase-out.",
+    aiSummaryId: "ai-schneider-airset",
+    tags: ["SF6-free", "AirSeT", "Utility win"]
   },
   {
-    id: "n-2026-0225-noja-osm",
-    title: "NOJA Power updates OSM recloser controller and cyber-security module",
+    id: "n-schneider-grid-platform-2025",
+    title: "Schneider Electric debuts One Digital Grid Platform for utilities",
+    companyId: "schneider",
+    category: "software",
+    date: "2025-11-12",
+    region: "Global",
+    threatLevel: "Medium",
+    type: "Product launch",
+    source: "https://www.se.com/ww/en/about-us/newsroom/news/press-releases/schneider-electric-debuts-one-digital-grid-platform-to-help-utilities-modernize-and-address-energy-costs-691af6851937b58c890951a3/",
+    summary: "Schneider launched One Digital Grid Platform, built on EcoStruxure ADMS, DERMS and ArcFM, adding AI-powered restoration-time estimates and a Grid AI Assistant for real-time troubleshooting.",
+    aiSummaryId: "ai-schneider-grid",
+    tags: ["Software", "ADMS", "DERMS", "AI"]
+  },
+
+  /* ------------------------------ Nuventura ----------------------------- */
+  {
+    id: "n-nuventura-lucy-2026",
+    title: "Lucy Group acquires Nuventura to scale SF6-free switchgear globally",
+    companyId: "nuventura",
+    category: "switchgear",
+    date: "2026-04-06",
+    region: "Europe",
+    threatLevel: "Medium",
+    type: "Acquisition",
+    source: "https://www.einpresswire.com/article/903344129/lucy-group-acquires-nuventura-gmbh-in-germany-to-expand-into-primary-sf6-free-switchgear",
+    summary: "Lucy Group acquired 100% of Berlin-based Nuventura, a leader in primary SF6-free (dry-air) GIS up to 36 kV — giving the dry-air challenger the scale and channel of an established switchgear group.",
+    aiSummaryId: "ai-nuventura-lucy",
+    tags: ["SF6-free", "Acquisition", "Disruptor"]
+  },
+
+  /* ------------------------------ NOJA Power ---------------------------- */
+  {
+    id: "n-noja-rc20-2025",
+    title: "NOJA Power's RC-20 recloser control sets new grid-intelligence benchmark",
     companyId: "noja",
     category: "reclosers",
-    date: "2026-02-25",
+    date: "2025-09-03",
     region: "Asia-Pacific",
     threatLevel: "Medium",
     type: "Product update",
-    source: "https://www.nojapower.com/news",
-    summary: "NOJA shipped RC controller updates plus connectivity and cyber-security enhancements for the globally deployed OSM recloser.",
+    source: "https://www.nojapower.com/press/2025/RC-20-Sets-New-Benchmark-us",
+    summary: "NOJA's RC-20 control (from the ARENA Intelligent Switchgear project) was deployed across 100 units in Queensland and Victoria — described as the world's first large-scale synchrophasor measurement deployment in an MV distribution network.",
     aiSummaryId: "ai-noja-osm",
-    tags: ["Recloser", "Cyber security", "Connectivity"]
+    tags: ["Recloser", "Synchrophasor", "Renewables"]
   },
+
+  /* -------------------------------- Eaton ------------------------------- */
   {
-    id: "n-2025-1208-eaton-xiria",
-    title: "Eaton expands Xiria SF6-free secondary switchgear",
+    id: "n-eaton-eu-sf6-2024",
+    title: "Eaton: navigating the shift to SF6-free switchgear in the EU",
     companyId: "eaton",
     category: "switchgear",
-    date: "2025-12-08",
-    region: "North America",
+    date: "2024-06-10",
+    region: "Europe",
     threatLevel: "Medium",
-    type: "Product update",
-    source: "https://www.eaton.com/us/en-us/company/news-insights/news-releases.html",
-    summary: "Eaton broadened its Xiria SF6-free secondary switchgear, leveraging its Cooper heritage and North American channel.",
+    type: "Market / insight",
+    source: "https://www.eaton.com/gb/en-gb/company/news-insights/blog/2024/navigating-the-shift-to-sf6-free-switchgear-in-the-eu-a-guide-for-asset-managers.html",
+    summary: "Eaton positions its long-running SF6-free Xiria line (1M+ panels shipped) as utilities navigate the EU phase-out, leaning on its vacuum + solid-insulation heritage and broad channel.",
     aiSummaryId: "ai-eaton-xiria",
-    tags: ["SF6-free", "Switchgear", "Channel"]
+    tags: ["SF6-free", "Xiria", "Switchgear"]
   },
+
+  /* ------------------------------- Lindsey ----------------------------- */
   {
-    id: "n-2026-0301-lindsey-dlr",
-    title: "Lindsey reports growth in dynamic line rating and grid-edge sensing",
+    id: "n-lindsey-smartline",
+    title: "Lindsey announces SMARTLINE dynamic line rating software update",
     companyId: "lindsey",
     category: "sensors",
-    date: "2026-03-01",
+    date: "2024-05-15",
     region: "North America",
     threatLevel: "Low",
-    type: "Market development",
-    source: "https://www.lindsey-usa.com",
-    summary: "Lindsey highlighted expanding deployments of GEN2 line sensors and dynamic line rating as utilities seek more capacity from existing assets.",
+    type: "Product update",
+    source: "https://lindsey-usa.com/lindsey-announced-smartline-software-update/",
+    summary: "Lindsey updated SMARTLINE, its dynamic line rating / transmission capacity forecasting solution, pairing GEN2 line sensors (0.2% accuracy class) with real-time and forecast line ratings.",
     aiSummaryId: "ai-lindsey-dlr",
     tags: ["Sensors", "DLR", "Grid edge"]
   },
+
+  /* ------------------------- Fault current limiters --------------------- */
   {
-    id: "n-2026-0115-market-sf6",
-    title: "Regulatory timelines tighten for SF6 phase-out in MV switchgear",
-    companyId: "abb",
-    category: "switchgear",
-    date: "2026-01-15",
-    region: "Global",
-    threatLevel: "Low",
-    type: "Market / regulatory",
-    source: "https://new.abb.com/news",
-    summary: "Updated EU F-Gas rules, US EPA actions, and state-level regulations continue to compress timelines for eliminating SF6 in new MV equipment.",
-    aiSummaryId: "ai-market-sf6ban",
-    tags: ["Regulatory", "SF6-free", "Market"]
-  },
-  {
-    id: "n-2025-1101-gw-accusense",
-    title: "G&W Electric expands AccuSense sensor options",
-    companyId: "gw",
-    category: "sensors",
-    date: "2025-11-01",
-    region: "North America",
-    threatLevel: "Low",
-    type: "Product launch",
-    source: "https://www.gwelectric.com/news/",
-    summary: "G&W broadened combined voltage/current sensing options in the AccuSense line for grid-edge monitoring and protection.",
-    tags: ["Sensors", "Combined V/I", "Launch"]
-  },
-  {
-    id: "n-2026-0402-schneider-ecostruxure",
-    title: "Schneider adds hosting-capacity and DER tools to EcoStruxure ADMS",
-    companyId: "schneider",
-    category: "software",
-    date: "2026-04-02",
-    region: "Global",
-    threatLevel: "Medium",
-    type: "Product update",
-    source: "https://www.se.com/ww/en/about-us/newsroom/news/",
-    summary: "Schneider enhanced EcoStruxure ADMS with additional DER management and hosting-capacity analytics for high-DER networks.",
-    tags: ["Software", "ADMS", "DERMS"]
-  },
-  {
-    id: "n-2026-0228-abb-islimiter",
-    title: "ABB highlights Is-limiter for managing rising distribution fault levels",
+    id: "n-abb-islimiter",
+    title: "ABB Is-limiter targets rising distribution fault levels",
     companyId: "abb",
     category: "fault-current-limiters",
-    date: "2026-02-28",
+    date: "2025-09-10",
     region: "Global",
     threatLevel: "Low",
-    type: "Market development",
-    source: "https://new.abb.com/news",
-    summary: "ABB promoted its Is-limiter as a retrofit solution as distributed generation pushes fault levels beyond existing switchgear ratings.",
+    type: "Product / reference",
+    source: "https://new.abb.com/medium-voltage/apparatus/fault-current-limiting/current-limiter",
+    summary: "ABB's Is-limiter (up to 40.5 kV, 5000 A, 210 kA breaking) detects and interrupts short-circuit currents in under 1 ms — increasingly relevant as DER pushes fault levels beyond existing switchgear ratings.",
     tags: ["Fault current limiter", "DER", "Retrofit"]
   }
 ];
