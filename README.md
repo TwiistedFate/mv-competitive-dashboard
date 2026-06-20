@@ -1,9 +1,10 @@
 # GridIntel — MV Competitive Intelligence Dashboard
 
-A clean, modern dashboard for tracking competitors across medium-voltage product
-lines: switchgear, reclosers, sensors, cable accessories, fault current limiters,
-and grid software. Compare specs, read competitor profiles, browse news, and see
-structured AI summaries — all at a glance.
+A competitive intelligence platform for medium-voltage grid equipment, built for
+marketing, sales, product management, and strategy teams. Track competitors
+across switchgear, reclosers, sensors, cable accessories, fault current limiters,
+and grid software — run **1:1 product comparisons**, read competitor profiles,
+browse news, and see structured AI summaries.
 
 **Built to be simple:** plain HTML/CSS/JavaScript. **No build step, no Node.js,
 no frameworks.** You can open it by double-clicking `index.html`, and you deploy
@@ -32,12 +33,14 @@ mv-competitive-dashboard/
 ├── assets/
 │   ├── styles.css          ← all styling / theme (colors live at the top)
 │   ├── lib.js              ← shared helpers, icons, filters (plumbing)
+│   ├── comparison.js       ← the 1:1 Product Comparison engine + components
 │   ├── pages.js            ← one function per page/view
 │   └── app.js              ← routing + navigation + wiring
 ├── data/                   ← 👉 THIS is what you edit
 │   ├── categories.js       ← product categories + spec-table columns
 │   ├── competitors.js      ← competitor profiles
-│   ├── products.js         ← products + specifications
+│   ├── products.js         ← products + specifications + 1:1 matching fields
+│   ├── comparisons.js      ← optional curated read-outs for product pairs
 │   ├── news.js             ← news / articles / announcements
 │   └── ai-summaries.js     ← structured AI summaries
 └── README.md
@@ -54,9 +57,16 @@ itself — you don't touch the page code.
 - **Overview dashboard** — KPI tiles, a card per product category (with
   competitor/product/news counts and top competitors), priority updates, and an
   activity-by-category chart.
-- **Category pages** — key trends, a **sortable / searchable / filterable spec
-  comparison table** (your products highlighted), key differentiators, a
-  competitor SWOT snapshot, and recent news.
+- **Category pages (Product Line Comparison)** — key trends, a **sortable /
+  searchable / filterable spec comparison table** (your products highlighted),
+  key differentiators, a competitor SWOT snapshot, and recent news.
+- **1:1 Product Comparison** — pick **one G&W product**, then choose **which
+  competitors** to compare against (multi-select pills + “All competitors”). The
+  page shows only comparable competitor products, with match cards, a
+  side-by-side spec table, strengths/gaps/best-use-case for each side, source
+  links, and a plain-language competitive read-out. Matching is **specific**:
+  competitor products are linked to G&W products via a `comparableTo` field, not
+  matched blindly by category.
 - **Competitor profiles** — overview, products offered, strengths, weaknesses,
   partnerships, new-product announcements, strategic direction, useful links,
   and an AI-summary section.
@@ -112,7 +122,69 @@ appear in the nav and on the homepage automatically.
 
 ---
 
-## 5. Connecting real AI summaries later
+## 5. Adding 1:1 product comparisons
+
+The **1:1 Product Comparison** page is driven entirely by `data/products.js`
+(plus optional narratives in `data/comparisons.js`). To make a new competitor
+product show up as a match for one of your G&W products:
+
+1. **Make sure the G&W product exists** in `data/products.js` with
+   `competitorId: "gw"` and a `productFamily` (e.g. `"Viper"`). G&W products are
+   the *anchors* the user selects on the left side — their `comparableTo` is `[]`.
+
+2. **Add (or edit) the competitor product** in the same file and link it to the
+   G&W product with `comparableTo`:
+
+   ```js
+   {
+     id: "p-acme-superloser",
+     competitorId: "acme",                 // must match a company in competitors.js
+     category: "reclosers",                // must match the G&W product's category
+     name: "SuperCloser 9000",
+     productFamily: "SuperCloser",
+     comparableTo: ["p-gw-viper"],         // 👈 makes it a match for the Viper
+     voltageClass: "15–38 kV",
+     technology: ["Vacuum"],
+     strengths: ["...", "..."],            // shown on the match card
+     weaknesses: ["...", "..."],
+     bestUseCase: "One line: where this product wins.",
+     sourceLinks: [{ label: "Datasheet", url: "https://..." }],
+     specs: { /* keys match the category's specColumns */ },
+     notes: ""
+   }
+   ```
+
+   The match logic is **category match AND `comparableTo` match**: the product
+   only appears when its `category` equals the selected G&W product's category
+   **and** its `comparableTo` array contains that G&W product's `id`. That keeps
+   comparisons specific instead of dumping every product in the category.
+
+3. **(Optional) Add a curated read-out** in `data/comparisons.js` to override the
+   auto-generated summary for a specific pair:
+
+   ```js
+   DB.comparisons["p-gw-viper"] = DB.comparisons["p-gw-viper"] || {};
+   DB.comparisons["p-gw-viper"]["p-acme-superloser"] = {
+     edge: "G&W",                          // "G&W" | "Competitor" | "Even" → badge
+     summary: "Two or three sentences in plain business language.",
+     gaps: ["A gap or risk for G&W vs. this product", "..."]
+   };
+   ```
+
+   If you don't add an entry, the page **auto-generates** a solid business-language
+   summary and gaps list from the product's `strengths`, `voltageClass`, and
+   `bestUseCase` — so the page is always functional.
+
+4. Save and refresh. The new competitor automatically appears as a selectable
+   pill (and a match card) whenever the user selects the linked G&W product.
+
+To add a **whole new comparison line** (a new G&W product line plus competitors),
+just add the G&W anchor product and one or more competitor products that point to
+it via `comparableTo`. No page code changes are needed.
+
+---
+
+## 6. Connecting real AI summaries later
 
 The AI-summary structure is already in place. To generate summaries
 automatically with an AI API, have your script output objects in the exact
@@ -139,7 +211,7 @@ reference each one from a news item via `aiSummaryId`. Nothing else changes.
 
 ---
 
-## 6. Deploy to GitHub Pages
+## 7. Deploy to GitHub Pages
 
 Because there's no build step, deploying is just publishing the files.
 
@@ -178,7 +250,7 @@ Pages, Vercel (as a static site), or an internal web server.
 
 ---
 
-## 7. Re-skinning
+## 8. Re-skinning
 
 All colors and sizing live in the `:root` block at the top of
 `assets/styles.css`. Change `--primary`, the threat colors, fonts, or radius

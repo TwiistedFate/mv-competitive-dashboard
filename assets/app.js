@@ -20,6 +20,7 @@ function buildNav() {
     ${cats}
 
     <span class="nav-label">Intelligence</span>
+    <button class="nav-btn" data-route="#/compare">${icon("target")}<span>1:1 Comparison</span></button>
     <button class="nav-btn" data-route="#/competitors">${icon("competitors")}<span>Competitors</span><span class="nav-badge">${DB.competitors.filter(c => !c.isUs).length}</span></button>
     <button class="nav-btn" data-route="#/news">${icon("news")}<span>News &amp; Articles</span><span class="nav-badge">${DB.news.length}</span></button>
     <button class="nav-btn" data-route="#/ai">${icon("ai")}<span>AI Summaries</span><span class="nav-badge">${DB.aiSummaries.length}</span></button>`;
@@ -54,6 +55,7 @@ function render() {
   switch (parts[0]) {
     case undefined:      view = dashboardPage(); break;
     case "category":     view = categoryPage(parts[1]); break;
+    case "compare":      view = comparePage(); break;
     case "competitors":  view = competitorsPage(); break;
     case "competitor":   view = competitorProfile(parts[1]); break;
     case "news":         view = newsPage(); break;
@@ -94,6 +96,19 @@ function navigate(hash) {
 function wireEvents() {
   // Delegated clicks
   document.addEventListener("click", e => {
+    // 1:1 comparison — "All competitors"
+    if (e.target.closest("[data-compare-all]")) {
+      setCompareAll();
+      refreshComparePage();
+      return;
+    }
+    // 1:1 comparison — toggle one competitor
+    const pill = e.target.closest("[data-compare-toggle]");
+    if (pill) {
+      toggleCompareCompetitor(pill.getAttribute("data-compare-toggle"));
+      refreshComparePage();
+      return;
+    }
     // sort a spec table
     const th = e.target.closest("th[data-sort]");
     if (th) {
@@ -121,6 +136,10 @@ function wireEvents() {
 
   // Delegated filter dropdown changes
   document.addEventListener("change", e => {
+    // 1:1 comparison — pick the G&W anchor product
+    const gw = e.target.closest("[data-compare-gw]");
+    if (gw) { setCompareAnchor(gw.value); refreshComparePage(); return; }
+
     const sel = e.target.closest("[data-filter]");
     if (sel) { filters[sel.getAttribute("data-filter")] = sel.value; render(); }
   });

@@ -81,6 +81,15 @@ function dashboardPage() {
     </div>`).join("");
 
   const html = `
+    <div class="home-cta">
+      <div class="cta-icon">${icon("target")}</div>
+      <div class="cta-body">
+        <h3>1:1 Product Comparison</h3>
+        <p>Match a single G&amp;W product to the closest competitor offerings, control both sides of the comparison, and get a plain-language read-out of where you win and where you're exposed.</p>
+      </div>
+      <button class="btn" data-route="#/compare">Open comparison tool ${icon("right")}</button>
+    </div>
+
     <div class="grid kpis">${kpiHtml}</div>
 
     <div class="sec sec-gap"><div><h3>Product categories</h3><p>Click any category to compare specs, competitors, and news.</p></div></div>
