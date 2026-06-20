@@ -124,7 +124,7 @@ function threatBadge(level) {
   return `<span class="badge ${cls}"><span class="dot"></span>${esc(level)} threat</span>`;
 }
 function catPill(catId) {
-  return `<span class="cat-pill" style="background:${categoryAccent(catId)}">${esc(categoryName(catId))}</span>`;
+  return `<span class="cat-pill">${esc(categoryName(catId))}</span>`;
 }
 function logo(comp, cls) {
   return `<div class="logo ${cls || ""}">${esc(comp.logoText || comp.name.slice(0, 3).toUpperCase())}</div>`;

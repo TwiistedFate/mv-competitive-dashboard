@@ -9,21 +9,21 @@
 /* ------------------------- build the sidebar nav ------------------------- */
 function buildNav() {
   const cats = DB.categories.map(c =>
-    `<button class="nav-btn" data-route="#/category/${c.id}">${icon(c.icon)}<span>${esc(c.short)}</span></button>`
+    `<button class="nav-btn" data-route="#/category/${c.id}"><span>${esc(c.short)}</span></button>`
   ).join("");
 
   document.getElementById("nav").innerHTML = `
     <span class="nav-label">Overview</span>
-    <button class="nav-btn" data-route="#/">${icon("overview")}<span>Dashboard</span></button>
+    <button class="nav-btn" data-route="#/"><span>Dashboard</span></button>
 
     <span class="nav-label">Product lines</span>
     ${cats}
 
     <span class="nav-label">Intelligence</span>
-    <button class="nav-btn" data-route="#/compare">${icon("target")}<span>1:1 Comparison</span></button>
-    <button class="nav-btn" data-route="#/competitors">${icon("competitors")}<span>Competitors</span><span class="nav-badge">${DB.competitors.filter(c => !c.isUs).length}</span></button>
-    <button class="nav-btn" data-route="#/news">${icon("news")}<span>News &amp; Articles</span><span class="nav-badge">${DB.news.length}</span></button>
-    <button class="nav-btn" data-route="#/ai">${icon("ai")}<span>AI Summaries</span><span class="nav-badge">${DB.aiSummaries.length}</span></button>`;
+    <button class="nav-btn" data-route="#/compare"><span>1:1 Comparison</span></button>
+    <button class="nav-btn" data-route="#/competitors"><span>Competitors</span><span class="nav-badge">${DB.competitors.filter(c => !c.isUs).length}</span></button>
+    <button class="nav-btn" data-route="#/news"><span>News &amp; Articles</span><span class="nav-badge">${DB.news.length}</span></button>
+    <button class="nav-btn" data-route="#/ai"><span>AI Summaries</span><span class="nav-badge">${DB.aiSummaries.length}</span></button>`;
 }
 
 /* ------------------------------ routing --------------------------------- */

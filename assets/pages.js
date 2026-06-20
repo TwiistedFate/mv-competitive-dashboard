@@ -39,7 +39,6 @@ function dashboardPage() {
       <div class="card cat-card" data-route="#/category/${cat.id}">
         <div class="cc-top">
           <div class="cc-head">
-            <div class="cc-icon" style="background:${cat.accent}">${icon(cat.icon)}</div>
             <h3>${esc(cat.name)}</h3>
           </div>
           <p class="cc-blurb">${esc(cat.blurb)}</p>
@@ -82,7 +81,6 @@ function dashboardPage() {
 
   const html = `
     <div class="home-cta">
-      <div class="cta-icon">${icon("target")}</div>
       <div class="cta-body">
         <h3>1:1 Product Comparison</h3>
         <p>Match a single G&amp;W product to the closest competitor offerings, control both sides of the comparison, and get a plain-language read-out of where you win and where you're exposed.</p>
@@ -97,11 +95,11 @@ function dashboardPage() {
 
     <div class="grid two sec-gap">
       <div class="card pad">
-        <div class="sec"><div><h3>${icon("alert")} Priority updates</h3><p>Highest-threat developments right now.</p></div></div>
+        <div class="sec"><div><h3>Priority updates</h3><p>Highest-threat developments right now.</p></div></div>
         <div class="compact">${priorityHtml}</div>
       </div>
       <div class="card pad">
-        <div class="sec"><div><h3>${icon("chart")} Activity by product line</h3><p>News volume per category.</p></div></div>
+        <div class="sec"><div><h3>Activity by product line</h3><p>News volume per category.</p></div></div>
         <div class="bars">${barsHtml}</div>
       </div>
     </div>`;
@@ -192,7 +190,7 @@ function categoryPage(catId) {
   const news = newsInCategory(catId).sort((a, b) => new Date(b.date) - new Date(a.date));
   const newsHtml = news.length ? `<div class="list">${news.map(newsCard).join("")}</div>` : emptyState("No news in this category yet.");
 
-  const trends = `<div class="card pad"><div class="sec"><div><h3>${icon("bulb")} Key trends</h3></div></div>
+  const trends = `<div class="card pad"><div class="sec"><div><h3>Key trends</h3></div></div>
     ${bullets(cat.keyTrends, "neutral")}</div>`;
 
   const html = `
