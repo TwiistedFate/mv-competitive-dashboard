@@ -76,7 +76,9 @@ const getCategory   = id => CAT[id];
 const getCompetitor = id => COMP[id];
 const getAiSummary  = id => AISUM[id];
 const companyName   = id => (COMP[id] ? COMP[id].name : id);
-const categoryName  = id => (CAT[id] ? CAT[id].short : id);
+// "corporate" is a non-product scope: company-level news that shows on the News
+// page only (never inside a product tab). Give it a friendly label here.
+const categoryName  = id => (CAT[id] ? CAT[id].short : (id === "corporate" ? "Corporate" : id));
 const categoryAccent= id => (CAT[id] ? CAT[id].accent : "#64748b");
 
 function productsInCategory(catId) {
@@ -114,7 +116,10 @@ const FILTER_OPTIONS = {
   technology:   () => uniqueSorted([].concat(...DB.products.map(p => p.technology || []))),
   voltageClass: () => uniqueSorted(DB.products.map(p => p.voltageClass)),
   application:  () => uniqueSorted([].concat(...DB.products.map(p => p.applications || []))),
-  threatLevel:  () => ["High", "Medium", "Low"]
+  threatLevel:  () => ["High", "Medium", "Low"],
+  // Product lines + the non-product "Corporate" scope, built from the news in use.
+  category:     () => DB.categories.map(c => c.short).concat(
+                        DB.news.some(n => n.category === "corporate") ? ["Corporate"] : [])
 };
 
 /* ------------------------- reusable UI builders -------------------------- */
@@ -126,8 +131,28 @@ function threatBadge(level) {
 function catPill(catId) {
   return `<span class="cat-pill">${esc(categoryName(catId))}</span>`;
 }
+/* Brand domain used to fetch the company logo (explicit `domain` wins, else
+ * derived from the website host). */
+function companyDomain(comp) {
+  if (!comp) return "";
+  if (comp.domain) return comp.domain;
+  try { return new URL(comp.website).hostname.replace(/^www\./, ""); }
+  catch (e) { return ""; }
+}
+
+/* Real company logo with graceful fallback. The brand mark is pulled from the
+ * company's web domain (no API key needed): Google's favicon service first, then
+ * DuckDuckGo, then the text initials (always rendered behind the image). */
 function logo(comp, cls) {
-  return `<div class="logo ${cls || ""}">${esc(comp.logoText || comp.name.slice(0, 3).toUpperCase())}</div>`;
+  const initials = esc(comp.logoText || comp.name.slice(0, 3).toUpperCase());
+  const domain = companyDomain(comp);
+  const primary = `https://www.google.com/s2/favicons?domain=${esc(domain)}&sz=128`;
+  const fallback = `https://icons.duckduckgo.com/ip3/${esc(domain)}.ico`;
+  const img = domain
+    ? `<img class="logo-img" alt="${esc(comp.name)} logo" src="${primary}"
+         onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fallback}';}else{this.style.display='none';}">`
+    : "";
+  return `<div class="logo ${cls || ""}"><span class="logo-fallback">${initials}</span>${img}</div>`;
 }
 function tagList(tags) {
   return (tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("");
@@ -164,7 +189,7 @@ function aiSummaryBlock(sum, opts = {}) {
  * One shared filter state object. Pages read it; controls write to it.      */
 const filters = {
   search: "", company: "", region: "", technology: "",
-  voltageClass: "", application: "", threatLevel: "", date: ""
+  voltageClass: "", application: "", threatLevel: "", date: "", category: ""
 };
 function resetFilters() {
   Object.keys(filters).forEach(k => { filters[k] = ""; });
@@ -188,7 +213,8 @@ function filterBar(which, resultCount) {
   which.forEach(key => {
     if (key === "date") { parts.push(buildDateSelect()); return; }
     const labels = { company: "All companies", region: "All regions", technology: "All technologies",
-      voltageClass: "All voltage classes", application: "All applications", threatLevel: "All threat levels" };
+      voltageClass: "All voltage classes", application: "All applications", threatLevel: "All threat levels",
+      category: "All product lines" };
     parts.push(buildSelect(key, labels[key], FILTER_OPTIONS[key]()));
   });
   const anyActive = which.some(k => filters[k]) || filters.search;
@@ -207,6 +233,7 @@ function passesFilters(ctx) {
   if (filters.voltageClass&& ctx.voltageClass !== filters.voltageClass) return false;
   if (filters.technology  && !(ctx.technology || []).includes(filters.technology)) return false;
   if (filters.application && !(ctx.applications || []).includes(filters.application)) return false;
+  if (filters.category    && ctx.categoryLabel !== filters.category) return false;
   if (filters.date && ctx.date && daysAgo(ctx.date) > Number(filters.date)) return false;
   return true;
 }

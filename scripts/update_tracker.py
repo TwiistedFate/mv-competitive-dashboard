@@ -2,10 +2,44 @@ import json, re, datetime, urllib.parse, calendar
 from pathlib import Path
 import requests, yaml, feedparser
 from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+
+try:
+    from urllib3.util.retry import Retry
+except Exception:                       # very old urllib3
+    Retry = None
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "sources.yml"
 OUT = ROOT / "data" / "tracker_data.json"
+
+UA = "Mozilla/5.0 competitive-intel-research"
+
+# One shared, polite HTTP session with retry/backoff for transient errors.
+def build_session():
+    s = requests.Session()
+    s.headers.update({"User-Agent": UA})
+    if Retry is not None:
+        retry = Retry(total=2, backoff_factor=0.5,
+                      status_forcelist=(429, 500, 502, 503, 504),
+                      allowed_methods=frozenset(["GET"]))
+        adapter = HTTPAdapter(max_retries=retry)
+        s.mount("http://", adapter)
+        s.mount("https://", adapter)
+    return s
+
+SESSION = build_session()
+
+# Maps the internal product-domain name to the dashboard's category id (the ids
+# used in data/categories.js) so crawler output mirrors the app's data model.
+DASHBOARD_CATEGORY = {
+    "Reclosers": "reclosers",
+    "Switchgear": "switchgear",
+    "Voltage sensors": "sensors",
+    "Cables & accessories": "cable-accessories",
+    "Fault current limiters": "fault-current-limiters",
+    "Grid software": "software",
+}
 
 KEYWORDS = {
     "Viper impact": ["recloser", "intellirupter", "tripsaver", "pulseclos", "fault isolation", "protection", "osm recloser", "nova recloser"],
@@ -104,8 +138,7 @@ def resolve_article_url(google_url):
         if "url" in qs and qs["url"]:
             return qs["url"][0]
         # Otherwise follow the redirect chain to the publisher.
-        r = requests.get(google_url, timeout=12, allow_redirects=True,
-                         headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
+        r = SESSION.get(google_url, timeout=12, allow_redirects=True)
         if r.url and "news.google.com" not in r.url:
             return r.url
     except Exception as e:
@@ -137,6 +170,43 @@ def product_domain(text):
         if any(w in t for w in words):
             return domain
     return None
+
+
+def scope_for(domain):
+    """
+    "product"  — the item is about a specific MV product line (has a product domain),
+                 so the dashboard shows it under that product tab AND on the News page.
+    "corporate"— company-level news (no product domain): financials, M&A, capacity,
+                 leadership, broad market moves. Shown on the News page ONLY.
+    """
+    return "product" if domain else "corporate"
+
+
+def dashboard_category(domain):
+    """The dashboard category id for this item ('switchgear', ..., or 'corporate')."""
+    return DASHBOARD_CATEGORY.get(domain, "corporate")
+
+
+# Tracking/query params that don't change the article — stripped for dedup.
+TRACKING_PARAMS = ("utm_source", "utm_medium", "utm_campaign", "utm_term",
+                   "utm_content", "gclid", "fbclid", "mc_cid", "mc_eid", "ref")
+
+
+def normalize_url(u):
+    """Canonical form of a URL for de-duplication: lowercase host, no fragment, no
+    tracking params, no trailing slash."""
+    if not u:
+        return ""
+    try:
+        p = urllib.parse.urlparse(u)
+        host = p.netloc.lower()
+        q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query)
+             if k.lower() not in TRACKING_PARAMS]
+        query = urllib.parse.urlencode(q)
+        path = p.path.rstrip("/")
+        return urllib.parse.urlunparse((p.scheme.lower(), host, path, "", query, ""))
+    except Exception:
+        return u
 
 
 def has_any(text, words):
@@ -315,6 +385,8 @@ def google_news(vendor, query, captured_iso, deep=False):
                 "source": source_name(link),
                 "published": published_iso,
                 "category": category_for(tags),
+                "app_category": dashboard_category(cls["domain"]),
+                "scope": scope_for(cls["domain"]),
                 "bucket": cls["bucket"],
                 "threat_score": cls["threat_score"],
                 "relevance": relevance_score(text, published_iso, captured_iso, cls["bucket"], link),
@@ -382,8 +454,7 @@ def fetch_page_meta(href):
     shows a useful summary. Returns {"date": ..., "description": ...}.
     """
     try:
-        r = requests.get(href, timeout=10,
-                         headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
+        r = SESSION.get(href, timeout=10)
         soup = BeautifulSoup(r.text, "html.parser")
         return {"date": extract_date(soup), "description": extract_description(soup)}
     except Exception:
@@ -406,8 +477,7 @@ def page_scan(vendor, url):
     today_iso = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
     base_host = urllib.parse.urlparse(url).netloc
     try:
-        r = requests.get(url, timeout=15,
-                         headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
+        r = SESSION.get(url, timeout=15)
         soup = BeautifulSoup(r.text, "html.parser")
 
         seen_links = set()
@@ -453,6 +523,7 @@ def page_scan(vendor, url):
             text = label or href.split("/")[-1]
             tags = tags_for(text + " " + href)
 
+            dom = product_domain(text + " " + href)    # product line, or None (corporate)
             if is_pdf:
                 # A datasheet/catalog/manual is product-relevant but routine -> Alert by default,
                 # unless its text signals a genuine innovation/study (then classify promotes it).
@@ -468,6 +539,8 @@ def page_scan(vendor, url):
                     "published": None,
                     "discovered_at": today_iso,
                     "category": "Datasheet",
+                    "app_category": dashboard_category(dom),
+                    "scope": scope_for(dom),
                     "bucket": cls["bucket"],
                     "threat_score": cls["threat_score"],
                     "relevance": relevance_score(text + " " + href, None, today_iso, cls["bucket"], href),
@@ -477,7 +550,9 @@ def page_scan(vendor, url):
                 meta = fetch_page_meta(href)           # real date + description from the article itself
                 page_date = meta["date"]
                 summary = meta["description"] or f"{vendor} update: {text}"
-                cls = classify(f"{text} {summary} {href}", page_date, today_iso)
+                blob = f"{text} {summary} {href}"
+                cls = classify(blob, page_date, today_iso)
+                dom = cls["domain"] or dom
                 items.append({
                     "company": vendor,
                     "title": text,
@@ -487,9 +562,11 @@ def page_scan(vendor, url):
                     "published": page_date,
                     "discovered_at": today_iso,
                     "category": category_for(tags),
+                    "app_category": dashboard_category(dom),
+                    "scope": scope_for(dom),
                     "bucket": cls["bucket"],
                     "threat_score": cls["threat_score"],
-                    "relevance": relevance_score(f"{text} {summary} {href}", page_date, today_iso, cls["bucket"], href),
+                    "relevance": relevance_score(blob, page_date, today_iso, cls["bucket"], href),
                     "tags": tags,
                 })
 
@@ -501,13 +578,20 @@ def page_scan(vendor, url):
 
 
 def dedupe(items):
-    seen, out = set(), []
+    """De-duplicate on the NORMALIZED url (tracking params / trailing slash / case
+    ignored), falling back to title. Keeps the higher-relevance copy of a dupe."""
+    best = {}
+    order = []
     for i in items:
-        key = (i.get("url") or i.get("title", ""))[:220]
-        if key and key not in seen:
-            seen.add(key)
-            out.append(i)
-    return out
+        key = normalize_url(i.get("url", "")) or ("title:" + i.get("title", "")[:200])
+        if not key:
+            continue
+        if key not in best:
+            best[key] = i
+            order.append(key)
+        elif (i.get("relevance") or 0) > (best[key].get("relevance") or 0):
+            best[key] = i
+    return [best[k] for k in order]
 
 
 def main():
@@ -523,15 +607,22 @@ def main():
         for p in v.get("pages", []):
             all_items.extend(page_scan(name, p))
 
+    items = dedupe(all_items)
+    # Most relevant first (recency is folded into the relevance score).
+    items.sort(key=lambda i: i.get("relevance") or 0, reverse=True)
+
+    product_n = sum(1 for i in items if i.get("scope") == "product")
     data = {
         "generated_at": captured_iso,
         "window_days": 60,         # default dashboard "current" window
         "deep_window_days": 730,   # Competitor Deep-Dive window (~2 years)
-        "items": dedupe(all_items),
+        "counts": {"total": len(items), "product": product_n,
+                   "corporate": len(items) - product_n},
+        "items": items,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(data, indent=2, ensure_ascii=False))
-    print(f"Wrote {len(data['items'])} items to {OUT}")
+    print(f"Wrote {len(items)} items ({product_n} product / {len(items) - product_n} corporate) to {OUT}")
 
 
 if __name__ == "__main__":

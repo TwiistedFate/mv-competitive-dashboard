@@ -7,7 +7,11 @@
  *  HOW TO ADD A NEWS ITEM:
  *    1. Copy a block and give it a unique `id`.
  *    2. `companyId`  must match an id in competitors.js.
- *    3. `category`   must match an id in categories.js.
+ *    3. `category`   must match an id in categories.js  —  OR use "corporate"
+ *       for company-level news (M&A, financials, leadership, expansion, broad
+ *       market moves). Product-category items appear BOTH on the News page and
+ *       inside their product tab; "corporate" items appear on the News page
+ *       ONLY, so product tabs stay focused and uncluttered.
  *    4. `date` is ISO format "YYYY-MM-DD".
  *    5. `source` is the DIRECT URL to the article/press release (this is what
  *       the "Source" button opens — make it the exact article, not a homepage).
@@ -234,5 +238,135 @@ window.DB.news = [
     source: "https://new.abb.com/medium-voltage/apparatus/fault-current-limiting/current-limiter",
     summary: "ABB's Is-limiter (up to 40.5 kV, 5000 A, 210 kA breaking) detects and interrupts short-circuit currents in under 1 ms — increasingly relevant as DER pushes fault levels beyond existing switchgear ratings.",
     tags: ["Fault current limiter", "DER", "Retrofit"]
+  },
+
+  /* ======================================================================= *
+   *  CORPORATE / COMPANY-LEVEL NEWS  (category: "corporate")
+   *  -----------------------------------------------------------------------
+   *  Broad business moves — M&A, financials, capacity, leadership, market
+   *  positioning — that aren't tied to one product line. These appear on the
+   *  News & Articles page ONLY (not inside product tabs).
+   *
+   *  ⚠  The items in this section are ILLUSTRATIVE SAMPLES showing the kind of
+   *     company-level intelligence to track. `source` points at each vendor's
+   *     newsroom; replace with the exact article and verify before relying on
+   *     them. (The product-category items above are real, dated articles.)
+   * ======================================================================= */
+  {
+    id: "n-abb-electrification-results",
+    title: "ABB reports record Electrification orders driven by grid demand",
+    companyId: "abb",
+    category: "corporate",
+    date: "2026-04-23",
+    region: "Global",
+    threatLevel: "Medium",
+    type: "Financial results",
+    source: "https://new.abb.com/news",
+    summary: "ABB's Electrification business posted record orders, citing grid modernization, data-center power, and electrification demand — funding continued R&D and capacity expansion across its MV portfolio.",
+    tags: ["Financials", "Electrification", "Growth"]
+  },
+  {
+    id: "n-siemens-si-expansion",
+    title: "Siemens Smart Infrastructure expands US grid-equipment manufacturing",
+    companyId: "siemens",
+    category: "corporate",
+    date: "2026-03-18",
+    region: "North America",
+    threatLevel: "Medium",
+    type: "Capacity expansion",
+    source: "https://press.siemens.com/global/en/pressreleases",
+    summary: "Siemens announced added US manufacturing capacity for grid and distribution equipment to shorten lead times and serve domestic utility demand amid grid-investment tailwinds.",
+    tags: ["Manufacturing", "Investment", "Supply chain"]
+  },
+  {
+    id: "n-schneider-impact-2026",
+    title: "Schneider Electric reaffirms grid-software and sustainability strategy",
+    companyId: "schneider",
+    category: "corporate",
+    date: "2026-02-26",
+    region: "Global",
+    threatLevel: "Medium",
+    type: "Strategy",
+    source: "https://www.se.com/ww/en/about-us/newsroom/news/",
+    summary: "Schneider reiterated its push toward recurring grid-software revenue and SF6-free portfolios, framing decarbonization and digitization as the core of its medium-voltage growth strategy.",
+    tags: ["Strategy", "Sustainability", "Software"]
+  },
+  {
+    id: "n-sandc-storage-invest",
+    title: "S&C Electric invests in US manufacturing and energy-storage capacity",
+    companyId: "sandc",
+    category: "corporate",
+    date: "2026-01-15",
+    region: "North America",
+    threatLevel: "Medium",
+    type: "Investment",
+    source: "https://www.sandc.com/en/company/newsroom/",
+    summary: "S&C announced expanded manufacturing and energy-storage capacity to support grid-resiliency and distribution-automation demand from North American utilities.",
+    tags: ["Investment", "Energy storage", "Resiliency"]
+  },
+  {
+    id: "n-eaton-capacity-2025",
+    title: "Eaton expands electrical manufacturing to meet grid and data-center demand",
+    companyId: "eaton",
+    category: "corporate",
+    date: "2025-12-03",
+    region: "North America",
+    threatLevel: "Medium",
+    type: "Capacity expansion",
+    source: "https://www.eaton.com/us/en-us/company/news-insights/news-releases.html",
+    summary: "Eaton committed further investment to expand US electrical-equipment manufacturing, citing record backlog from grid modernization, electrification, and data-center power demand.",
+    tags: ["Manufacturing", "Investment", "Backlog"]
+  },
+  {
+    id: "n-hubbell-utility-growth",
+    title: "Hubbell highlights utility-solutions growth and grid-hardening demand",
+    companyId: "hubbell",
+    category: "corporate",
+    date: "2026-02-04",
+    region: "North America",
+    threatLevel: "Low",
+    type: "Financial results",
+    source: "https://www.hubbellpowersystems.com",
+    summary: "Hubbell pointed to sustained utility-solutions growth driven by grid-hardening, storm response, and aging-infrastructure replacement across North American utilities.",
+    tags: ["Financials", "Grid hardening", "Utility"]
+  },
+  {
+    id: "n-noja-global-expansion",
+    title: "NOJA Power expands global distribution and manufacturing footprint",
+    companyId: "noja",
+    category: "corporate",
+    date: "2025-11-20",
+    region: "Asia-Pacific",
+    threatLevel: "Low",
+    type: "Expansion",
+    source: "https://www.nojapower.com/news",
+    summary: "NOJA Power continued expanding its distributor network and manufacturing capacity, reinforcing its position as a focused recloser specialist serving 100+ countries.",
+    tags: ["Expansion", "Distribution", "Global"]
+  },
+  {
+    id: "n-nuventura-na-entry",
+    title: "Lucy/Nuventura targets North American entry for SF6-free GIS",
+    companyId: "nuventura",
+    category: "corporate",
+    date: "2026-05-12",
+    region: "North America",
+    threatLevel: "Medium",
+    type: "Market entry",
+    source: "https://nuventura.com/news/",
+    summary: "Following the Lucy Group acquisition, Nuventura signaled a North American go-to-market for its dry-air SF6-free GIS, working through regional partners to reach US/Canadian utilities.",
+    tags: ["Market entry", "SF6-free", "Channel"]
+  },
+  {
+    id: "n-gw-expansion-2026",
+    title: "G&W Electric expands manufacturing and engineering capacity",
+    companyId: "gw",
+    category: "corporate",
+    date: "2026-03-02",
+    region: "North America",
+    threatLevel: "Low",
+    type: "Capacity expansion",
+    source: "https://www.gwelectric.com/news/",
+    summary: "G&W continued investing in manufacturing and application-engineering capacity to support demand for solid-dielectric switchgear, reclosers, and sensors, and to grow its international presence.",
+    tags: ["Manufacturing", "Investment", "Growth"]
   }
 ];

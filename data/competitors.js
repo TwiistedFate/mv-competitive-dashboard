@@ -12,6 +12,10 @@
  *    3. `threatLevel` is "High" | "Medium" | "Low" and drives the threat badge.
  *    4. Fill in as much or as little as you know — empty arrays are fine and
  *       the UI will simply hide empty sections.
+ *    5. The company logo is fetched automatically from the company's web domain.
+ *       It is derived from `website`; add an explicit `domain` (e.g.
+ *       "abb.com") only when the website host differs from the brand domain.
+ *       If no logo is found, the UI falls back to the `logoText` initials.
  *
  *  NOTE: The text below is illustrative sample content to show the structure.
  *  Review and replace with your own verified intelligence.
@@ -105,6 +109,7 @@ window.DB.competitors = [
     founded: 1988,
     threatLevel: "High",
     website: "https://global.abb",
+    domain: "abb.com",
     overview:
       "ABB Electrification is a global leader in MV switchgear, sensors, and digital grid products. Aggressively pushing SF6-free / eco-efficient switchgear (AirPlus) and a broad KEVA/VLS sensor range.",
     productsOffered: [

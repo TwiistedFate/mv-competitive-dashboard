@@ -70,8 +70,14 @@ itself — you don't touch the page code.
 - **Competitor profiles** — overview, products offered, strengths, weaknesses,
   partnerships, new-product announcements, strategic direction, useful links,
   and an AI-summary section.
-- **News & articles** — every item with company, category, date, source link,
-  tags, threat level, and an expandable AI summary.
+- **News & articles** — the full feed of everything competitors are doing.
+  Product-specific items also appear under their product line; company-level
+  news (M&A, financials, expansion — `category: "corporate"`) shows here only,
+  so product tabs stay focused. Filter by product line, company, region, threat,
+  or date.
+- **Competitor logos** — real brand logos are pulled automatically from each
+  company's web domain (with a text-initials fallback), shown on profiles,
+  competitor cards, and 1:1 comparisons.
 - **AI summaries** — the analyst template: *what happened · why it matters ·
   product impact · threat level · recommended action.*
 - **Search & filters** — global search plus per-page filters for company,
@@ -94,7 +100,9 @@ fields. The golden rules:
 ### Add a competitor → `data/competitors.js`
 Copy a block, give it a unique `id`, set `threatLevel` (`"High"`/`"Medium"`/
 `"Low"`) and `categories` (ids from `categories.js`). Empty arrays are fine —
-empty sections just hide themselves.
+empty sections just hide themselves. The logo is fetched automatically from the
+`website` host; add an explicit `domain` (e.g. `"abb.com"`) only if the brand
+domain differs from the website URL.
 
 ### Add a product / specs → `data/products.js`
 Set `competitorId` and `category`. Put rating values in the `specs` object — the
@@ -105,6 +113,9 @@ Set `competitorId` and `category`. Put rating values in the `specs` object — t
 ### Add news → `data/news.js`
 Set `companyId`, `category`, an ISO `date` (`"YYYY-MM-DD"`), `threatLevel`,
 `region`, and `tags`. Optionally link a structured summary with `aiSummaryId`.
+Use a product `category` (e.g. `"reclosers"`) to make the item appear both on
+the News page **and** in that product tab; use `category: "corporate"` for
+company-level news that should appear on the **News page only**.
 
 ### Add an AI summary → `data/ai-summaries.js`
 Fill in `whatHappened`, `whyItMatters`, `productImpact`, `threatLevel`, and
@@ -207,13 +218,17 @@ reference each one from a news item via `aiSummaryId`. Nothing else changes.
 > A Python news crawler lives in `scripts/update_tracker.py` with its watch list
 > in `config/sources.yml`. It searches Google News and scans vendor newsrooms,
 > then classifies each hit (Threat / Market Insight / Alert) and writes
-> `data/tracker_data.json`. It now covers **all six product lines** — including
-> fault current limiters and grid software — uses **product-level queries**
-> (named products like IntelliRupter, AirSeT, Is-limiter), and captures a real
-> **summary** (`og:description`) and **source** publisher per item. Edit
-> `config/sources.yml` to add vendors, products, or newsroom URLs. It can be
-> adapted to emit items in the `data/news.js` shape so the feed updates itself;
-> it is **not** wired into the live build by default.
+> `data/tracker_data.json`. It covers **all six product lines** — including fault
+> current limiters and grid software — uses **product-level queries** (named
+> products like IntelliRupter, AirSeT, Is-limiter), and captures a real
+> **summary** (`og:description`) and **source** publisher per item. Each item is
+> tagged with a **`scope`** (`"product"` vs `"corporate"`) and an
+> **`app_category`** (the dashboard category id, or `"corporate"`) — mirroring
+> the News-page split — and de-duplicated on a **normalized URL** (tracking
+> params / case / trailing slash ignored). HTTP uses a shared session with
+> retry/backoff. Edit `config/sources.yml` to add vendors, products, or newsroom
+> URLs. It can be adapted to emit items in the `data/news.js` shape so the feed
+> updates itself; it is **not** wired into the live build by default.
 
 ---
 

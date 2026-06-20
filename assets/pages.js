@@ -370,15 +370,20 @@ function newsPage() {
     const comp = getCompetitor(n.companyId) || {};
     return passesFilters({
       text: `${companyName(n.companyId)} ${n.title} ${n.summary} ${(n.tags || []).join(" ")}`,
-      company: comp.name, region: n.region, threatLevel: n.threatLevel, date: n.date
+      company: comp.name, region: n.region, threatLevel: n.threatLevel, date: n.date,
+      categoryLabel: categoryName(n.category)
     });
   }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const html = `
-    ${filterBar(["company", "region", "threatLevel", "date"], list.length)}
+    ${filterBar(["category", "company", "region", "threatLevel", "date"], list.length)}
     <div class="list">${list.length ? list.map(newsCard).join("") : emptyState("No news matches the current filters.")}</div>`;
 
-  return { title: "News & Articles", sub: "Press releases, launches, partnerships, and market developments across competitors.", html };
+  return {
+    title: "News & Articles",
+    sub: "Everything competitors are doing — product launches, partnerships, contracts, M&A, and market moves. Product-specific items also appear under their product line.",
+    html
+  };
 }
 
 /* ============================ AI SUMMARIES ============================= */
