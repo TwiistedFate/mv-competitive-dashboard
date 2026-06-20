@@ -96,19 +96,6 @@ function navigate(hash) {
 function wireEvents() {
   // Delegated clicks
   document.addEventListener("click", e => {
-    // 1:1 comparison — "All competitors"
-    if (e.target.closest("[data-compare-all]")) {
-      setCompareAll();
-      refreshComparePage();
-      return;
-    }
-    // 1:1 comparison — toggle one competitor
-    const pill = e.target.closest("[data-compare-toggle]");
-    if (pill) {
-      toggleCompareCompetitor(pill.getAttribute("data-compare-toggle"));
-      refreshComparePage();
-      return;
-    }
     // sort a spec table
     const th = e.target.closest("th[data-sort]");
     if (th) {
@@ -139,6 +126,9 @@ function wireEvents() {
     // 1:1 comparison — pick the G&W anchor product
     const gw = e.target.closest("[data-compare-gw]");
     if (gw) { setCompareAnchor(gw.value); refreshComparePage(); return; }
+    // 1:1 comparison — pick the single competitor product
+    const comp = e.target.closest("[data-compare-comp]");
+    if (comp) { setCompareCompetitor(comp.value); refreshComparePage(); return; }
 
     const sel = e.target.closest("[data-filter]");
     if (sel) { filters[sel.getAttribute("data-filter")] = sel.value; render(); }

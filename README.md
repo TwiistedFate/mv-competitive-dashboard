@@ -204,10 +204,16 @@ shape used in `data/ai-summaries.js`:
 Append them to the `window.DB.aiSummaries` array (or regenerate the file) and
 reference each one from a news item via `aiSummaryId`. Nothing else changes.
 
-> A working Python news crawler from the previous version is still in
-> `scripts/` and `config/`. It can be adapted to write items in the
-> `data/news.js` shape so the news feed updates itself daily. It is **not**
-> wired into this build by default.
+> A Python news crawler lives in `scripts/update_tracker.py` with its watch list
+> in `config/sources.yml`. It searches Google News and scans vendor newsrooms,
+> then classifies each hit (Threat / Market Insight / Alert) and writes
+> `data/tracker_data.json`. It now covers **all six product lines** — including
+> fault current limiters and grid software — uses **product-level queries**
+> (named products like IntelliRupter, AirSeT, Is-limiter), and captures a real
+> **summary** (`og:description`) and **source** publisher per item. Edit
+> `config/sources.yml` to add vendors, products, or newsroom URLs. It can be
+> adapted to emit items in the `data/news.js` shape so the feed updates itself;
+> it is **not** wired into the live build by default.
 
 ---
 

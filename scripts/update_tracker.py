@@ -8,19 +8,23 @@ CONFIG = ROOT / "config" / "sources.yml"
 OUT = ROOT / "data" / "tracker_data.json"
 
 KEYWORDS = {
-    "Viper impact": ["recloser", "intellirupter", "pulseclos", "fault isolation", "protection"],
-    "AccuSense impact": ["sensor", "voltage sensor", "current sensor", "grid edge", "power quality", "flisr", "keva", "vls", "elbowsense"],
-    "Trident impact": ["sf6", "sf6-free", "switchgear", "rmu", "solid dielectric", "airset", "xiria"],
+    "Viper impact": ["recloser", "intellirupter", "tripsaver", "pulseclos", "fault isolation", "protection", "osm recloser", "nova recloser"],
+    "AccuSense impact": ["sensor", "voltage sensor", "current sensor", "grid edge", "power quality", "keva", "vls", "elbowsense", "gen2", "instrument transformer"],
+    "Trident impact": ["sf6", "sf6-free", "switchgear", "rmu", "ring main", "solid dielectric", "airset", "xiria", "blue gis", "clean air", "safering", "dry air"],
     "Cable impact": ["cable", "accessory", "accessories", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box"],
+    "FCL impact": ["fault current limiter", "is-limiter", "current limiter", "current-limiting", "clip", "let-through", "limiting reactor"],
+    "Software impact": ["adms", "derms", "flisr", "self-healing", "grid software", "distribution management", "ecostruxure", "intelliteam", "ability", "outage management", "scada"],
     "PDF/datasheet": ["pdf", "datasheet", "data sheet", "catalog", "manual", "specification"],
 }
 
-# The four product domains that qualify an item for the Threat track.
+# The product domains that qualify an item for the Threat track.
 PRODUCT_DOMAINS = {
-    "Reclosers": ["recloser", "intellirupter", "pulseclos", "pulse-closing", "osm", "fault isolation", "viper", "rer", "cooper recloser"],
-    "Switchgear": ["sf6", "sf6-free", "switchgear", "rmu", "ring main", "solid dielectric", "airset", "xiria", "trident", "safering", "8djh"],
-    "Voltage sensors": ["voltage sensor", "current sensor", "sensor", "power quality", "grid edge", "grid-edge", "flisr", "elbowsense", "keva", "vls", "accusense", "gen2"],
+    "Reclosers": ["recloser", "intellirupter", "tripsaver", "pulseclos", "pulse-closing", "osm", "fault isolation", "viper", "rer", "cooper recloser", "nova recloser", "easergy"],
+    "Switchgear": ["sf6", "sf6-free", "switchgear", "rmu", "ring main", "solid dielectric", "airset", "xiria", "trident", "safering", "8djh", "nxplus", "blue gis", "clean air", "dry air"],
+    "Voltage sensors": ["voltage sensor", "current sensor", "sensor", "power quality", "grid edge", "grid-edge", "elbowsense", "keva", "vls", "accusense", "gen2", "instrument transformer"],
     "Cables & accessories": ["cable", "termination", "splice", "joint", "elbow", "separable connector", "deadbreak", "loadbreak", "link box", "accessor"],
+    "Fault current limiters": ["fault current limiter", "is-limiter", "current limiter", "current-limiting", "clip", "let-through", "limiting reactor"],
+    "Grid software": ["adms", "derms", "flisr", "self-healing", "grid software", "distribution management", "ecostruxure", "intelliteam", "ability grid", "outage management"],
 }
 
 # Innovation VERBS — these signal a new development, but only count when paired with a product noun.
@@ -34,11 +38,12 @@ INNOVATION_VERBS = [
 
 # Concrete PRODUCT NOUNS — a real piece of MV equipment. Innovation only counts with one of these.
 PRODUCT_NOUNS = [
-    "recloser", "reclosers", "intellirupter", "switchgear", "rmu", "ring main unit",
+    "recloser", "reclosers", "intellirupter", "tripsaver", "switchgear", "rmu", "ring main unit",
     "sensor", "sensors", "voltage sensor", "current sensor", "cable", "termination",
     "splice", "joint", "elbow", "separable connector", "circuit breaker", "breaker",
-    "fault current limiter", "limiter", "panel", "viper", "trident", "accusense",
-    "airset", "xiria", "safering", "pulsecloser", "8djh", "vls", "keva",
+    "fault current limiter", "is-limiter", "current limiter", "limiter", "panel", "viper",
+    "trident", "accusense", "clip", "airset", "xiria", "safering", "pulsecloser", "8djh",
+    "nxplus", "blue gis", "vls", "keva", "elbowsense", "easergy", "ecostruxure", "intelliteam",
 ]
 
 # Words that signal a STUDY/RESEARCH PAPER (counts as innovation only if a product noun is also present).
@@ -116,6 +121,8 @@ def tags_for(text):
 
 def category_for(tags):
     if "PDF/datasheet" in tags: return "Datasheet"
+    if "FCL impact" in tags: return "Fault current limiters"
+    if "Software impact" in tags: return "Grid software"
     if "AccuSense impact" in tags: return "Sensors"
     if "Viper impact" in tags: return "Reclosers"
     if "Trident impact" in tags: return "Switchgear"
@@ -305,6 +312,7 @@ def google_news(vendor, query, captured_iso, deep=False):
                 "title": title,
                 "summary": summary or query,
                 "url": link,
+                "source": source_name(link),
                 "published": published_iso,
                 "category": category_for(tags),
                 "bucket": cls["bucket"],
@@ -333,19 +341,58 @@ def extract_date(soup):
     return None
 
 
-# Link text/href hints that a link is a real article/product/news page worth its own item.
-LINK_HINTS = ["news", "press", "release", "product", "recloser", "sensor", "switchgear",
-              "article", "story", "announce", "launch", "datasheet", "catalog", "/20"]
+def extract_description(soup):
+    """
+    Pull a real one- or two-sentence description for the item, in priority order:
+    og:description -> twitter:description -> <meta name=description> -> first
+    substantial <p>. Gives the dashboard a meaningful summary instead of just the
+    link text. Returns a trimmed string (<=300 chars) or None.
+    """
+    for sel, attr in [
+        ({"property": "og:description"}, "content"),
+        ({"name": "twitter:description"}, "content"),
+        ({"name": "description"}, "content"),
+    ]:
+        tag = soup.find("meta", attrs=sel)
+        if tag and tag.get(attr):
+            txt = clean(tag.get(attr))
+            if len(txt) >= 40:
+                return txt[:300]
+    # Fall back to the first paragraph that reads like prose, not navigation.
+    for p in soup.find_all("p"):
+        txt = clean(p.get_text(" "))
+        if len(txt) >= 80 and " " in txt:
+            return txt[:300]
+    return None
 
 
-def fetch_page_date(href):
-    """Best-effort: fetch a linked page just to read its real publish date. Returns ISO-ish string or None."""
+def source_name(url):
+    """Human-readable publisher/source from a URL host, e.g. 'sandc.com'."""
+    try:
+        host = urllib.parse.urlparse(url).netloc.lower()
+        return host[4:] if host.startswith("www.") else host
+    except Exception:
+        return ""
+
+
+def fetch_page_meta(href):
+    """
+    Best-effort single fetch of a linked page returning BOTH its real publish date
+    and a description, so 'Open source' lands on the exact page and the dashboard
+    shows a useful summary. Returns {"date": ..., "description": ...}.
+    """
     try:
         r = requests.get(href, timeout=10,
                          headers={"User-Agent": "Mozilla/5.0 competitive-intel-research"})
-        return extract_date(BeautifulSoup(r.text, "html.parser"))
+        soup = BeautifulSoup(r.text, "html.parser")
+        return {"date": extract_date(soup), "description": extract_description(soup)}
     except Exception:
-        return None
+        return {"date": None, "description": None}
+
+
+# Link text/href hints that a link is a real article/product/news page worth its own item.
+LINK_HINTS = ["news", "press", "release", "product", "recloser", "sensor", "switchgear",
+              "article", "story", "announce", "launch", "datasheet", "catalog", "/20"]
 
 
 def page_scan(vendor, url):
@@ -386,7 +433,7 @@ def page_scan(vendor, url):
             # A non-PDF link qualifies only if it's clearly MV-relevant: it must hit a real
             # product domain (recloser/switchgear/sensor/cable) OR sit on a news/press path.
             is_news_path = any(h in href.lower() for h in ["/news", "/press", "/media", "/article", "/resources"])
-            is_mv_relevant = product_domain(text + " " + href) is not None
+            is_mv_relevant = product_domain(label + " " + href) is not None
             is_article = is_news_path or is_mv_relevant
 
             if not (is_pdf or is_article):
@@ -417,6 +464,7 @@ def page_scan(vendor, url):
                     "title": text,
                     "summary": "Detected datasheet, catalog, manual, or specification document.",
                     "url": href,                       # the exact PDF/document URL
+                    "source": source_name(href),
                     "published": None,
                     "discovered_at": today_iso,
                     "category": "Datasheet",
@@ -426,19 +474,22 @@ def page_scan(vendor, url):
                     "tags": list(set(tags + ["PDF/datasheet"])),
                 })
             else:
-                page_date = fetch_page_date(href)      # real date from the article itself
-                cls = classify(text + " " + href, page_date, today_iso)
+                meta = fetch_page_meta(href)           # real date + description from the article itself
+                page_date = meta["date"]
+                summary = meta["description"] or f"{vendor} update: {text}"
+                cls = classify(f"{text} {summary} {href}", page_date, today_iso)
                 items.append({
                     "company": vendor,
                     "title": text,
-                    "summary": f"{vendor} update: {text}",
+                    "summary": summary,
                     "url": href,                       # the exact article/product URL
+                    "source": source_name(href),
                     "published": page_date,
                     "discovered_at": today_iso,
                     "category": category_for(tags),
                     "bucket": cls["bucket"],
                     "threat_score": cls["threat_score"],
-                    "relevance": relevance_score(text + " " + href, page_date, today_iso, cls["bucket"], href),
+                    "relevance": relevance_score(f"{text} {summary} {href}", page_date, today_iso, cls["bucket"], href),
                     "tags": tags,
                 })
 

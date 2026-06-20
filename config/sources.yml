@@ -1,65 +1,110 @@
+# ============================================================================
+#  sources.yml  —  what the news scraper monitors
+# ----------------------------------------------------------------------------
+#  Each vendor has:
+#    queries — Google News searches. Keep them PRODUCT-LEVEL (named products and
+#              technologies) so results map cleanly onto the dashboard's product
+#              lines: switchgear, reclosers, sensors, cable accessories, fault
+#              current limiters, and grid software.
+#    pages   — vendor pages whose links are scanned for articles / datasheets.
+#
+#  HOW TO ADD COVERAGE:
+#    • Add a named product or technology to `queries` (e.g. "ABB Is-limiter").
+#    • Add a newsroom/press URL to `pages`.
+#  The classifier in scripts/update_tracker.py buckets each hit automatically.
+# ============================================================================
+
 vendors:
   - name: G&W Electric
     queries:
       - G&W Electric Viper recloser
       - G&W Electric AccuSense sensor
-      - G&W Electric Trident switchgear
+      - G&W Electric Trident SF6-free switchgear
+      - G&W Electric CLiP fault current limiter
+      - G&W Electric cable terminations separable connectors
     pages:
       - https://www.gwelectric.com/
       - https://www.gwelectric.com/news/
+
   - name: S&C Electric
     queries:
-      - S&C IntelliRupter recloser
-      - S&C switchgear SF6 free
+      - S&C IntelliRupter PulseCloser recloser
+      - S&C TripSaver cutout-mounted recloser
+      - S&C IntelliTeam FLISR self-healing grid
+      - S&C Vista switchgear SF6-free
     pages:
       - https://www.sandc.com/
       - https://www.sandc.com/en/company/newsroom/
+
   - name: ABB
     queries:
-      - ABB medium voltage sensor KEVA VLS
-      - ABB SF6-free switchgear medium voltage
+      - ABB KEVA VLS medium voltage sensor
+      - ABB SafeRing AirPlus SF6-free switchgear
+      - ABB Is-limiter fault current limiter
+      - ABB Ability grid edge monitoring
     pages:
       - https://global.abb/
       - https://new.abb.com/news
+
   - name: Eaton
     queries:
-      - Eaton Cooper recloser medium voltage
-      - Eaton Xiria SF6 free switchgear
+      - Eaton Cooper NOVA recloser medium voltage
+      - Eaton Xiria SF6-free switchgear
+      - Eaton medium voltage sensors metering
     pages:
       - https://www.eaton.com/
       - https://www.eaton.com/us/en-us/company/news-insights/news-releases.html
+
   - name: Siemens
     queries:
-      - Siemens medium voltage switchgear SF6 free
-      - Siemens 8DJH switchgear
+      - Siemens blue GIS clean air SF6-free switchgear
+      - Siemens 8DJH NXPLUS switchgear
+      - Siemens fault current limiter medium voltage
+      - Siemens grid software ADMS
     pages:
       - https://press.siemens.com/global/en/pressreleases
+
   - name: Schneider Electric
     queries:
-      - Schneider Electric AirSeT SF6-free switchgear
-      - Schneider medium voltage sensors
+      - Schneider Electric RM AirSeT SF6-free switchgear
+      - Schneider Electric Easergy recloser sensor
+      - Schneider EcoStruxure ADMS grid software
     pages:
       - https://www.se.com/
       - https://www.se.com/ww/en/about-us/newsroom/news/
+
   - name: NOJA Power
     queries:
       - NOJA Power OSM recloser
+      - NOJA Power RC recloser controller synchrophasor
     pages:
       - https://www.nojapower.com/
       - https://www.nojapower.com/news
+
   - name: Tavrida Electric
     queries:
-      - Tavrida Electric recloser
+      - Tavrida Electric recloser vacuum switching
     pages:
       - https://www.tavrida.com/tena/media/news/
-  - name: Hubbell
+
+  - name: Hubbell Power Systems
     queries:
-      - Hubbell medium voltage sensor
+      - Hubbell medium voltage voltage current sensor
+      - Hubbell cable accessories separable connectors
     pages:
       - https://www.hubbellpowersystems.com/
+
   - name: Lindsey Systems
     queries:
-      - Lindsey GEN2 voltage sensor
-      - Lindsey ElbowSense sensor
+      - Lindsey GEN2 line sensor dynamic line rating
+      - Lindsey ElbowSense cable accessory sensor
     pages:
       - https://www.lindsey-usa.com/
+
+  - name: Nuventura
+    queries:
+      - Nuventura dry air SF6-free GIS switchgear
+      - Lucy Group Nuventura SF6-free switchgear
+    pages:
+      - https://nuventura.com/
+      - https://nuventura.com/news/
