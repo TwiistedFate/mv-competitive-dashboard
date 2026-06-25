@@ -1,36 +1,66 @@
 /* ============================================================================
- *  explorer.js  —  INTERACTIVE EQUIPMENT MODEL (2D clickable schematic)
+ *  explorer.js  —  INTERACTIVE EQUIPMENT MODEL (product-specific)
  * ----------------------------------------------------------------------------
- *  Renders a clean 2D SVG schematic of a piece of equipment with numbered,
- *  clickable hotspots. Clicking a hotspot (on the diagram or in the legend)
- *  opens a callout explaining the component in plain terms, in engineering
- *  terms, its customer benefit, and the competitive angle. Tabs filter the
- *  hotspots by theme (switching, sensing, automation, safety, etc.).
+ *  On the 1:1 Comparison page this lets a buyer explore EITHER product component
+ *  by component. A toggle switches between the G&W product and the selected
+ *  competitor; for each one it shows a product photo (if provided) or a clean 2D
+ *  schematic, plus the SPECIFIC equipment that company offers for each component
+ *  (their switching, sensing, automation, insulation, safety, install).
  *
- *  Data lives in data/explorers.js (one entry per product line). The line-art
- *  is drawn here, one layout per `type`. Loaded after lib.js, before
- *  comparison.js (which embeds the section on the 1:1 Comparison page).
+ *  Content comes from data/equipment.js (per-product offerings + optional photo)
+ *  and data/explorers.js (the schematic + hotspot positions). Any product
+ *  without authored offerings falls back to a view derived from its specs.
+ *
+ *  Loaded after lib.js, before comparison.js.
  * ========================================================================== */
 
-/* Hotspot themes — label + accent used on tabs, chips and markers. */
+/* Component themes — label, accent, and a plain-language "what it is". */
 const EXPLORER_GROUPS = [
-  { id: "components",    label: "Components",    color: "#475569" },
-  { id: "switching",     label: "Switching",     color: "#1e4f9c" },
-  { id: "sensing",       label: "Sensing",       color: "#7c3aed" },
-  { id: "automation",    label: "Automation",    color: "#0e7490" },
-  { id: "safety",        label: "Safety",        color: "#c0341d" },
-  { id: "environmental", label: "Environmental", color: "#157a40" },
-  { id: "install",       label: "Install & maintain", color: "#b8730a" }
+  { id: "components",    label: "Components",             color: "#475569", what: "The physical build and enclosure." },
+  { id: "switching",     label: "Switching & protection", color: "#1e4f9c", what: "How it makes, breaks and clears faults." },
+  { id: "environmental", label: "Insulation / SF6-free",  color: "#157a40", what: "The insulation system and environmental footprint." },
+  { id: "sensing",       label: "Sensing & monitoring",   color: "#7c3aed", what: "How it measures voltage, current and grid conditions." },
+  { id: "automation",    label: "Automation & control",   color: "#0e7490", what: "How it's operated, automated and integrated." },
+  { id: "safety",        label: "Safety",                 color: "#c0341d", what: "Features that protect crews and the public." },
+  { id: "install",       label: "Install & maintain",     color: "#b8730a", what: "How it's installed, connected and maintained." }
 ];
 const GROUP_BY_ID = Object.fromEntries(EXPLORER_GROUPS.map(g => [g.id, g]));
+const GROUP_ORDER = EXPLORER_GROUPS.map(g => g.id);
 
-/* Shared state for the explorer on the current page. */
-const explorerState = { catId: null, hotspotId: null, group: "all" };
-function resetExplorerSelection() { explorerState.hotspotId = null; explorerState.group = "all"; }
+/* state: which comparison, which product is shown, which component is open */
+const explorerState = { catId: null, gwId: null, compId: null, productId: null, group: null };
+function resetExplorerSelection() { explorerState.productId = null; explorerState.group = null; }
 
-/* ----------------------------- schematics -------------------------------- *
- * Abstract, professional line-art. Colours come from CSS classes so the
- * diagram matches the dashboard theme. Hotspot markers are overlaid from data. */
+/* ------------------------------ data access ------------------------------ */
+function exProduct(id) { return DB.products.find(p => p.id === id); }
+function exEquip(id) { return (window.DB.equipment || {})[id] || null; }
+
+/* The product's per-component offerings (authored, else derived from specs). */
+function exComponents(product) {
+  const e = exEquip(product.id);
+  if (e && e.components) return e.components;
+  return deriveComponents(product);
+}
+function deriveComponents(p) {
+  const s = p.specs || {};
+  const tech = (p.technology || []).join(", ");
+  const out = {};
+  out.switching = { offering: tech || "Switching", detail: [s.voltageRating, s.interruptingRating || s.shortCircuit].filter(Boolean).join(" · ") || "—" };
+  if (s.insulationType || /sf6-free/i.test(tech)) out.environmental = { offering: s.insulationType || "SF6-free", detail: tech || "—" };
+  if (s.sensorType) out.sensing = { offering: s.sensorType, detail: [s.accuracyClass, s.output].filter(Boolean).join(" · ") || "—" };
+  if (s.communication || s.controlPlatform) out.automation = { offering: s.controlPlatform || "Control & comms", detail: s.communication || "—" };
+  if (s.environmental) out.install = { offering: "Installation & rating", detail: s.environmental };
+  return out;
+}
+function componentKeys(product) {
+  const comps = exComponents(product);
+  return GROUP_ORDER.filter(k => comps[k]);
+}
+function hasComponents(id) { const p = exProduct(id); return !!(p && componentKeys(p).length); }
+/* Default to the competitor (the new product to explore), else the G&W anchor. */
+function defaultExplorerProduct(gwId, compId) { return hasComponents(compId) ? compId : gwId; }
+
+/* ----------------------------- schematics -------------------------------- */
 const SWITCHGEAR_ART = `
   <line x1="20" y1="358" x2="540" y2="358" class="ex-water"/>
   <rect x="40" y="48" width="480" height="300" rx="12" class="ex-enclosure"/>
@@ -72,101 +102,135 @@ const RECLOSER_ART = `
   <text x="86" y="289" class="ex-label">CONTROL</text>
   <path d="M150 192 q-44 8 -64 58" class="ex-line"/>`;
 
-function schematicArt(type) {
-  return type === "recloser" ? RECLOSER_ART : SWITCHGEAR_ART;
-}
-function schematicViewBox(type) {
-  return type === "recloser" ? "0 0 520 360" : "0 0 560 380";
-}
+function schematicArt(type) { return type === "recloser" ? RECLOSER_ART : SWITCHGEAR_ART; }
+function schematicViewBox(type) { return type === "recloser" ? "0 0 520 360" : "0 0 560 380"; }
 
-/* Numbered hotspot markers overlaid on the schematic. */
-function hotspotMarkers(spots, selId, group) {
-  return spots.map((h, i) => {
-    const active = h.id === selId ? " is-active" : "";
-    const dim = group !== "all" && h.group !== group ? " is-dim" : "";
-    return `<g class="ex-hot${active}${dim}" data-hotspot="${esc(h.id)}" role="button" tabindex="0"
-              aria-label="${esc(h.label)}">
-        <circle cx="${h.x}" cy="${h.y}" r="14"/>
-        <text x="${h.x}" y="${h.y}">${i + 1}</text>
+/* Numbered hotspot markers — only for components this product actually has. */
+function hotspotMarkers(spots, keys, activeGroup) {
+  return (spots || []).filter(h => keys.indexOf(h.group) >= 0).map(h => {
+    const num = keys.indexOf(h.group) + 1;
+    const active = h.group === activeGroup ? " is-active" : "";
+    const g = GROUP_BY_ID[h.group];
+    return `<g class="ex-hot${active}" data-component="${esc(h.group)}" role="button" tabindex="0"
+              aria-label="${esc(g ? g.label : h.group)}">
+        <circle cx="${h.x}" cy="${h.y}" r="14"/><text x="${h.x}" y="${h.y}">${num}</text>
       </g>`;
   }).join("");
 }
 
-/* The full interactive block for one product line (catId). */
-function explorerInner(catId) {
-  const ex = (window.DB.explorers || {})[catId];
-  if (!ex) return "";
-  const spots = ex.hotspots || [];
-  if (!spots.length) return "";
-
-  let sel = spots.find(h => h.id === explorerState.hotspotId);
-  if (!sel) { sel = spots[0]; explorerState.hotspotId = sel.id; }
-  const selNum = spots.indexOf(sel) + 1;
-  const group = explorerState.group || "all";
-
-  // Tabs: "All" + only the themes actually present.
-  const present = [...new Set(spots.map(h => h.group))];
-  const tabs = [{ id: "all", label: "All" }]
-    .concat(EXPLORER_GROUPS.filter(g => present.includes(g.id)));
-  const tabsHtml = tabs.map(t =>
-    `<button class="ex-tab${(group === t.id) ? " is-active" : ""}" data-explorer-group="${t.id}">${esc(t.label)}</button>`
-  ).join("");
-
-  const svg = `<svg viewBox="${schematicViewBox(ex.type)}" class="ex-svg" role="img"
-       aria-label="${esc(ex.title || "Equipment schematic")}">${schematicArt(ex.type)}${hotspotMarkers(spots, sel.id, group)}</svg>`;
-
-  // Numbered legend (also clickable + keyboard-accessible).
-  const legend = spots.map((h, i) => {
-    const active = h.id === sel.id ? " is-active" : "";
-    const dim = group !== "all" && h.group !== group ? " is-dim" : "";
-    return `<button class="ex-leg${active}${dim}" data-hotspot="${esc(h.id)}">
-        <span class="ex-leg-n">${i + 1}</span><span>${esc(h.label)}</span>
+/* ----------------------------- UI builders ------------------------------- */
+function exToggle(gwId, compId, activeId) {
+  const btn = (id) => {
+    const p = exProduct(id); if (!p) return "";
+    const c = getCompetitor(p.competitorId) || {};
+    return `<button class="ex-toggle-btn${id === activeId ? " is-active" : ""}" data-explorer-product="${esc(id)}">
+        <span class="ex-tg-co">${esc(c.name)}</span><span class="ex-tg-prod">${esc(p.name)}</span>
       </button>`;
-  }).join("");
+  };
+  return `<div class="ex-toggle">${btn(gwId)}${btn(compId)}</div>`;
+}
 
-  const g = GROUP_BY_ID[sel.group] || { label: sel.group, color: "var(--muted)" };
-  const callout = `
+function exVisual(product, ex, keys, activeGroup) {
+  const e = exEquip(product.id);
+  const photo = e && e.image
+    ? `<img class="ex-photo" src="${esc(e.image)}" alt="${esc(e.imageAlt || product.name)}"
+         onerror="this.closest('.ex-stage').classList.add('img-failed')">`
+    : "";
+  const schematic = ex
+    ? `<div class="ex-schematic"><svg viewBox="${schematicViewBox(ex.type)}" class="ex-svg" role="img"
+         aria-label="${esc(product.name)} schematic">${schematicArt(ex.type)}${hotspotMarkers(ex.hotspots, keys, activeGroup)}</svg></div>`
+    : `<div class="ex-schematic ex-noschematic">${esc(product.name)}</div>`;
+  const hint = (e && e.image)
+    ? `Use the components below to explore ${esc(product.name)}`
+    : (ex ? "Tap a numbered point or a component below" : "Pick a component below");
+  return `<div class="ex-stage${(e && e.image) ? " has-photo" : ""}">${photo}${schematic}<div class="ex-hint">${hint}</div></div>`;
+}
+
+function exCallout(product, group) {
+  const comps = exComponents(product);
+  const data = comps[group];
+  const g = GROUP_BY_ID[group] || { label: group, color: "var(--muted)", what: "" };
+  const co = getCompetitor(product.competitorId) || {};
+  if (!data) {
+    return `<div class="ex-callout"><p class="cmp-usecase">No ${esc(g.label)} detail recorded for ${esc(product.name)} yet.</p></div>`;
+  }
+  const num = componentKeys(product).indexOf(group) + 1;
+  return `
     <div class="ex-callout">
       <div class="ex-callout-head">
-        <span class="ex-num">${selNum}</span>
+        <span class="ex-num">${num}</span>
         <div>
           <span class="ex-chip" style="--g:${g.color}">${esc(g.label)}</span>
-          <h4>${esc(sel.label)}</h4>
+          <h4>${esc(product.name)} — ${esc(data.offering)}</h4>
         </div>
       </div>
       <div class="ex-rows">
-        <div class="ex-row"><div class="ex-row-l">In plain terms</div><p>${esc(sel.simple)}</p></div>
-        <div class="ex-row"><div class="ex-row-l">Engineering detail</div><p>${esc(sel.technical)}</p></div>
-        <div class="ex-row ex-benefit"><div class="ex-row-l">Customer benefit</div><p>${esc(sel.benefit)}</p></div>
-        <div class="ex-row ex-vs"><div class="ex-row-l">How G&amp;W compares</div><p>${esc(sel.vs)}</p></div>
+        <div class="ex-row"><div class="ex-row-l">What this component does</div><p>${esc(g.what)}</p></div>
+        <div class="ex-row ex-vs"><div class="ex-row-l">${esc(co.name || "This company")}'s equipment</div><p>${esc(data.detail)}</p></div>
+        ${data.benefit ? `<div class="ex-row ex-benefit"><div class="ex-row-l">Why it matters</div><p>${esc(data.benefit)}</p></div>` : ""}
       </div>
-    </div>`;
-
-  return `
-    <div class="explorer">
-      <div class="ex-tabs">${tabsHtml}</div>
-      <div class="ex-body">
-        <div class="ex-stage">${svg}<div class="ex-hint">Tap a numbered point to learn about it</div></div>
-        ${callout}
-      </div>
-      <div class="ex-legend">${legend}</div>
     </div>`;
 }
 
-/* Section wrapper embedded by the comparison page. Returns "" when the selected
- * product line has no model yet (graceful, scalable). */
-function equipmentExplorerSection(anchor) {
-  const ex = (window.DB.explorers || {})[anchor.category];
-  if (!ex) return "";
-  explorerState.catId = anchor.category;
+/* The full interactive block for the current comparison. */
+function explorerInner() {
+  const { gwId, compId, catId } = explorerState;
+  const ex = (window.DB.explorers || {})[catId];
+
+  if (explorerState.productId !== gwId && explorerState.productId !== compId) {
+    explorerState.productId = defaultExplorerProduct(gwId, compId);
+  }
+  const product = exProduct(explorerState.productId);
+  if (!product) return "";
+
+  const keys = componentKeys(product);
+  if (!keys.length) return "";
+  if (keys.indexOf(explorerState.group) < 0) explorerState.group = keys[0];
+
+  const legend = keys.map((k, i) => {
+    const g = GROUP_BY_ID[k];
+    return `<button class="ex-leg${k === explorerState.group ? " is-active" : ""}" data-component="${k}">
+        <span class="ex-leg-n">${i + 1}</span><span>${esc(g ? g.label : k)}</span>
+      </button>`;
+  }).join("");
+
   return `
-    <div class="sec sec-gap"><div><h3>Interactive equipment model</h3><p>${esc(ex.intro || "")}</p></div></div>
-    <div id="equipment-explorer">${explorerInner(anchor.category)}</div>`;
+    <div class="explorer">
+      ${exToggle(gwId, compId, explorerState.productId)}
+      <div class="ex-body">
+        <div>
+          ${exVisual(product, ex, keys, explorerState.group)}
+          <div class="ex-legend">${legend}</div>
+        </div>
+        ${exCallout(product, explorerState.group)}
+      </div>
+    </div>`;
+}
+
+/* Section wrapper embedded by the comparison page (anchor = G&W, comp = rival). */
+function equipmentExplorerSection(anchor, comp) {
+  if (!anchor || !comp) return "";
+  // Show whenever either side has something to explain (authored or derived).
+  const anyContent = componentKeys(anchor).length || componentKeys(comp).length
+    || (window.DB.explorers || {})[anchor.category];
+  if (!anyContent) return "";
+
+  explorerState.catId = anchor.category;
+  explorerState.gwId = anchor.id;
+  explorerState.compId = comp.id;
+  if (explorerState.productId !== anchor.id && explorerState.productId !== comp.id) {
+    explorerState.productId = defaultExplorerProduct(anchor.id, comp.id);
+  }
+
+  return `
+    <div class="sec sec-gap"><div><h3>Interactive equipment model</h3>
+      <p>Explore each product component by component — switch between ${esc(anchor.name)} and ${esc(comp.name)} to see the specific equipment each company offers.</p></div></div>
+    <div id="equipment-explorer">${explorerInner()}</div>`;
 }
 
 /* Re-render just the explorer (keeps the rest of the comparison page intact). */
 function refreshExplorer() {
   const el = document.getElementById("equipment-explorer");
   if (!el || !explorerState.catId) return;
-  el.innerHTML = explorerInner(explorerState.catId);
+  el.innerHTML = explorerInner();
 }

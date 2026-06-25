@@ -478,19 +478,32 @@ table.spec.sbs tbody tr:hover td:not(.is-us-col) { background: var(--surface-2);
 
 /* ===================== INTERACTIVE EQUIPMENT MODEL ===================== */
 .explorer { margin-top: 4px; }
-.ex-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.ex-tab {
-  border: 1px solid var(--border); background: var(--surface); color: var(--muted);
-  border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600;
-  transition: border-color .15s, color .15s, background .15s;
+/* product toggle (G&W ⇄ competitor) */
+.ex-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 14px; }
+.ex-toggle-btn {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  padding: 8px 18px; background: var(--surface); border: 0; border-right: 1px solid var(--border);
+  cursor: pointer; transition: background .15s;
 }
-.ex-tab:hover:not(.is-active) { border-color: var(--primary); color: var(--primary); }
-.ex-tab.is-active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.ex-toggle-btn:last-child { border-right: 0; }
+.ex-toggle-btn:hover:not(.is-active) { background: var(--surface-2); }
+.ex-toggle-btn .ex-tg-co { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.ex-toggle-btn .ex-tg-prod { font-size: 13px; font-weight: 700; color: var(--text); }
+.ex-toggle-btn.is-active { background: var(--primary); }
+.ex-toggle-btn.is-active .ex-tg-co { color: rgba(255,255,255,.75); }
+.ex-toggle-btn.is-active .ex-tg-prod { color: #fff; }
 
 .ex-body { display: grid; grid-template-columns: 1.12fr 1fr; gap: 18px; align-items: start; }
 .ex-stage { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
 .ex-svg { width: 100%; height: auto; display: block; }
 .ex-hint { text-align: center; font-size: 11.5px; color: var(--muted-2); margin-top: 8px; }
+
+/* product photo (when provided) with graceful fallback to the schematic */
+.ex-photo { width: 100%; height: auto; max-height: 300px; object-fit: contain; display: block; background: #fff; border-radius: var(--radius-sm); }
+.ex-stage.has-photo .ex-schematic { display: none; }
+.ex-stage.img-failed .ex-photo { display: none; }
+.ex-stage.img-failed .ex-schematic { display: block; }
+.ex-noschematic { display: grid; place-items: center; min-height: 200px; color: var(--muted-2); font-weight: 700; border: 1px dashed var(--border); border-radius: var(--radius-sm); }
 
 /* schematic line-art */
 .ex-enclosure { fill: var(--surface-2); stroke: var(--muted); stroke-width: 1.6; }
@@ -531,8 +544,8 @@ table.spec.sbs tbody tr:hover td:not(.is-us-col) { background: var(--surface-2);
 .ex-vs { background: var(--primary-50); border: 1px solid #c7d7fe; border-radius: var(--radius-sm); padding: 10px 12px; }
 .ex-vs .ex-row-l { color: var(--primary); }
 
-/* legend */
-.ex-legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; }
+/* legend (component selector under the visual) */
+.ex-legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 14px; }
 .ex-leg { display: flex; align-items: center; gap: 8px; text-align: left; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); padding: 8px 10px; font-size: 12px; font-weight: 600; color: var(--text); transition: border-color .15s; }
 .ex-leg:hover { border-color: var(--primary); }
 .ex-leg-n { width: 20px; height: 20px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--border); display: grid; place-items: center; font-size: 11px; color: var(--muted); flex-shrink: 0; }

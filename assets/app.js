@@ -96,12 +96,12 @@ function navigate(hash) {
 function wireEvents() {
   // Delegated clicks
   document.addEventListener("click", e => {
-    // interactive equipment model — select a hotspot
-    const hot = e.target.closest("[data-hotspot]");
-    if (hot) { explorerState.hotspotId = hot.getAttribute("data-hotspot"); refreshExplorer(); return; }
-    // interactive equipment model — filter hotspots by theme
-    const exTab = e.target.closest("[data-explorer-group]");
-    if (exTab) { explorerState.group = exTab.getAttribute("data-explorer-group"); refreshExplorer(); return; }
+    // interactive equipment model — switch which product is shown
+    const exProd = e.target.closest("[data-explorer-product]");
+    if (exProd) { explorerState.productId = exProd.getAttribute("data-explorer-product"); refreshExplorer(); return; }
+    // interactive equipment model — open a component
+    const exComp = e.target.closest("[data-component]");
+    if (exComp) { explorerState.group = exComp.getAttribute("data-component"); refreshExplorer(); return; }
     // sort a spec table
     const th = e.target.closest("th[data-sort]");
     if (th) {
@@ -150,8 +150,8 @@ function wireEvents() {
   // Keyboard activation for SVG hotspots (role="button" on <g> isn't natively keyable)
   document.addEventListener("keydown", e => {
     if (e.key !== "Enter" && e.key !== " ") return;
-    const hot = e.target.closest && e.target.closest("g[data-hotspot]");
-    if (hot) { e.preventDefault(); explorerState.hotspotId = hot.getAttribute("data-hotspot"); refreshExplorer(); }
+    const hot = e.target.closest && e.target.closest("g[data-component]");
+    if (hot) { e.preventDefault(); explorerState.group = hot.getAttribute("data-component"); refreshExplorer(); }
   });
 
   window.addEventListener("hashchange", render);

@@ -70,6 +70,15 @@ itself — you don't touch the page code.
 - **Competitor profiles** — overview, products offered, strengths, weaknesses,
   partnerships, new-product announcements, strategic direction, useful links,
   and an AI-summary section.
+- **Interactive equipment model** — on the comparison page, a clickable model
+  lets you explore either product component by component (switching, sensing,
+  insulation/SF6, automation, safety, install) and see the **specific equipment
+  each company offers** (e.g. ABB → KEVA/VLS sensors, Relion + Ability). A toggle
+  switches between the G&W and competitor product. It shows a **product photo**
+  when one is set in `data/equipment.js` (else a clean 2D schematic). To add a
+  photo: set `image` to a URL, or drop a file in `assets/equipment/` and point
+  `image` at it. Offerings for switchgear/recloser products are authored; other
+  lines derive from specs.
 - **News & articles** — the full feed of everything competitors are doing.
   Product-specific items also appear under their product line; company-level
   news (M&A, financials, expansion — `category: "corporate"`) shows here only,

@@ -330,7 +330,7 @@ function comparePage() {
       <span class="cmp-active-comp">${esc(compCo.name)} ${esc(comp.name)}</span>
     </div>
 
-    ${equipmentExplorerSection(anchor)}
+    ${equipmentExplorerSection(anchor, comp)}
 
     <div class="sec sec-gap"><div><h3>Side-by-side specifications</h3><p>${esc(anchor.name)} (highlighted) against ${esc(comp.name)}.</p></div></div>
     ${sideBySideTable(anchor, comp)}
