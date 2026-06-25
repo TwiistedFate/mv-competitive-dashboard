@@ -544,6 +544,14 @@ table.spec.sbs tbody tr:hover td:not(.is-us-col) { background: var(--surface-2);
 .ex-vs { background: var(--primary-50); border: 1px solid #c7d7fe; border-radius: var(--radius-sm); padding: 10px 12px; }
 .ex-vs .ex-row-l { color: var(--primary); }
 
+/* list of a company's offerings for the selected component */
+.ex-items-head { display: flex; align-items: center; gap: 8px; margin: 14px 0 8px; color: var(--text); }
+.ex-count { display: inline-grid; place-items: center; min-width: 20px; height: 18px; padding: 0 6px; border-radius: 999px; background: var(--g, var(--primary)); color: #fff; font-size: 11px; font-weight: 700; }
+.ex-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ex-item { border: 1px solid var(--border); border-left: 3px solid var(--g, var(--primary)); border-radius: var(--radius-sm); padding: 9px 12px; background: var(--surface); }
+.ex-item-n { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
+.ex-item-d { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
 /* legend (component selector under the visual) */
 .ex-legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 14px; }
 .ex-leg { display: flex; align-items: center; gap: 8px; text-align: left; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-sm); padding: 8px 10px; font-size: 12px; font-weight: 600; color: var(--text); transition: border-color .15s; }

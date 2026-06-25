@@ -1,32 +1,31 @@
 /* ============================================================================
- *  equipment.js  —  PER-PRODUCT COMPONENT OFFERINGS (+ optional photo)
+ *  equipment.js  —  PER-PRODUCT COMPONENT PORTFOLIOS (+ optional photo)
  * ----------------------------------------------------------------------------
  *  Powers the Interactive equipment model on the 1:1 Comparison page. For each
- *  product (G&W and competitors) it records the SPECIFIC equipment that company
- *  offers for each component area — their actual named switching, sensing,
- *  automation, etc. — so a buyer can explore "what does ABB use for sensing on
- *  the SafeRing AirPlus?" and compare it directly with G&W.
+ *  product (G&W and competitors) and each component area it lists ALL the
+ *  equipment that company offers for that area on this class of product — e.g.
+ *  press "Sensing" on the ABB SafeRing AirPlus and you see ABB's full voltage /
+ *  current sensor range (KEVA, KECA, KEVCD, VLS). The point is to see, at a
+ *  glance, everything a competitor brings to their switchgear / recloser.
  *
  *  STRUCTURE:
  *    DB.equipment["<productId>"] = {
- *      image:    "assets/equipment/<file>.jpg",   // OPTIONAL product photo
- *      imageAlt: "…",                              // OPTIONAL alt text
+ *      image:    "assets/equipment/<file>.jpg",   // OPTIONAL product photo (URL or path)
+ *      imageAlt: "…",
  *      components: {
  *        components | switching | environmental | sensing | automation |
- *        safety | install : { offering: "named equipment", detail: "specifics" }
+ *        safety | install : {
+ *          items: [ { name: "Named product / tech", detail: "what it is" }, … ]
+ *        }
  *      }
  *    }
  *
- *  • `productId` matches an id in data/products.js.
- *  • Component keys match the hotspot groups in data/explorers.js.
- *  • If `image` is set, the model shows the photo; otherwise it falls back to
- *    the 2D schematic. Drop product photos into assets/equipment/ and set the
- *    `image` path — nothing else changes.
- *  • Any product without an entry here still gets a basic component view derived
- *    automatically from its specs (see assets/explorer.js → deriveComponents).
+ *  • `productId` matches data/products.js; component keys match data/explorers.js.
+ *  • If `image` is set the model shows the photo, else a 2D schematic.
+ *  • Products with no entry here get a basic list derived from their specs.
  *
- *  ⚠  Offerings are illustrative competitive-intelligence summaries; verify
- *     against each vendor's published datasheets before relying on them.
+ *  ⚠  Portfolios are illustrative competitive-intelligence summaries of each
+ *     vendor's range; verify against published datasheets before relying on them.
  * ========================================================================== */
 
 window.DB = window.DB || {};
@@ -34,137 +33,280 @@ window.DB = window.DB || {};
 window.DB.equipment = {
   /* ============================ SWITCHGEAR ============================== */
   "p-gw-trident": {
-    image: "https://www.gwelectric.com/wp-content/uploads/2019/10/gw-electric-trident-st-padmount.jpg", imageAlt: "G&W Trident solid-dielectric switchgear",
+    image: "https://www.gwelectric.com/wp-content/uploads/2019/10/gw-electric-trident-st-padmount.jpg",
+    imageAlt: "G&W Trident solid-dielectric switchgear",
     components: {
-      components:    { offering: "Sealed submersible enclosure", detail: "Compact, dead-front cabinet rated to NEMA 6P — installs underground, in vaults, or pad-mount." },
-      switching:     { offering: "Vacuum interrupters", detail: "Vacuum make/break in a solid-dielectric assembly, up to 38 kV and 25 kA short-circuit." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Epoxy-encapsulated live parts — zero fluorinated gas, no pressure to monitor or refill." },
-      sensing:       { offering: "AccuSense integrated V/I sensors", detail: "Factory-fitted combined voltage + current sensing, IEC 61850-9-2 sampled-values ready." },
-      automation:    { offering: "Open DNP3 / IEC 61850 control", detail: "Vendor-neutral SCADA / FLISR integration; sensor-ready, no software lock-in." },
-      safety:        { offering: "Dead-front, visible break, grounding", detail: "Touch-safe interfaces, viewing window, integral grounding and submersible rating." },
-      install:       { offering: "IEEE 386 separable connectors", detail: "200 / 600 A loadbreak elbows matched to the unit's own bushings for fast, safe cable work." }
+      components:    { items: [
+        { name: "Trident-S", detail: "Load-break switching ways." },
+        { name: "Trident-SR", detail: "Resettable electronic fault-interrupting ways." },
+        { name: "Trident-SP", detail: "Vacuum-fault-interrupter (VFI) ways." } ] },
+      switching:     { items: [
+        { name: "Vacuum fault interrupters (VFI)", detail: "Three-phase or single-phase vacuum interruption, up to 38 kV / 25 kA." },
+        { name: "Load-break switches", detail: "SF6-free load-break switching ways." },
+        { name: "Resettable fault interrupters", detail: "Electronically controlled, resettable overcurrent protection." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric insulation", detail: "Epoxy-encapsulated live parts — no gas of any kind." },
+        { name: "SF6-free by design", detail: "Zero fluorinated gas; nothing to monitor, refill or report." } ] },
+      sensing:       { items: [
+        { name: "AccuSense combined V/I sensors", detail: "Integrated voltage + current sensing, IEC 61850-9-2 ready." },
+        { name: "AccuSense VS-27 voltage sensor", detail: "Factory-fitted, fully integrated voltage sensing." },
+        { name: "Integrated current sensors", detail: "Built-in CTs for protection and metering." } ] },
+      automation:    { items: [
+        { name: "Open DNP3 / IEC 61850", detail: "Vendor-neutral SCADA and FLISR integration." },
+        { name: "Sensor-ready interfaces", detail: "Plug-in for AccuSense and third-party controls." } ] },
+      safety:        { items: [
+        { name: "Dead-front interfaces", detail: "No exposed live metal on the operating front." },
+        { name: "Visible-break viewing window", detail: "Confirm switch position by eye." },
+        { name: "Integral grounding", detail: "Built-in earthing for safe work." },
+        { name: "Submersible (NEMA 6P)", detail: "Survives flooded vaults." } ] },
+      install:       { items: [
+        { name: "IEEE 386 separable connectors", detail: "200 / 600 A loadbreak elbows matched to G&W bushings." },
+        { name: "Padmount & submersible options", detail: "Underground, vault, or pad-mount installation." } ] }
     }
   },
   "p-abb-safering": {
     image: "", imageAlt: "ABB SafeRing AirPlus switchgear",
     components: {
-      components:    { offering: "Indoor secondary GIS (RMU)", detail: "Compact, extensible SafeRing / SafePlus ring-main-unit enclosure for indoor rooms." },
-      switching:     { offering: "Vacuum interrupters", detail: "Vacuum switch / circuit-breaker functions, up to 24 kV and 21 kA." },
-      environmental: { offering: "AirPlus dry-air (SF6-free)", detail: "ABB's eco-efficient AirPlus insulation — SF6-free with very low global-warming potential." },
-      sensing:       { offering: "KEVA & VLS sensors", detail: "ABB KEVA voltage sensors and VLS combined V/I sensors, IEC 61850-9-2 low-power output." },
-      automation:    { offering: "Relion relays + ABB Ability", detail: "Relion protection (REF/RED series) with ABB Ability edge / cloud monitoring and analytics." },
-      safety:        { offering: "IAC AFLR, dead-front", detail: "Internal-arc-classified secondary GIS with touch-safe, dead-front interfaces." },
-      install:       { offering: "Indoor cable-connected RMU", detail: "Compact indoor footprint; cable-connected and extensible for network growth." }
+      components:    { items: [
+        { name: "SafeRing (RMU)", detail: "Non-extensible ring-main unit." },
+        { name: "SafePlus", detail: "Extensible, modular switchgear." } ] },
+      switching:     { items: [
+        { name: "Vacuum circuit breakers", detail: "Vacuum interruption for protection ways." },
+        { name: "SF6-free load-break switches", detail: "AirPlus switch-disconnectors." },
+        { name: "Vacuum contactors", detail: "For motor / frequent-switching duty." } ] },
+      environmental: { items: [
+        { name: "AirPlus insulation", detail: "Fluoroketone + dry-air mixture, ~99.99% lower GWP than SF6." },
+        { name: "SF6-free portfolio", detail: "Eco-efficient alternative to SF6 GIS." } ] },
+      sensing:       { items: [
+        { name: "KEVA voltage sensors", detail: "Low-power resistive voltage sensing." },
+        { name: "KECA current sensors", detail: "Rogowski-coil low-power current sensing." },
+        { name: "KEVCD combined sensors", detail: "Combined voltage + current in one unit." },
+        { name: "VLS sensors", detail: "Live-tank low-power sensor range." } ] },
+      automation:    { items: [
+        { name: "Relion protection relays", detail: "REF615 / REF620 feeder protection, IEC 61850." },
+        { name: "ABB Ability", detail: "Edge / cloud monitoring and analytics." } ] },
+      safety:        { items: [
+        { name: "IAC AFLR classification", detail: "Internal-arc-classified secondary GIS." },
+        { name: "Dead-front, capacitive VPIS", detail: "Touch-safe with voltage indication." } ] },
+      install:       { items: [
+        { name: "Cable-connected RMU", detail: "Compact indoor footprint." },
+        { name: "Extensible bays", detail: "Add ways as the network grows." } ] }
     }
   },
   "p-siemens-bluegis": {
     image: "", imageAlt: "Siemens NXPLUS C blue GIS switchgear",
     components: {
-      components:    { offering: "Compact sealed GIS", detail: "Very small-footprint NXPLUS C / 8DJH gas-insulated cabinet." },
-      switching:     { offering: "Vacuum interrupters", detail: "Vacuum switching, up to 24 kV and 25 kA." },
-      environmental: { offering: "Clean Air (vacuum + dry air)", detail: "Natural-origin gases, GWP < 1, and free of fluorinated gases and PFAS." },
-      sensing:       { offering: "SICAM / low-power sensors", detail: "Integrated low-power CT/VT sensors feeding SICAM and an IEC 61850 process bus." },
-      automation:    { offering: "SIPROTEC / SICAM + Grid Software", detail: "SIPROTEC protection and SICAM automation with Siemens Grid Software / ADMS." },
-      safety:        { offering: "IAC-classified GIS, dead-front", detail: "Internal-arc-classified, fully sealed compact GIS." },
-      install:       { offering: "Compact indoor GIS", detail: "Smallest-footprint option for space-constrained urban substations." }
+      components:    { items: [
+        { name: "NXPLUS C blue GIS", detail: "Compact primary distribution GIS." },
+        { name: "8DJH blue", detail: "Secondary distribution GIS." } ] },
+      switching:     { items: [
+        { name: "Vacuum circuit breakers", detail: "3AH-series vacuum interruption." },
+        { name: "Vacuum switch-disconnectors", detail: "Load-break and isolation." } ] },
+      environmental: { items: [
+        { name: "Clean Air insulation", detail: "Vacuum + dry air — no fluorinated gas, no PFAS, GWP < 1." } ] },
+      sensing:       { items: [
+        { name: "Low-power instrument transformers (LPIT)", detail: "Integrated low-power CT/VT." },
+        { name: "SICAM sensors", detail: "Feed SICAM automation and IEC 61850 process bus." } ] },
+      automation:    { items: [
+        { name: "SIPROTEC protection", detail: "Numerical protection relays." },
+        { name: "SICAM automation", detail: "RTUs / gateways for distribution automation." },
+        { name: "Siemens Grid Software", detail: "ADMS / monitoring integration." } ] },
+      safety:        { items: [
+        { name: "IAC-classified GIS", detail: "Internal-arc-classified sealed GIS." },
+        { name: "Capacitive voltage detection", detail: "Dead-front voltage indication." } ] },
+      install:       { items: [
+        { name: "Compact GIS footprint", detail: "Smallest footprint for tight urban rooms." } ] }
     }
   },
   "p-schneider-airset": {
     image: "", imageAlt: "Schneider RM AirSeT switchgear",
     components: {
-      components:    { offering: "Compact RMU (RM / GM AirSeT)", detail: "Indoor ring-main-unit enclosure, 'digital by design'." },
-      switching:     { offering: "Shunt Vacuum Interruption (SVI)", detail: "Pure-air insulation with shunt vacuum interruption, up to 24 kV and 21 kA." },
-      environmental: { offering: "Pure Air (SF6-free)", detail: "Dry / pure-air insulation with no fluorinated gas." },
-      sensing:       { offering: "Built-in LPVT / LPCT sensors", detail: "Embedded low-power voltage and current sensors — sensing comes standard ('digital by design')." },
-      automation:    { offering: "EcoStruxure + Easergy / PowerLogic", detail: "Easergy protection relays with EcoStruxure ADMS, monitoring and DERMS." },
-      safety:        { offering: "IAC AFLR, dead-front", detail: "Internal-arc-classified, touch-safe interfaces." },
-      install:       { offering: "Compact indoor RMU", detail: "RM AirSeT (secondary) and GM AirSeT (primary) for indoor distribution." }
+      components:    { items: [
+        { name: "RM AirSeT", detail: "Secondary distribution RMU." },
+        { name: "GM AirSeT", detail: "Primary distribution switchgear." } ] },
+      switching:     { items: [
+        { name: "Shunt Vacuum Interruption (SVI)", detail: "Pure-air with vacuum interruption circuit breakers." },
+        { name: "Load-break switches", detail: "Pure-air switch-disconnectors." } ] },
+      environmental: { items: [
+        { name: "Pure Air insulation", detail: "Dry / pure air — SF6-free, no fluorinated gas." } ] },
+      sensing:       { items: [
+        { name: "LPVT low-power voltage transformers", detail: "Built-in digital voltage sensing." },
+        { name: "LPCT low-power current transformers", detail: "Built-in digital current sensing." },
+        { name: "VPIS / voltage indication", detail: "Voltage-presence indication system." } ] },
+      automation:    { items: [
+        { name: "Easergy P3 / P5 relays", detail: "Feeder protection, IEC 61850." },
+        { name: "EcoStruxure", detail: "ADMS, monitoring and DERMS software." },
+        { name: "PowerLogic metering", detail: "Power-quality and energy metering." } ] },
+      safety:        { items: [
+        { name: "IAC AFLR classification", detail: "Internal-arc-classified, dead-front." },
+        { name: "Digital voltage presence", detail: "Built-in voltage-presence check." } ] },
+      install:       { items: [
+        { name: "Compact digital-ready RMU", detail: "Indoor, sensors built in ('digital by design')." } ] }
     }
   },
   "p-nuventura-nu1": {
     image: "", imageAlt: "Nuventura nu1 dry-air GIS switchgear",
     components: {
-      components:    { offering: "Modular dry-air GIS", detail: "Sealed gas-insulated cabinet on a licensable platform." },
-      switching:     { offering: "Vacuum interrupters", detail: "Vacuum switching in a dry-air GIS, up to 24 kV." },
-      environmental: { offering: "Technical dry air (SF6-free)", detail: "Dry air at near-atmospheric pressure — SF6-free with a strong sustainability story." },
-      sensing:       { offering: "Sensor-ready / low-power sensors", detail: "Prepared for low-power V/I sensing; relies on partner sensor/relay ecosystems." },
-      automation:    { offering: "Open protocols, partner relays", detail: "IEC 61850 / DNP3-capable; integrates third-party protection and control." },
-      safety:        { offering: "IAC-classified GIS", detail: "Internal-arc-classified, sealed dry-air GIS." },
-      install:       { offering: "Compact indoor GIS", detail: "Modular indoor GIS; backed by Lucy Group for scale." }
+      components:    { items: [
+        { name: "nu1 dry-air GIS", detail: "Modular, licensable SF6-free GIS up to 36 kV." } ] },
+      switching:     { items: [
+        { name: "Vacuum circuit breakers", detail: "Vacuum interruption in a dry-air GIS." },
+        { name: "Vacuum switch-disconnectors", detail: "Load-break and isolation." } ] },
+      environmental: { items: [
+        { name: "Technical dry air", detail: "Near-atmospheric dry air — SF6-free with a strong sustainability story." } ] },
+      sensing:       { items: [
+        { name: "Low-power sensor-ready", detail: "Provisions for low-power V/I sensing." },
+        { name: "Partner sensors", detail: "Relies on partner sensor / relay ecosystems." } ] },
+      automation:    { items: [
+        { name: "Open protocol (IEC 61850 / DNP3)", detail: "Integrates third-party protection and control." } ] },
+      safety:        { items: [
+        { name: "IAC-classified GIS", detail: "Internal-arc-classified dry-air GIS." } ] },
+      install:       { items: [
+        { name: "Compact indoor GIS", detail: "Modular; backed by Lucy Group for scale." } ] }
     }
   },
 
   /* ============================ RECLOSERS ============================== */
   "p-gw-viper": {
-    image: "https://www.gwelectric.com/wp-content/uploads/2025/05/Viper-ST_300.jpg", imageAlt: "G&W Viper-ST recloser",
+    image: "https://www.gwelectric.com/wp-content/uploads/2025/05/Viper-ST_300.jpg",
+    imageAlt: "G&W Viper-ST recloser",
     components: {
-      components:    { offering: "Lightweight dead-tank body", detail: "Compact, light solid-dielectric recloser for simple pole or substation mounting." },
-      switching:     { offering: "Solid-dielectric vacuum interrupters", detail: "Magnetic-actuator vacuum reclosing, up to 38 kV and 16 kA interrupting." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Epoxy-encapsulated poles — no gas to leak, refill, or report." },
-      sensing:       { offering: "Integrated CTs + AccuSense voltage", detail: "Built-in current sensing plus optional AccuSense voltage sensors for grid-edge visibility." },
-      automation:    { offering: "Open DNP3 / IEC 61850 (Viper control)", detail: "Vendor-neutral, FLISR-ready control with open protocol integration." },
-      safety:        { offering: "Insulated bushings, wildlife guards", detail: "Fully insulated dead-tank design reduces animal-caused faults." },
-      install:       { offering: "Lightweight pole mount", detail: "Light, compact package for fast installation with standard line crews." }
+      components:    { items: [
+        { name: "Viper-ST", detail: "Three-phase / triple-single recloser." },
+        { name: "Viper-LT", detail: "Compact lightweight recloser." } ] },
+      switching:     { items: [
+        { name: "Solid-dielectric vacuum interrupters", detail: "Magnetic-actuator vacuum reclosing, up to 38 kV / 16 kA." },
+        { name: "Triple-single operation", detail: "Independent single-phase tripping where required." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric insulation", detail: "Epoxy-encapsulated poles — no gas." },
+        { name: "SF6-free", detail: "Nothing to leak, refill, or report." } ] },
+      sensing:       { items: [
+        { name: "Integrated current sensors (CTs)", detail: "Built-in three-phase current sensing." },
+        { name: "AccuSense voltage sensors", detail: "Up to six external voltage sensors for full V/I visibility." },
+        { name: "External CT inputs", detail: "Support for additional current sensing." } ] },
+      automation:    { items: [
+        { name: "Viper control", detail: "Recloser control with protection and logic." },
+        { name: "Open DNP3 / IEC 61850", detail: "Vendor-neutral, FLISR-ready integration." } ] },
+      safety:        { items: [
+        { name: "Fully insulated dead-tank", detail: "No exposed live parts." },
+        { name: "Wildlife guards", detail: "Reduce animal-caused faults." } ] },
+      install:       { items: [
+        { name: "Lightweight pole mount", detail: "Fast install with standard crews." },
+        { name: "Substation mount", detail: "Frame-mount option." } ] }
     }
   },
   "p-sandc-intellirupter": {
-    image: "https://www.sandc.com/globalassets/sac-electric/images/intellirupter-overhead.jpg", imageAlt: "S&C IntelliRupter PulseCloser",
+    image: "https://www.sandc.com/globalassets/sac-electric/images/intellirupter-overhead.jpg",
+    imageAlt: "S&C IntelliRupter PulseCloser",
     components: {
-      components:    { offering: "Three-phase modular body", detail: "Modular fault-interrupter construction for pole or substation mounting." },
-      switching:     { offering: "PulseClosing vacuum interruption", detail: "Patented PulseClosing tests the line at reduced energy (~95% less fault stress), up to 38 kV / 16 kA." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Solid-dielectric construction — no gas." },
-      sensing:       { offering: "Integrated current & voltage sensing", detail: "Built-in line sensing supporting protection, metering and automation." },
-      automation:    { offering: "IntelliTeam SG + open control", detail: "IntelliTeam self-healing / FLISR software; SEL-651RD interoperable control option over fiber." },
-      safety:        { offering: "Insulated, shielded terminals", detail: "Dead-front, insulated terminal design." },
-      install:       { offering: "Pole or substation mount", detail: "Modular mounting; deep integration with S&C automation." }
+      components:    { items: [
+        { name: "IntelliRupter PulseCloser", detail: "Three-phase fault interrupter." } ] },
+      switching:     { items: [
+        { name: "PulseClosing vacuum interruption", detail: "Tests the line at ~95% less fault energy before closing." },
+        { name: "Point-on-wave closing", detail: "Precise closing to reduce stress." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric construction", detail: "SF6-free — no gas." } ] },
+      sensing:       { items: [
+        { name: "Integrated 3-phase voltage sensing", detail: "Voltage sensing on both sides of the interrupters." },
+        { name: "Integrated 3-phase current sensing", detail: "Built-in current measurement." },
+        { name: "Integrated power module", detail: "On one or both sides for measurement and supply." } ] },
+      automation:    { items: [
+        { name: "IntelliTeam SG", detail: "Distributed self-healing / FLISR restoration." },
+        { name: "IntelliLink setup", detail: "Configuration and commissioning software." },
+        { name: "SEL-651RD control option", detail: "Interoperable third-party control over fiber." } ] },
+      safety:        { items: [
+        { name: "Insulated, shielded terminals", detail: "Dead-front terminal design." } ] },
+      install:       { items: [
+        { name: "Pole or substation mount", detail: "Modular mounting options." } ] }
     }
   },
   "p-sandc-tripsaver": {
     image: "", imageAlt: "S&C TripSaver II cutout-mounted recloser",
     components: {
-      components:    { offering: "Cutout-mounted module", detail: "Self-contained single-phase device that drops into an existing cutout position." },
-      switching:     { offering: "Single-phase vacuum interruption", detail: "Vacuum reclosing for lateral protection, up to 38 kV." },
-      environmental: { offering: "Self-contained (SF6-free)", detail: "Compact self-contained module with no gas." },
-      sensing:       { offering: "Integrated current sensing & TCC", detail: "Self-contained current sensing with selectable time-current curves." },
-      automation:    { offering: "Standalone electronic control", detail: "Self-contained control with an optional wireless link; no separate cabinet." },
-      safety:        { offering: "Visible drop-out, dead-front", detail: "Familiar cutout form factor with visible drop-out for isolation." },
-      install:       { offering: "Drops into existing cutout", detail: "Replaces a fuse in the existing cutout — minimal new hardware." }
+      components:    { items: [
+        { name: "TripSaver II", detail: "Single-phase cutout-mounted recloser." } ] },
+      switching:     { items: [
+        { name: "Single-phase vacuum interruption", detail: "Lateral protection in a cutout form factor." } ] },
+      environmental: { items: [
+        { name: "Self-contained, SF6-free", detail: "Compact module, no gas." } ] },
+      sensing:       { items: [
+        { name: "Integrated current sensing", detail: "Self-contained current measurement." },
+        { name: "Selectable TCC curves", detail: "Programmable time-current characteristics." } ] },
+      automation:    { items: [
+        { name: "Standalone electronic control", detail: "Self-contained; no separate cabinet." },
+        { name: "Optional wireless link", detail: "For status / event reporting." } ] },
+      safety:        { items: [
+        { name: "Visible drop-out", detail: "Familiar cutout isolation behaviour." } ] },
+      install:       { items: [
+        { name: "Drops into existing cutout", detail: "Replaces a fuse with minimal new hardware." } ] }
     }
   },
   "p-schneider-recloser": {
     image: "", imageAlt: "Schneider Easergy U-Series recloser",
     components: {
-      components:    { offering: "Dead-tank recloser body", detail: "Compact solid-dielectric tank for pole or substation mounting." },
-      switching:     { offering: "Solid-dielectric vacuum interrupters", detail: "Vacuum reclosing, up to 38 kV and 12.5 kA." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Encapsulated poles — no gas." },
-      sensing:       { offering: "Integrated CTs / voltage sensing", detail: "Built-in current and voltage sensing." },
-      automation:    { offering: "ADVC control + EcoStruxure", detail: "Flexible ADVC controller with EcoStruxure / ADMS integration." },
-      safety:        { offering: "Insulated bushings", detail: "Fully insulated dead-tank design." },
-      install:       { offering: "Pole / substation mount", detail: "Compact pole-mount; fits the Schneider/EcoStruxure ecosystem." }
+      components:    { items: [
+        { name: "Easergy U-Series", detail: "Three-phase recloser." },
+        { name: "ADVC controller", detail: "Recloser control cubicle." } ] },
+      switching:     { items: [
+        { name: "Solid-dielectric vacuum interrupters", detail: "Vacuum reclosing up to 38 kV / 12.5 kA." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric, SF6-free", detail: "Encapsulated poles — no gas." } ] },
+      sensing:       { items: [
+        { name: "Integrated current transformers", detail: "Built-in current sensing." },
+        { name: "Integrated voltage sensors", detail: "Three-phase voltage measurement." } ] },
+      automation:    { items: [
+        { name: "ADVC control", detail: "Flexible recloser controller." },
+        { name: "EcoStruxure / ADMS", detail: "Grid-software and FLISR integration." } ] },
+      safety:        { items: [
+        { name: "Insulated dead-tank", detail: "Fully insulated body." } ] },
+      install:       { items: [
+        { name: "Pole / substation mount", detail: "Compact pole-mount." } ] }
     }
   },
   "p-noja-osm": {
     image: "", imageAlt: "NOJA Power OSM recloser",
     components: {
-      components:    { offering: "Lightweight dead-tank body", detail: "Compact, well-documented OSM recloser tank." },
-      switching:     { offering: "Vacuum + magnetic actuator", detail: "Vacuum reclosing with magnetic actuator, up to 38 kV and 12.5 kA." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Epoxy-insulated tank — no gas." },
-      sensing:       { offering: "Integrated CTs + synchrophasor (RC-20)", detail: "Built-in current/voltage sensing; the RC-20 control adds distribution synchrophasor measurement." },
-      automation:    { offering: "RC-10 / RC-20 control, open protocols", detail: "DNP3 / IEC 60870 / IEC 61850 with the CMS cyber-security module." },
-      safety:        { offering: "Fully insulated dead-tank", detail: "Insulated bushings with wildlife protection." },
-      install:       { offering: "Lightweight pole mount", detail: "Simple, well-documented installation deployed in 100+ countries." }
+      components:    { items: [
+        { name: "OSM15 / OSM27 / OSM38", detail: "Recloser range by voltage class." },
+        { name: "RC-10 / RC-20 control", detail: "Recloser controllers." } ] },
+      switching:     { items: [
+        { name: "Vacuum interrupters", detail: "Magnetic-actuator vacuum reclosing up to 38 kV / 12.5 kA." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric (epoxy/silicone)", detail: "SF6-free encapsulated tank." } ] },
+      sensing:       { items: [
+        { name: "Integrated current transformers", detail: "Built-in three-phase current sensing." },
+        { name: "Capacitive voltage sensors", detail: "Six integrated voltage sensors (both sides)." },
+        { name: "RC-20 synchrophasor measurement", detail: "Distribution-grade synchrophasors." } ] },
+      automation:    { items: [
+        { name: "RC-10 / RC-20 control", detail: "DNP3 / IEC 60870 / IEC 61850." },
+        { name: "CMS cyber-security module", detail: "Secure connectivity gateway." } ] },
+      safety:        { items: [
+        { name: "Fully insulated tank", detail: "Insulated bushings with wildlife protection." } ] },
+      install:       { items: [
+        { name: "Lightweight pole mount", detail: "Simple, well-documented installation." } ] }
     }
   },
   "p-eaton-nova": {
     image: "", imageAlt: "Eaton NOVA (Cooper) recloser",
     components: {
-      components:    { offering: "Dead-tank recloser body", detail: "Compact NOVA tank with a large Cooper installed base." },
-      switching:     { offering: "Vacuum, solid-dielectric", detail: "Vacuum reclosing, up to 38 kV and 16 kA." },
-      environmental: { offering: "Solid-dielectric (SF6-free)", detail: "Encapsulated poles — no gas." },
-      sensing:       { offering: "Integrated CTs / voltage sensing", detail: "Built-in line sensing." },
-      automation:    { offering: "Form 6 / Form 7 control", detail: "Familiar Cooper Form 6/7 controls with SCADA integration." },
-      safety:        { offering: "Insulated bushings", detail: "Dead-tank insulated design." },
-      install:       { offering: "Pole mount (Cooper-compatible)", detail: "Mounting familiar to crews with an existing Cooper fleet." }
+      components:    { items: [
+        { name: "NOVA recloser", detail: "Three-phase vacuum recloser." },
+        { name: "NOVA STS", detail: "Single-tank single-phase variant." },
+        { name: "Form 6 / Form 7 control", detail: "Recloser controls." } ] },
+      switching:     { items: [
+        { name: "Vacuum interrupters", detail: "Solid-dielectric vacuum reclosing up to 38 kV / 16 kA." } ] },
+      environmental: { items: [
+        { name: "Solid-dielectric (cycloaliphatic epoxy)", detail: "SF6-free encapsulated poles." } ] },
+      sensing:       { items: [
+        { name: "Integrated current transformers", detail: "Built-in current sensing." },
+        { name: "Integrated voltage sensing", detail: "Metering-accuracy voltage measurement." } ] },
+      automation:    { items: [
+        { name: "Form 6 / Form 7 control", detail: "Familiar Cooper controls." },
+        { name: "ProView software", detail: "Setup and analysis; SCADA integration." } ] },
+      safety:        { items: [
+        { name: "Dead-tank insulated design", detail: "Insulated bushings; wildlife guards." } ] },
+      install:       { items: [
+        { name: "Pole mount (Cooper-compatible)", detail: "Familiar to crews with an existing Cooper fleet." } ] }
     }
   }
 };

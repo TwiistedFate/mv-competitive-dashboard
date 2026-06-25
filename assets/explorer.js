@@ -45,16 +45,16 @@ function deriveComponents(p) {
   const s = p.specs || {};
   const tech = (p.technology || []).join(", ");
   const out = {};
-  out.switching = { offering: tech || "Switching", detail: [s.voltageRating, s.interruptingRating || s.shortCircuit].filter(Boolean).join(" · ") || "—" };
-  if (s.insulationType || /sf6-free/i.test(tech)) out.environmental = { offering: s.insulationType || "SF6-free", detail: tech || "—" };
-  if (s.sensorType) out.sensing = { offering: s.sensorType, detail: [s.accuracyClass, s.output].filter(Boolean).join(" · ") || "—" };
-  if (s.communication || s.controlPlatform) out.automation = { offering: s.controlPlatform || "Control & comms", detail: s.communication || "—" };
-  if (s.environmental) out.install = { offering: "Installation & rating", detail: s.environmental };
+  out.switching = { items: [{ name: tech || "Switching", detail: [s.voltageRating, s.interruptingRating || s.shortCircuit].filter(Boolean).join(" · ") || "—" }] };
+  if (s.insulationType || /sf6-free/i.test(tech)) out.environmental = { items: [{ name: s.insulationType || "SF6-free", detail: tech || "—" }] };
+  if (s.sensorType) out.sensing = { items: [{ name: s.sensorType, detail: [s.accuracyClass, s.output].filter(Boolean).join(" · ") || "—" }] };
+  if (s.communication || s.controlPlatform) out.automation = { items: [{ name: s.controlPlatform || "Control & comms", detail: s.communication || "—" }] };
+  if (s.environmental) out.install = { items: [{ name: "Installation & rating", detail: s.environmental }] };
   return out;
 }
 function componentKeys(product) {
   const comps = exComponents(product);
-  return GROUP_ORDER.filter(k => comps[k]);
+  return GROUP_ORDER.filter(k => comps[k] && comps[k].items && comps[k].items.length);
 }
 function hasComponents(id) { const p = exProduct(id); return !!(p && componentKeys(p).length); }
 /* Default to the competitor (the new product to explore), else the G&W anchor. */
@@ -151,24 +151,29 @@ function exCallout(product, group) {
   const data = comps[group];
   const g = GROUP_BY_ID[group] || { label: group, color: "var(--muted)", what: "" };
   const co = getCompetitor(product.competitorId) || {};
-  if (!data) {
+  const items = (data && data.items) || [];
+  if (!items.length) {
     return `<div class="ex-callout"><p class="cmp-usecase">No ${esc(g.label)} detail recorded for ${esc(product.name)} yet.</p></div>`;
   }
   const num = componentKeys(product).indexOf(group) + 1;
+  const list = items.map(it => `
+    <li class="ex-item">
+      <span class="ex-item-n">${esc(it.name)}</span>
+      ${it.detail ? `<span class="ex-item-d">${esc(it.detail)}</span>` : ""}
+    </li>`).join("");
   return `
     <div class="ex-callout">
       <div class="ex-callout-head">
         <span class="ex-num">${num}</span>
         <div>
           <span class="ex-chip" style="--g:${g.color}">${esc(g.label)}</span>
-          <h4>${esc(product.name)} — ${esc(data.offering)}</h4>
+          <h4>${esc(co.name || product.name)} — ${esc(g.label)}</h4>
         </div>
       </div>
-      <div class="ex-rows">
-        <div class="ex-row"><div class="ex-row-l">What this component does</div><p>${esc(g.what)}</p></div>
-        <div class="ex-row ex-vs"><div class="ex-row-l">${esc(co.name || "This company")}'s equipment</div><p>${esc(data.detail)}</p></div>
-        ${data.benefit ? `<div class="ex-row ex-benefit"><div class="ex-row-l">Why it matters</div><p>${esc(data.benefit)}</p></div>` : ""}
-      </div>
+      <div class="ex-row"><div class="ex-row-l">What this component does</div><p>${esc(g.what)}</p></div>
+      <div class="ex-row-l ex-items-head">${esc(co.name || "This company")}'s ${esc(g.label.toLowerCase())} on ${esc(product.name)}
+        <span class="ex-count">${items.length}</span></div>
+      <ul class="ex-items" style="--g:${g.color}">${list}</ul>
     </div>`;
 }
 
