@@ -66,6 +66,7 @@ function getCompetitorProduct(anchor) {
 function setCompareAnchor(id) {
   compareState.gwProductId = id;
   compareState.competitorProductId = null;   // reset → first candidate is chosen
+  if (typeof resetExplorerSelection === "function") resetExplorerSelection();
 }
 function setCompareCompetitor(id) {
   compareState.competitorProductId = id;
@@ -328,6 +329,8 @@ function comparePage() {
       <span class="sep">vs</span>
       <span class="cmp-active-comp">${esc(compCo.name)} ${esc(comp.name)}</span>
     </div>
+
+    ${equipmentExplorerSection(anchor)}
 
     <div class="sec sec-gap"><div><h3>Side-by-side specifications</h3><p>${esc(anchor.name)} (highlighted) against ${esc(comp.name)}.</p></div></div>
     ${sideBySideTable(anchor, comp)}
