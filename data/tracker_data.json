@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-25T14:03:19Z",
+  "generated_at": "2026-06-26T14:02:08Z",
   "window_days": 60,
   "deep_window_days": 730,
   "counts": {
-    "total": 249,
-    "product": 218,
+    "total": 250,
+    "product": 219,
     "corporate": 31
   },
   "items": [
@@ -20,7 +20,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 8.0,
-      "relevance": 13.89,
+      "relevance": 13.88,
       "tags": [
         "Trident impact"
       ]
@@ -54,7 +54,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 7.0,
-      "relevance": 13.57,
+      "relevance": 13.56,
       "tags": [
         "Trident impact"
       ]
@@ -88,7 +88,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 6.5,
-      "relevance": 13.38,
+      "relevance": 13.37,
       "tags": [
         "Software impact"
       ]
@@ -139,7 +139,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 6.0,
-      "relevance": 13.21,
+      "relevance": 13.2,
       "tags": [
         "Software impact"
       ]
@@ -156,7 +156,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 6.0,
-      "relevance": 12.92,
+      "relevance": 12.91,
       "tags": [
         "Software impact"
       ]
@@ -173,7 +173,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 6.0,
-      "relevance": 12.88,
+      "relevance": 12.87,
       "tags": [
         "Software impact"
       ]
@@ -236,7 +236,7 @@
       "url": "https://www.gwelectric.com/high-accuracy-sensors/",
       "source": "gwelectric.com",
       "published": "2025-10-14T14:20:13+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Sensors",
       "app_category": "sensors",
       "scope": "product",
@@ -258,8 +258,8 @@
       "app_category": "switchgear",
       "scope": "product",
       "bucket": "Threat",
-      "threat_score": 5.0,
-      "relevance": 12.51,
+      "threat_score": 4.5,
+      "relevance": 12.5,
       "tags": [
         "Trident impact"
       ]
@@ -276,26 +276,9 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 3.5,
-      "relevance": 12.49,
+      "relevance": 12.48,
       "tags": [
         "Viper impact"
-      ]
-    },
-    {
-      "company": "Schneider Electric",
-      "title": "Firm unveils multipurpose electrical safety, connectivity product - The Guardian Nigeria News",
-      "summary": "Firm unveils multipurpose electrical safety, connectivity product The Guardian Nigeria News",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOdV9oRVhJeE5LemxWbF93Y3FMc0U2bm9TdHRmVmJBM0IyYlRyNDVkcVNHTFlGempKSzNkTkE1NkRBVk5QRkR1RkVhY1V6TFVHbHFEa0kzeEFIY3NRQWIweGxrWGxINFFRVkxHMGd5Z1duTlFZSzkxN2pvaTJrbU54QlB5UnQ2blBZclgtdWFTRlQ2bk5LOHZiVjNveHBxZjlWcU00R3Zn?oc=5",
-      "source": "news.google.com",
-      "published": "2025-08-30T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Threat",
-      "threat_score": 4.5,
-      "relevance": 12.34,
-      "tags": [
-        "Trident impact"
       ]
     },
     {
@@ -310,7 +293,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 4.0,
-      "relevance": 12.28,
+      "relevance": 12.27,
       "tags": [
         "AccuSense impact",
         "Trident impact"
@@ -323,7 +306,7 @@
       "url": "https://www.tavrida.com/tena/media/news/installation-of-dual-rated-25-15kv-switchgear-at-vancouver/",
       "source": "tavrida.com",
       "published": "17.02.2021",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -341,7 +324,7 @@
       "url": "https://www.tavrida.com/tena/media/news/new-tavrida-electric-switchgear-smartrmu-passes-type-tests/",
       "source": "tavrida.com",
       "published": "30.07.2019",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -359,7 +342,7 @@
       "url": "https://nuventura.com/media",
       "source": "nuventura.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:34Z",
+      "discovered_at": "2026-06-26T14:05:26Z",
       "category": "Market Update",
       "app_category": "switchgear",
       "scope": "product",
@@ -377,7 +360,7 @@
       "url": "https://nuventura.com/news/nuventura-joins-lucy-electric-to-accelerate-global-adoption-of-sf6-free-primary-switchgear",
       "source": "nuventura.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:34Z",
+      "discovered_at": "2026-06-26T14:05:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -400,7 +383,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 2.0,
-      "relevance": 11.99,
+      "relevance": 11.98,
       "tags": [
         "Trident impact"
       ]
@@ -417,7 +400,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 11.47,
+      "relevance": 11.46,
       "tags": [
         "Viper impact"
       ]
@@ -434,7 +417,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 2.0,
-      "relevance": 11.46,
+      "relevance": 11.45,
       "tags": [
         "Viper impact"
       ]
@@ -474,6 +457,23 @@
       ]
     },
     {
+      "company": "Siemens",
+      "title": "Fault Current Limiter Market Size, Industry Share | Forecast, 2026-2034 - Fortune Business Insights",
+      "summary": "Fault Current Limiter Market Size, Industry Share | Forecast, 2026-2034 Fortune Business Insights",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQck50SkpaV0ZQMHNMZU9lWDNMYVNDUHkzRm1zSmM2OE0xbnY5eWpreFUzSTJCeE5YaXBuZE9SU2R5X1RyWjNCc0I1cE02Q1NudDVZeWU3eENJVDJzeEEwWXpnYzhvdjk4b3lneVJzUzdjNmhBN1lkNnFoNXlDSlIyWA?oc=5",
+      "source": "news.google.com",
+      "published": "2026-06-08T07:00:00Z",
+      "category": "Fault current limiters",
+      "app_category": "fault-current-limiters",
+      "scope": "product",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 11.4,
+      "tags": [
+        "FCL impact"
+      ]
+    },
+    {
       "company": "Hubbell Power Systems",
       "title": "Transformer Market Size, Share And Growth Report, 2034 - Fortune Business Insights",
       "summary": "Transformer Market Size, Share And Growth Report, 2034 Fortune Business Insights",
@@ -485,7 +485,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 11.41,
+      "relevance": 11.4,
       "tags": [
         "AccuSense impact"
       ]
@@ -519,7 +519,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 11.37,
+      "relevance": 11.36,
       "tags": [
         "Software impact"
       ]
@@ -536,26 +536,9 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 1.0,
-      "relevance": 11.29,
+      "relevance": 11.28,
       "tags": [
         "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Schneider Electric",
-      "title": "Schneider Electric commits to nearly tripling Saudi manufacturing capacity as Kingdom marks ten years of Vision 2030 - ZAWYA",
-      "summary": "Schneider Electric commits to nearly tripling Saudi manufacturing capacity as Kingdom marks ten years of Vision 2030 ZAWYA",
-      "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxOMzJwMUdDbXRFLWFXeFdQR2ZVU3FubFZ0VWZfRmJvTEw0Q0ZzXzFOaUgxSHpXMEItVnRmbjI5ZGVRM180NjNVczhGdFJwZXJEQUx6eXhMbG5vVGxwckc3ckRva3pReEVGSzBXbE9QZXg5SzBSdndSS0s1UDk5bmU3Wl9zekhubzYxb2ZqRzhVN3VadW5TMkc4a0s4MG9BM3RfNkcwT0I1ZEZ3aHl3c3dfX0szdlBxSzhMYTFYVFc0d1NlZXlZUGZGWE1DUzJ5dTF4NFQxX3hjbDZKYzVDeWJPSzdReGhJSkhoN2xjZldIMG91cWtvbWo0S1VieUFCU2pzdFM2VmItTGdjR00?oc=5",
-      "source": "news.google.com",
-      "published": "2026-05-10T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Market Insight",
-      "threat_score": null,
-      "relevance": 11.24,
-      "tags": [
-        "Trident impact"
       ]
     },
     {
@@ -570,7 +553,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 11.22,
+      "relevance": 11.21,
       "tags": [
         "AccuSense impact"
       ]
@@ -587,7 +570,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 11.19,
+      "relevance": 11.18,
       "tags": [
         "AccuSense impact"
       ]
@@ -604,26 +587,9 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 1.0,
-      "relevance": 11.16,
+      "relevance": 11.15,
       "tags": [
         "AccuSense impact"
-      ]
-    },
-    {
-      "company": "Nuventura",
-      "title": "UK power distribution group acquires German switchgear tech firm - Business Sale Report",
-      "summary": "UK power distribution group acquires German switchgear tech firm Business Sale Report",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPbjFTVzFaQ1BXTzNFM2dfLWhrSnpwdk9GSnMyc1lobmpPRHVJcXRvSG1FN05VNUtNV25peEdKSWstTnFfS3Ffb0FCY2NCbGptWU14cVFGMlNob0MteVoyZDdLbHVFajlWVGdhSVh4bXVUejF1ektDSXdkdlVFcWRlaHNRSTlfQnl3RlV2NElMTHNrTUxtb2FSbEZYeFRySTdhb01sSmFQLVhMczJFbW4xUlpFTDA1Mk9DQlhNTtIBvAFBVV95cUxQR09DT0pwNzg5SEh0N3lCNUV2aWpqNkVWOEgzU0U1akh6aEZtUVI2bmR0N0R3bUlIQjNFTHhTRDI2Y0MyYUFHS2steDZwS0E5VGhDZ3JTdFpCSkRwTmVJSTdTb2dBZWN5TUpTSVQ4UDJSeTQ3SENSVTdMWldYRmlITGQzeEg0eVJMX2JMRUM5dEF6aVFGbkN6NGpuNlVCN0k4NkhxVFZxblp2RVhwUnlsYV9IMkZTVzEyMU42Vw?oc=5",
-      "source": "news.google.com",
-      "published": "2026-04-08T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Market Insight",
-      "threat_score": null,
-      "relevance": 11.07,
-      "tags": [
-        "Trident impact"
       ]
     },
     {
@@ -650,6 +616,23 @@
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSnZZUUdwSWxXN2Z3RW9weUNLdFU0NlE4U1dRTUpsSUZIa21XN29NZ1o5eGtDYWpIb2UwUlRpZ0NlalVLMmVwTEJONkpHcmtUbEVwalY1dkNjVlozWFpVOXpVZXdJanFiMERXb3dLb1lIc2dabXkyZUdmcWM3WHFhSGlMbWpTUVg4ZW91U3BuMWljLXg3UHllYzJZS1piMDc3a1p1UWpYTQ?oc=5",
       "source": "news.google.com",
       "published": "2026-04-07T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Market Insight",
+      "threat_score": null,
+      "relevance": 11.06,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Nuventura",
+      "title": "UK power distribution group acquires German switchgear tech firm - Business Sale Report",
+      "summary": "UK power distribution group acquires German switchgear tech firm Business Sale Report",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPbjFTVzFaQ1BXTzNFM2dfLWhrSnpwdk9GSnMyc1lobmpPRHVJcXRvSG1FN05VNUtNV25peEdKSWstTnFfS3Ffb0FCY2NCbGptWU14cVFGMlNob0MteVoyZDdLbHVFajlWVGdhSVh4bXVUejF1ektDSXdkdlVFcWRlaHNRSTlfQnl3RlV2NElMTHNrTUxtb2FSbEZYeFRySTdhb01sSmFQLVhMczJFbW4xUlpFTDA1Mk9DQlhNTtIBvAFBVV95cUxQR09DT0pwNzg5SEh0N3lCNUV2aWpqNkVWOEgzU0U1akh6aEZtUVI2bmR0N0R3bUlIQjNFTHhTRDI2Y0MyYUFHS2steDZwS0E5VGhDZ3JTdFpCSkRwTmVJSTdTb2dBZWN5TUpTSVQ4UDJSeTQ3SENSVTdMWldYRmlITGQzeEg0eVJMX2JMRUM5dEF6aVFGbkN6NGpuNlVCN0k4NkhxVFZxblp2RVhwUnlsYV9IMkZTVzEyMU42Vw?oc=5",
+      "source": "news.google.com",
+      "published": "2026-04-08T07:00:00Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -689,7 +672,7 @@
       "scope": "product",
       "bucket": "Threat",
       "threat_score": 1.0,
-      "relevance": 11.02,
+      "relevance": 11.01,
       "tags": [
         "Software impact"
       ]
@@ -866,23 +849,6 @@
       ]
     },
     {
-      "company": "Eaton",
-      "title": "SF6 – once a saviour for the electricity industry, now a pariah - Engineering News",
-      "summary": "SF6 – once a saviour for the electricity industry, now a pariah Engineering News",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaTZLaG1CLVFkMTM1Ty1HTXBFUmlmNVpPaFNhM1ctSWpYXzhOM0pMRnVmZTRlZ0F0VS1zcHFMNldRUm9LVUptSnZNbUxSWU8yTmZEaWNCVWZBajN2Um1UcVV3SXo2QjFNMEJMclZzM09UdUdXY1dJakNKcnc3ZC11OTNqSXl5cjAyc1RxN3NwZmtLOGYwb01QZlU0dWZWSXJkQXhjd1BzeFFRSXdoVy1XeTZEZw?oc=5",
-      "source": "news.google.com",
-      "published": "2020-09-25T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Threat",
-      "threat_score": 1.0,
-      "relevance": 11.0,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
       "company": "Siemens",
       "title": "Siemens receives order for world's first SF6-free gas-insulated sw ... - Siemens press",
       "summary": "Siemens receives order for world's first SF6-free gas-insulated sw ... Siemens press",
@@ -1037,6 +1003,23 @@
     },
     {
       "company": "Schneider Electric",
+      "title": "Schneider Electric wins Energy Efficient Solution of the Year as it delivers climate-friendly and energy-saving innovations to the market - Macau Business",
+      "summary": "Schneider Electric wins Energy Efficient Solution of the Year as it delivers climate-friendly and energy-saving innovations to the market Macau Business",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOYkFlR2FfR0NsaXVLdU5nOFF4RjRMbnYtTGNiempaelZLdXJ2TURybktRaWJqcHVBLXhQUTFlNFdObzFSaE5jbWk0cnVSNWVfMllFcEVzYUJMcmkyVUVzSmxzNUVMTk5MWS1Cak9nb04tU0U4N2hWelpORWNDbTZvekY5WTRWZHlQN0ZaWDhLZGhuUlJ5cUZsdzJ3THJ0Tm83SWY2LVNPdERGN0tQWjd0UW5aRG5scGNHem5Yc25fMEZzRXFRdjVvWjgwVC1ZeHp6akZiaTROUl80VU8yYzNEdHFPbG9uZm45VWV6cXVoQzZlWDlrYXVN?oc=5",
+      "source": "news.google.com",
+      "published": "2022-08-11T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Threat",
+      "threat_score": 1.0,
+      "relevance": 11.0,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Schneider Electric",
       "title": "SF6 gas’ time is up, time to switch to pure air - Engineering News",
       "summary": "SF6 gas’ time is up, time to switch to pure air Engineering News",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOdndDOU96WHJHSTM2LXduU19SbTdFZ0g1WTZIclphUER2YkczQ3o1enRQQ3JGeXE2ZUxTXzdiTUExZ1pWTUlnclhXcTlFU2QyNWFud1N6ZDVuRktRWG80UmZ3LTM3VWRzZG45ZjNjODQ4MWZfZzl5S1dKR1BDSV9qMjRwUmNHT3FFSVBEVGVsX2h2bGJoVkxKSmNZZHA?oc=5",
@@ -1144,7 +1127,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/inhibitors-contact-aids-sealants-paint/joint-compound/c/548153",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -1173,20 +1156,20 @@
       ]
     },
     {
-      "company": "Siemens",
-      "title": "Circuit Breaker for Data Centers Market Size, Share [2034] - Fortune Business Insights",
-      "summary": "Circuit Breaker for Data Centers Market Size, Share [2034] Fortune Business Insights",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZmtWczJVV2RzYWczV2h0a3NVMms0d0RuUWRTblFlRF9LUEdHNEExMnhGaHBUMmZuQ3R6Zm42WlV5Y2loLTlzelpadzhpNHhFR2dkbHI5blpEOXhmNFBZUFlRZTh0UEtUSmtFemV1Ymw1Qk9lZ1lOQ1NrV2J2blVnTUFobS0wX2NNYlNWUWpERQ?oc=5",
+      "company": "Schneider Electric",
+      "title": "Trafo powers mine in Pakistan with transformers for extreme conditions - SA Instrumentation & Control",
+      "summary": "Trafo powers mine in Pakistan with transformers for extreme conditions SA Instrumentation & Control",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBvMmdOQnVaU1p5MVp5UXZqYWhLaFJxQVdvWjMyZ1NsemtJdWFMQ282WDYybnZGejVYUDRHVzg3clRWcDN6ZTk5bWRrUHNzNnlWUlE?oc=5",
       "source": "news.google.com",
-      "published": "2026-01-09T09:18:12Z",
-      "category": "Fault current limiters",
-      "app_category": "fault-current-limiters",
+      "published": "2026-06-21T13:07:22Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
       "scope": "product",
-      "bucket": "Market Insight",
+      "bucket": "Alert",
       "threat_score": null,
-      "relevance": 10.57,
+      "relevance": 10.47,
       "tags": [
-        "FCL impact"
+        "Trident impact"
       ]
     },
     {
@@ -1201,7 +1184,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 10.46,
+      "relevance": 10.45,
       "tags": [
         "Trident impact"
       ]
@@ -1218,7 +1201,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 10.43,
+      "relevance": 10.42,
       "tags": [
         "Trident impact"
       ]
@@ -1252,7 +1235,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 10.33,
+      "relevance": 10.32,
       "tags": [
         "FCL impact"
       ]
@@ -1269,7 +1252,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 10.2,
+      "relevance": 10.19,
       "tags": [
         "Trident impact"
       ]
@@ -1286,7 +1269,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 10.15,
+      "relevance": 10.14,
       "tags": [
         "Trident impact"
       ]
@@ -1310,23 +1293,6 @@
     },
     {
       "company": "Nuventura",
-      "title": "Berlin-based Nuventura acquired by Lucy Group to scale SF₆-free switchgear globally - EU-Startups",
-      "summary": "Berlin-based Nuventura acquired by Lucy Group to scale SF₆-free switchgear globally EU-Startups",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNU2hEeUNjUWw1bjRHVUUwYXJfUlk5VXZ1VEVac2VzWFB4ck96R0xkdmE0d0lmbFlNU1VlV3A1dU91dTR2UVRta1dQMXFFN2l5OTJMdm5OXzJZeGVSVi13OVFkeEFsTmw0VVpJU3k0ZExDQU55X3ppdDV0WFNpTVUtdl83UWd0WG5tdGZQcVdHWmZCQkhmbkE4V0hwRlB0Umk3U05hTDRKYlR1S2IwcnVUdXhNeEt5eU1DLXpjNmJfNTBCVThVeG9J?oc=5",
-      "source": "news.google.com",
-      "published": "2026-04-06T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Alert",
-      "threat_score": null,
-      "relevance": 10.06,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
-      "company": "Nuventura",
       "title": "Lucy Group buys Nuventura - Electronics Weekly",
       "summary": "Lucy Group buys Nuventura Electronics Weekly",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWVdMaUxlZG53SW9PbWJ2YmhpUllIcmNrVWozaUNuVGc2SDRXdm55Q01MVzk0dDZ6Z09vM3lkQ28zclRJZ3Y1YjRiUjhpNVplM25tcEYwOGJNRXMwQnZkQWlMcUVpcEhEcjlHYW5FQkJiZk5EZGQ0NlRMOEJ5d3ItM3BiX3RmNkVFbGc?oc=5",
@@ -1343,6 +1309,23 @@
       ]
     },
     {
+      "company": "Nuventura",
+      "title": "Berlin-based Nuventura acquired by Lucy Group to scale SF₆-free switchgear globally - EU-Startups",
+      "summary": "Berlin-based Nuventura acquired by Lucy Group to scale SF₆-free switchgear globally EU-Startups",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNU2hEeUNjUWw1bjRHVUUwYXJfUlk5VXZ1VEVac2VzWFB4ck96R0xkdmE0d0lmbFlNU1VlV3A1dU91dTR2UVRta1dQMXFFN2l5OTJMdm5OXzJZeGVSVi13OVFkeEFsTmw0VVpJU3k0ZExDQU55X3ppdDV0WFNpTVUtdl83UWd0WG5tdGZQcVdHWmZCQkhmbkE4V0hwRlB0Umk3U05hTDRKYlR1S2IwcnVUdXhNeEt5eU1DLXpjNmJfNTBCVThVeG9J?oc=5",
+      "source": "news.google.com",
+      "published": "2026-04-06T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 10.05,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
       "company": "NOJA Power",
       "title": "Blackstone exits Ellerston’s $1b NOJA Power auction - AFR",
       "summary": "Blackstone exits Ellerston’s $1b NOJA Power auction AFR",
@@ -1354,7 +1337,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 9.98,
+      "relevance": 9.97,
       "tags": [
         "Viper impact"
       ]
@@ -1388,7 +1371,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.9,
+      "relevance": 9.89,
       "tags": [
         "Trident impact"
       ]
@@ -1422,41 +1405,24 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.81,
+      "relevance": 9.8,
       "tags": [
         "Trident impact"
       ]
     },
     {
       "company": "Siemens",
-      "title": "Gas-insulated medium-voltage switchgear 8DJH 24blue GIS - Siemens",
-      "summary": "Gas-insulated medium-voltage switchgear 8DJH 24blue GIS Siemens",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBwbi1sQm5RdGdRMS1BNEFXcEJGMVFGOHliNnNFdFdCVzlSNUJmTEo5OHg2WC1uV25IZG1QTjQ1OFgzX0drMXhxbWZScDEwUmZiQ0doMHRkQlBFNkNIbEx4blR0QVBxNWJXTzlMcmFn?oc=5",
+      "title": "Why Gridscale X Dynamic Line Rating? - Siemens",
+      "summary": "Why Gridscale X Dynamic Line Rating? Siemens",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBxR01jNW1qNll1QkdIS0R2TEd6b3E4RlVvX3REYkEzdUVvdXU1M1YtYlhCeXdmc251YVE0MUtKWjZNdmk4RlVMczlUZjlQMkltU2VvbG1wX1NJZmtQR2FSY0ViOHN0dkdiaHU2TmF1b0c5UHRqSlA3aVpmYw?oc=5",
       "source": "news.google.com",
-      "published": "2026-02-13T14:52:43Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Alert",
-      "threat_score": null,
-      "relevance": 9.77,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
-      "company": "Siemens",
-      "title": "Fusesaver™: World’s fastest MV vacuum circuit-breaker - Siemens",
-      "summary": "Fusesaver™: World’s fastest MV vacuum circuit-breaker Siemens",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE0wVXQ5SmNCQ09nMkhXN2wtZUh4Y3IzcEVTTldOdG5BZWNQMno1SHoyd3RHeHZYWW4td0JrdXgxVVZQdEQ3N3J6VEFwQ1BOWjBNU2dpc1hIQW43Z055LWdtZ0VBZE5vcE5QYXliMzJvTWFwUQ?oc=5",
-      "source": "news.google.com",
-      "published": "2026-02-13T14:40:46Z",
+      "published": "2026-02-13T13:49:54Z",
       "category": "Fault current limiters",
       "app_category": "fault-current-limiters",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.77,
+      "relevance": 9.76,
       "tags": [
         "FCL impact"
       ]
@@ -1473,7 +1439,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.75,
+      "relevance": 9.74,
       "tags": [
         "Trident impact"
       ]
@@ -1490,7 +1456,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.71,
+      "relevance": 9.7,
       "tags": [
         "Viper impact"
       ]
@@ -1519,7 +1485,7 @@
       "url": "https://www.tavrida.com/tena/media/news/tavrida-reclosers-for-solar-united-neighbors-us/",
       "source": "tavrida.com",
       "published": "19.10.2021",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -1542,7 +1508,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 9.4,
+      "relevance": 9.39,
       "tags": [
         "Viper impact",
         "FCL impact"
@@ -1583,23 +1549,6 @@
       ]
     },
     {
-      "company": "Nuventura",
-      "title": "Shifting the mindset: why grid resilience can’t wait - Enlit World",
-      "summary": "Shifting the mindset: why grid resilience can’t wait Enlit World",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMzlSS2I0YmVLQU82MzlBbDJSQXFQellDVVFDNGlRYlN0dTl2OWVpdW1XVHJaMVNaZGNqelFwMGFDX3ZKWmZMajRKd0xReU93Nk9EZTZGNVpaR0xKNndtOGZnVVlPbGNhUmpHWHRhZm1Cak5oRE04ZFdnTl9qSFp5MG9PaG9IVEJJOEE?oc=5",
-      "source": "news.google.com",
-      "published": "2025-10-21T07:00:00Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Alert",
-      "threat_score": null,
-      "relevance": 9.13,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
       "company": "G&W Electric",
       "title": "G&W Electric Invests in Safegrid to Advance Smart Grid Monitoring and Predictive Technologies - Business Wire",
       "summary": "G&W Electric Invests in Safegrid to Advance Smart Grid Monitoring and Predictive Technologies Business Wire",
@@ -1617,6 +1566,23 @@
       ]
     },
     {
+      "company": "Nuventura",
+      "title": "Shifting the mindset: why grid resilience can’t wait - Enlit World",
+      "summary": "Shifting the mindset: why grid resilience can’t wait Enlit World",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPMzlSS2I0YmVLQU82MzlBbDJSQXFQellDVVFDNGlRYlN0dTl2OWVpdW1XVHJaMVNaZGNqelFwMGFDX3ZKWmZMajRKd0xReU93Nk9EZTZGNVpaR0xKNndtOGZnVVlPbGNhUmpHWHRhZm1Cak5oRE04ZFdnTl9qSFp5MG9PaG9IVEJJOEE?oc=5",
+      "source": "news.google.com",
+      "published": "2025-10-21T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 9.12,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
       "company": "NOJA Power",
       "title": "NOJA Power supplies electrical equipment aid to Ukraine - Energy Source & Distribution",
       "summary": "NOJA Power supplies electrical equipment aid to Ukraine Energy Source & Distribution",
@@ -1628,7 +1594,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.98,
+      "relevance": 8.97,
       "tags": [
         "Viper impact"
       ]
@@ -1645,7 +1611,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.94,
+      "relevance": 8.93,
       "tags": [
         "Trident impact"
       ]
@@ -1657,13 +1623,13 @@
       "url": "https://www.gwelectric.com/distribution-and-transmission-cable-accessories/",
       "source": "gwelectric.com",
       "published": "2025-08-15T13:59:45+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.76,
+      "relevance": 8.75,
       "tags": [
         "Cable impact"
       ]
@@ -1680,7 +1646,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.72,
+      "relevance": 8.71,
       "tags": [
         "Trident impact"
       ]
@@ -1714,7 +1680,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.52,
+      "relevance": 8.51,
       "tags": [
         "Trident impact"
       ]
@@ -1857,29 +1823,29 @@
       ]
     },
     {
-      "company": "Schneider Electric",
-      "title": "Steinmüller Africa integrates advanced technologies at Mondi’s boiler project - SA Instrumentation & Control",
-      "summary": "Steinmüller Africa integrates advanced technologies at Mondi’s boiler project SA Instrumentation & Control",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9oQTRPRG9vZ2RNTGI5dWd6b1VUWklnVTUzaTdXNjBuVjJYWkFSVG1OZHVTR2h3aGN5bndTcnJjaHhfd2ZXYVhFLXU5WkMtZ1E3Rmc?oc=5",
-      "source": "news.google.com",
-      "published": "2025-06-19T10:04:42Z",
-      "category": "Switchgear",
-      "app_category": "switchgear",
-      "scope": "product",
-      "bucket": "Alert",
-      "threat_score": null,
-      "relevance": 8.44,
-      "tags": [
-        "Trident impact"
-      ]
-    },
-    {
       "company": "Siemens",
       "title": "Hornsea 3: the largest wind park worldwide - Siemens Energy",
       "summary": "Hornsea 3: the largest wind park worldwide Siemens Energy",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPaXl3VEhRd0tUdy1ER1pTemUxXy1aRWpzR1lhbkhqbnJIRFlzOS1OVkdWbHJGaUVCcGFWZ2hnX1h6Tm91RDltWnZfOWpacDNyOG5VYTlvbU1TVVI3MlJQeWFZTXBURWVBMVgtbXlrekJ3Rzk4c0J1ZGttRFp5c3VoRFlJMUJ5dw?oc=5",
       "source": "news.google.com",
       "published": "2025-06-18T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 8.43,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Schneider Electric",
+      "title": "Steinmüller Africa integrates advanced technologies at Mondi’s boiler project - SA Instrumentation & Control",
+      "summary": "Steinmüller Africa integrates advanced technologies at Mondi’s boiler project SA Instrumentation & Control",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9oQTRPRG9vZ2RNTGI5dWd6b1VUWklnVTUzaTdXNjBuVjJYWkFSVG1OZHVTR2h3aGN5bndTcnJjaHhfd2ZXYVhFLXU5WkMtZ1E3Rmc?oc=5",
+      "source": "news.google.com",
+      "published": "2025-06-19T10:04:42Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -1902,7 +1868,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 8.17,
+      "relevance": 8.16,
       "tags": [
         "Viper impact"
       ]
@@ -1988,7 +1954,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 7.87,
+      "relevance": 7.86,
       "tags": [
         "Software impact"
       ]
@@ -2022,7 +1988,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 7.81,
+      "relevance": 7.8,
       "tags": [
         "Trident impact"
       ]
@@ -2076,23 +2042,6 @@
       "relevance": 7.54,
       "tags": [
         "Trident impact"
-      ]
-    },
-    {
-      "company": "Siemens",
-      "title": "The Solid-State Shift: Reinventing the Transformer for Modern Grids - POWER Magazine",
-      "summary": "The Solid-State Shift: Reinventing the Transformer for Modern Grids POWER Magazine",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOV3VOcm4tdTNybUU4Z1FTdERTbkNWSlFidVlWeW9KNVBDTU04WG9wLWpldTR5cW1FLS1YX05wNkdXdVg2ZWluclNZNUY0X2ZoblJvM2pMQ3RTekxiV19wZ1ZrR3R6NFRqWFhVbHJZbG4xOEZLbEhzNklGQURuYVVxRjlOcjVCOHpPQ2RjNlpjcElNbTBCVzZz?oc=5",
-      "source": "news.google.com",
-      "published": "2025-01-02T08:00:00Z",
-      "category": "Fault current limiters",
-      "app_category": "fault-current-limiters",
-      "scope": "product",
-      "bucket": "Alert",
-      "threat_score": null,
-      "relevance": 7.51,
-      "tags": [
-        "FCL impact"
       ]
     },
     {
@@ -2204,7 +2153,7 @@
       "url": "https://www.sandc.com/en/products--services/?c=202",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -2222,7 +2171,7 @@
       "url": "https://www.sandc.com/en/products--services/?c=204",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -2240,7 +2189,7 @@
       "url": "https://www.sandc.com/en/products--services/products/custom-metal-enclosed-switch-gear/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -2258,7 +2207,7 @@
       "url": "https://www.sandc.com/en/products--services/products/automatic-capacitor-controls-and-sensors/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Sensors",
       "app_category": "sensors",
       "scope": "product",
@@ -2276,7 +2225,7 @@
       "url": "https://www.sandc.com/en/products--services/products/intellirupter-pulsecloser-fault-interrupter/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -2294,7 +2243,7 @@
       "url": "https://www.sandc.com/en/products--services/products/intelliteam-cnms-communication-network-management-system/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Grid software",
       "app_category": "software",
       "scope": "product",
@@ -2312,7 +2261,7 @@
       "url": "https://www.sandc.com/en/products--services/products/intelliteam-fms-feeder-management-system/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Grid software",
       "app_category": "software",
       "scope": "product",
@@ -2330,7 +2279,7 @@
       "url": "https://www.sandc.com/en/products--services/products/intelliteam-sg-automatic-restoration-system/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Grid software",
       "app_category": "reclosers",
       "scope": "product",
@@ -2348,7 +2297,7 @@
       "url": "https://www.sandc.com/en/products--services/products/loadbuster-tool/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -2366,7 +2315,7 @@
       "url": "https://www.sandc.com/en/products--services/products/recloser-bypass-disconnects/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -2384,7 +2333,7 @@
       "url": "https://www.sandc.com/en/products--services/products/system-vi-switchgear/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -2402,7 +2351,7 @@
       "url": "https://www.sandc.com/en/products--services/products/tripsaver-reclosers/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -2420,7 +2369,7 @@
       "url": "https://www.sandc.com/en/products--services/products/vista-vistagreen-underground-distribution-switchgear/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -2673,6 +2622,23 @@
     },
     {
       "company": "Siemens",
+      "title": "Siemens supports Spain’s Iberdrola with sustainable Clean Air sw ... - Siemens press",
+      "summary": "Siemens supports Spain’s Iberdrola with sustainable Clean Air sw ... Siemens press",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNOUN4dDQxaGhBM25PNWpTSHdueWVjaG8wUmZyMlltYzVrX1RnTFd5ZE5FcmZILVhvMjVFbWNDUWJabHpSYUl1TXhTeDlJcUFuYTFQekIyWmhpUnB4TlZiZlFFNk5PSGNhZzl6MmZQQ3lpU2VvNlp1T2pNZkJfbG9HSVJjS1JveW5EY19INXBJQ2FzWnlsYXROUjlhSlBhYTFVS0lxeFg0dzA2dmEzRGRzdzZzQ2hzZw?oc=5",
+      "source": "news.google.com",
+      "published": "2022-04-29T07:00:00Z",
+      "category": "Switchgear",
+      "app_category": "switchgear",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 7.5,
+      "tags": [
+        "Trident impact"
+      ]
+    },
+    {
+      "company": "Siemens",
       "title": "Norgesnett uses SF6 gas-free switchgear from Siemens SI - Enlit World",
       "summary": "Norgesnett uses SF6 gas-free switchgear from Siemens SI Enlit World",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQWwtTDVxRGVGX19QUm4yU2p5M0NQU09SLXF6N3kwOTdYZlh1ZURJVktsZ0ZhUExZSTB2dEJNMVFpX0FSUWVGNm81MGFkM3ZzS0dadmRIZTF6QWVHNmJ4UmhxNGRxYjJrR2JmV3YxWlFIV1hwQVZKWF94TXJ2Ym95eUhOcFZRZk1oMTVfM0UxMlVISzRwenZLN3A0SVZuRXJQel90OFFhbFRzdVNxeW9vVGN3?oc=5",
@@ -2724,11 +2690,45 @@
     },
     {
       "company": "Siemens",
+      "title": "Hi-Tech Trans-Guard EXT Current-Limiting Backup Fuses Allow Visual Identification Of Fault Location While Significantly Reducing Energy Let-Through - electricnet.com",
+      "summary": "Hi-Tech Trans-Guard EXT Current-Limiting Backup Fuses Allow Visual Identification Of Fault Location While Significantly Reducing Energy Let-Through electricnet.com",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcHg1T2M3Z2xJTUdQdGdEV256WEY5U1UzX2FZWHlBTVo2NGZmSDhQZVQwc3NxdFRKcm1rLS1CT2g1WGY1WFJHWk90ejFOTkZDREdCYUtlUXY4cGlqRVU3MlYxM1ViR012Q2VobnpOLVEwSGg4MHpqbnkyWnR0cjZYUHhFZw?oc=5",
+      "source": "news.google.com",
+      "published": "2011-06-02T07:00:00Z",
+      "category": "Fault current limiters",
+      "app_category": "fault-current-limiters",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 7.5,
+      "tags": [
+        "FCL impact"
+      ]
+    },
+    {
+      "company": "Siemens",
       "title": "On my radar with Eize de Vries: Siemens Gamesa likely to produce a (no-longer-secret) 21MW direct-drive turbine - Wind Power Monthly",
       "summary": "On my radar with Eize de Vries: Siemens Gamesa likely to produce a (no-longer-secret) 21MW direct-drive turbine Wind Power Monthly",
       "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPd2FqU19uWmt1M3oySnBsVk5EV0NLOWRhWS1UR2I1Qk1DcDdKbDMwdnd1dFZQOW0wNDdUMTAzUFRtNDRVelFqY1llR3ZmdHpBOXZDcEQwRUs2SWxySFc5a09QYkFLRDhqbGxHMjRudkVSWkI2b25OZ21UY2RnYVZxbVFTblBkRVlZOVJxSm9ERFpjVGxoSVE3dDQzOHlueE1MSkM4YWtubjNPdVFTcF83YktSYnpPeVI3MzVRdnBCRzEwYVhCdy1NcFNCc01MOHB3SVZXUlpDb0s?oc=5",
       "source": "news.google.com",
       "published": "2024-04-18T07:00:00Z",
+      "category": "Fault current limiters",
+      "app_category": "fault-current-limiters",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 7.5,
+      "tags": [
+        "FCL impact"
+      ]
+    },
+    {
+      "company": "Siemens",
+      "title": "The Solid-State Shift: Reinventing the Transformer for Modern Grids - POWER Magazine",
+      "summary": "The Solid-State Shift: Reinventing the Transformer for Modern Grids POWER Magazine",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOV3VOcm4tdTNybUU4Z1FTdERTbkNWSlFidVlWeW9KNVBDTU04WG9wLWpldTR5cW1FLS1YX05wNkdXdVg2ZWluclNZNUY0X2ZoblJvM2pMQ3RTekxiV19wZ1ZrR3R6NFRqWFhVbHJZbG4xOEZLbEhzNklGQURuYVVxRjlOcjVCOHpPQ2RjNlpjcElNbTBCVzZz?oc=5",
+      "source": "news.google.com",
+      "published": "2025-01-02T08:00:00Z",
       "category": "Fault current limiters",
       "app_category": "fault-current-limiters",
       "scope": "product",
@@ -2927,13 +2927,31 @@
       ]
     },
     {
+      "company": "NOJA Power",
+      "title": "Leading the way with environmentally friendly switchgear - Energy Magazine",
+      "summary": "Leading the way with environmentally friendly switchgear Energy Magazine",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZlByWFlCd3I5eUp1ZnRZLXoyNVNZRHdQVVk1ckUtQWZNT2xkOTdpdjFhTExMTEg3VngxemMwYTZ3VDBraGZMbzByNWlJZUhYR0VHelhhZU1GWE5OMGtTUTIwMnBPa2JsTEtlaHdKeEJXVVFyT0J0OVJ4cTNYUDgwdjR6VFFDa3MxbEhYVVh4UGgtSUpiU3c?oc=5",
+      "source": "news.google.com",
+      "published": "2024-08-13T07:00:00Z",
+      "category": "Reclosers",
+      "app_category": "reclosers",
+      "scope": "product",
+      "bucket": "Alert",
+      "threat_score": null,
+      "relevance": 7.5,
+      "tags": [
+        "Viper impact",
+        "Trident impact"
+      ]
+    },
+    {
       "company": "Tavrida Electric",
       "title": "Automatic Circuit Reclosers",
       "summary": "Tavrida Electric is a world-class manufacturer of medium voltage switchgear such as Automatic Circuit Reclosers. After 20 years on the market, the Recloser series install base has reached 70 000 units worldwide.",
       "url": "https://www.tavrida.com/tena/solutions/automatic-circuit-reclosers/",
       "source": "tavrida.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -2951,7 +2969,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/cable-guards-straps/c/2666699",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -2969,7 +2987,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/underground-separable-connectors/arresters-elbow/c/2518878",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -2987,7 +3005,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/utility-measurement-systems/line-post-sensors/c/586409",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Sensors",
       "app_category": "sensors",
       "scope": "product",
@@ -3044,7 +3062,7 @@
       "scope": "product",
       "bucket": "Market Insight",
       "threat_score": null,
-      "relevance": 7.44,
+      "relevance": 7.43,
       "tags": [
         "AccuSense impact",
         "Software impact"
@@ -3062,7 +3080,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 7.18,
+      "relevance": 7.17,
       "tags": [
         "AccuSense impact",
         "Software impact"
@@ -3075,13 +3093,13 @@
       "url": "https://www.gwelectric.com/reclosers-and-overhead-switches/",
       "source": "gwelectric.com",
       "published": "2026-04-02T15:38:23+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 7.04,
+      "relevance": 7.03,
       "tags": [
         "Viper impact"
       ]
@@ -3093,13 +3111,13 @@
       "url": "https://www.gwelectric.com/product/viper-hv-recloser/",
       "source": "gwelectric.com",
       "published": "2026-03-27T18:24:43+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 7.01,
+      "relevance": 7.0,
       "tags": [
         "Viper impact"
       ]
@@ -3116,7 +3134,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 6.67,
+      "relevance": 6.66,
       "tags": [
         "Software impact"
       ]
@@ -3176,28 +3194,28 @@
     },
     {
       "company": "Siemens",
-      "title": "AcegasApsAmga builds digital twin of trieste grid with Siemens - vietnamnews.vn",
-      "summary": "AcegasApsAmga builds digital twin of trieste grid with Siemens vietnamnews.vn",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbXRwQkt1QVYzUXprSWdPc2Q0SWEyVjV4bWREVEV6bkFZOEdSdVIwb0VMR1VFTnR3LVFVenRkXzJyVktvVVZBdmdXalYzeW1LcTFfYmdVWWZvSGo5clZJTm0tU3NsQ1RrSnBVT240c2hleDV3aDVfVEJzZWxWQzB2ajZjZTUwcDZBMFhodENKTDZMaXdmUTZoVGcxUmFmTEFha1NnTHEybw?oc=5",
+      "title": "AcegasApsAmga leverages Siemens’ Gridscale X to build digital tw ... - Siemens press",
+      "summary": "AcegasApsAmga leverages Siemens’ Gridscale X to build digital tw ... Siemens press",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQOTNtRzg0U0R5Vm9hZTdCWGxXUTJKYkZRZzVCbW9aclh2eG9JUlF4UGJEZUdHakVKcWUtRHBINmtDU2pNUm9NTWE2ZVp3WHdPTzREU2VLZS1rbTZjaHF4dGU0LVUwSTEwVWhacllPZTlrYjNRMzkxQ09mbUJHamdveU1FX0FGYmdyY0RSQjhDMm9XV2k2VUE0STl4aVQxM1ZNSXhlQmRidno2c3JKZjhwS1A4dmdONkx5b1ZYVUw3aVpwMXZtV04wTEs3OFU?oc=5",
       "source": "news.google.com",
-      "published": "2025-06-17T07:00:00Z",
+      "published": "2025-06-16T07:00:00Z",
       "category": "Grid software",
       "app_category": "software",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 6.43,
+      "relevance": 6.42,
       "tags": [
         "Software impact"
       ]
     },
     {
       "company": "Siemens",
-      "title": "AcegasApsAmga leverages Siemens’ Gridscale X to build digital tw ... - Siemens press",
-      "summary": "AcegasApsAmga leverages Siemens’ Gridscale X to build digital tw ... Siemens press",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQOTNtRzg0U0R5Vm9hZTdCWGxXUTJKYkZRZzVCbW9aclh2eG9JUlF4UGJEZUdHakVKcWUtRHBINmtDU2pNUm9NTWE2ZVp3WHdPTzREU2VLZS1rbTZjaHF4dGU0LVUwSTEwVWhacllPZTlrYjNRMzkxQ09mbUJHamdveU1FX0FGYmdyY0RSQjhDMm9XV2k2VUE0STl4aVQxM1ZNSXhlQmRidno2c3JKZjhwS1A4dmdONkx5b1ZYVUw3aVpwMXZtV04wTEs3OFU?oc=5",
+      "title": "AcegasApsAmga builds digital twin of trieste grid with Siemens - vietnamnews.vn",
+      "summary": "AcegasApsAmga builds digital twin of trieste grid with Siemens vietnamnews.vn",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbXRwQkt1QVYzUXprSWdPc2Q0SWEyVjV4bWREVEV6bkFZOEdSdVIwb0VMR1VFTnR3LVFVenRkXzJyVktvVVZBdmdXalYzeW1LcTFfYmdVWWZvSGo5clZJTm0tU3NsQ1RrSnBVT240c2hleDV3aDVfVEJzZWxWQzB2ajZjZTUwcDZBMFhodENKTDZMaXdmUTZoVGcxUmFmTEFha1NnTHEybw?oc=5",
       "source": "news.google.com",
-      "published": "2025-06-16T07:00:00Z",
+      "published": "2025-06-17T07:00:00Z",
       "category": "Grid software",
       "app_category": "software",
       "scope": "product",
@@ -3272,7 +3290,7 @@
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 6.35,
+      "relevance": 6.34,
       "tags": [
         "Software impact"
       ]
@@ -3302,13 +3320,13 @@
       "url": "https://www.gwelectric.com/switchgear/",
       "source": "gwelectric.com",
       "published": "2025-08-14T15:00:47+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 5.76,
+      "relevance": 5.75,
       "tags": [
         "Trident impact"
       ]
@@ -3549,7 +3567,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/underground-separable-connectors/deadbreak-junctions/c/2496201",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -3567,7 +3585,7 @@
       "url": "https://www.sandc.com/en/products--services/products/?c=208",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Switchgear",
       "app_category": "switchgear",
       "scope": "product",
@@ -3585,7 +3603,7 @@
       "url": "https://www.tavrida.com/tena/media/news/installed-the-first-batch-of-a-new-product-10kv-three-phase-draw-out-unit-basing-single-phase-circui/",
       "source": "tavrida.com",
       "published": "30.04.2021",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3603,7 +3621,7 @@
       "url": "https://www.tavrida.com/tena/media/news/no-need-to-choose-between-medium-voltage-contactor-and-a-circuit-breaker/",
       "source": "tavrida.com",
       "published": "19.06.2020",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3621,7 +3639,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/cable-racking-accessories/cl/558912",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -3639,7 +3657,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/line-construction-hardware/clamps-clips/cl/558882",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Fault current limiters",
       "app_category": "fault-current-limiters",
       "scope": "product",
@@ -3657,7 +3675,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/underground-separable-connectors/cl/2496195",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -3675,7 +3693,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/underground-separable-connectors/deadbreak-elbow-kits/cl/2496200",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -3693,7 +3711,7 @@
       "url": "https://www.gwelectric.com/news/gw-electric-acquires-smart-grid-solution-provider-safegrid/",
       "source": "gwelectric.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:29Z",
+      "discovered_at": "2026-06-26T14:02:18Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3711,7 +3729,7 @@
       "url": "https://www.sandc.com/en/products--services/products/?c=326",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:37Z",
+      "discovered_at": "2026-06-26T14:02:26Z",
       "category": "Reclosers",
       "app_category": "reclosers",
       "scope": "product",
@@ -3729,7 +3747,7 @@
       "url": "https://www.sandc.com/pt/?404;https://scelectriccompaqy5z7prod__448c:80/en/company/newsroom/",
       "source": "sandc.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:44Z",
+      "discovered_at": "2026-06-26T14:02:32Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3747,7 +3765,7 @@
       "url": "https://press.siemens.com/global/en/pressreleases#main-content",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3765,7 +3783,7 @@
       "url": "https://press.siemens.com/bg/bg",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3783,7 +3801,7 @@
       "url": "https://press.siemens.com/my/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3801,7 +3819,7 @@
       "url": "https://press.siemens.com/middleeast/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3819,7 +3837,7 @@
       "url": "https://press.siemens.com/nl/nl",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3837,7 +3855,7 @@
       "url": "https://press.siemens.com/pt/pt",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3855,7 +3873,7 @@
       "url": "https://press.siemens.com/sg/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3873,7 +3891,7 @@
       "url": "https://press.siemens.com/za/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3891,7 +3909,7 @@
       "url": "https://press.siemens.com/kr/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3909,7 +3927,7 @@
       "url": "https://press.siemens.com/ch/de",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3927,7 +3945,7 @@
       "url": "https://press.siemens.com/global/en",
       "source": "press.siemens.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:05:48Z",
+      "discovered_at": "2026-06-26T14:04:39Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3945,7 +3963,7 @@
       "url": "https://www.tavrida.com/tena/media/news/#scountry",
       "source": "tavrida.com",
       "published": "19.10.2021",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3963,7 +3981,7 @@
       "url": "https://www.tavrida.com/tena/media/news/the-md-portable-demo-unit/",
       "source": "tavrida.com",
       "published": "01.07.2019",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3981,7 +3999,7 @@
       "url": "https://www.tavrida.com/tena/media/news/tavrida-raises-the-bar/",
       "source": "tavrida.com",
       "published": "26.03.2019",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -3999,7 +4017,7 @@
       "url": "https://www.tavrida.com/tena/media/news/hannover-messe-2019-april-1-5-/",
       "source": "tavrida.com",
       "published": "21.02.2019",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -4017,7 +4035,7 @@
       "url": "https://www.tavrida.com/tena/media/news/tavrida-thanks-everyone-at-distributech-2019/",
       "source": "tavrida.com",
       "published": "18.02.2019",
-      "discovered_at": "2026-06-25T14:06:13Z",
+      "discovered_at": "2026-06-26T14:05:05Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
@@ -4035,7 +4053,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/drain-trench-systems/catch-basin-accessories/cl/548137",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -4053,7 +4071,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/enclosures-above-ground/accessories/cl/558857",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -4071,7 +4089,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/insulators/insulator-accessories/cl/866113",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -4089,7 +4107,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/tools-dies-accessories/cl/548023",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -4107,7 +4125,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/underground-separable-connectors/deadbreak-accessories/cl/2496197",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Cables & accessories",
       "app_category": "cable-accessories",
       "scope": "product",
@@ -4125,7 +4143,7 @@
       "url": "https://www.hubbellpowersystems.com/hubbellpowersystems/en/products/power-utilities/utility-measurement-systems/instrument-transformers/cl/6694003",
       "source": "hubbellpowersystems.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:22Z",
+      "discovered_at": "2026-06-26T14:05:13Z",
       "category": "Sensors",
       "app_category": "sensors",
       "scope": "product",
@@ -4143,13 +4161,13 @@
       "url": "https://www.gwelectric.com/resources/",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4161,13 +4179,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=application-guides",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4179,13 +4197,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=articles",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4197,13 +4215,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=case-study",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4215,13 +4233,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=product-literature",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4233,13 +4251,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=software",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4251,13 +4269,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=tcc-curves",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4269,13 +4287,13 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=white-paper",
       "source": "gwelectric.com",
       "published": "2025-06-12T18:51:58+00:00",
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Market Update",
       "app_category": "corporate",
       "scope": "corporate",
       "bucket": "Alert",
       "threat_score": null,
-      "relevance": 2.41,
+      "relevance": 2.4,
       "tags": [
         "Watch item"
       ]
@@ -4287,7 +4305,7 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=datasheet",
       "source": "gwelectric.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Datasheet",
       "app_category": "corporate",
       "scope": "corporate",
@@ -4305,7 +4323,7 @@
       "url": "https://www.gwelectric.com/resources/?resource_type=specification",
       "source": "gwelectric.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:03:27Z",
+      "discovered_at": "2026-06-26T14:02:16Z",
       "category": "Datasheet",
       "app_category": "corporate",
       "scope": "corporate",
@@ -4323,7 +4341,7 @@
       "url": "https://nuventura.com/#contact",
       "source": "nuventura.com",
       "published": null,
-      "discovered_at": "2026-06-25T14:06:34Z",
+      "discovered_at": "2026-06-26T14:05:26Z",
       "category": "Datasheet",
       "app_category": "corporate",
       "scope": "corporate",
